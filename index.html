@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ Điển Ngôn Ngữ GenZ </title>
+    <!-- Kết nối đến file style.css để làm đẹp sau này -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>TỪ ĐIỂN NGÔN NGỮ GENZ </h1>
+        <!-- KHU VỰC TRA CỨU MƯỢT MÀ -->
+        <div class="search-section">
+            <!-- Cấu trúc mới: Ô nhập liệu màu trắng riêng, Nút Tra cứu Oval Đỏ riêng -->
+            <div class="search-row-container">
+                <div class="search-input-wrapper">
+                    <input type="text" id="search-input" placeholder="Gõ từ GenZ cần tra ở đây...">
+                    <button id="clear-btn" class="clear-button">✖️</button>
+                </div>
+                <!-- Nút Tra Cứu hình Oval màu Đỏ -->
+                <button id="search-btn" class="search-oval-btn">TRA CỨU</button>
+            </div>
+            
+            <!-- Hộp thả danh sách từ gợi ý (Dropdown) -->
+            <div id="suggestions-box" class="suggestions-dropdown"></div>
+        </div>
+
+        <!-- KHU VỰC HIỂN THỊ KẾT QUẢ TRA CỨU -->
+        <div id="result-box" class="result-card">
+            <p class="placeholder-text">Nhập ký tự để bắt đầu tra cứu hoặc chọn từ gợi ý nhé...</p>
+        </div>
+
+        <!-- KHU VỰC ĐÓNG GÓP TỪ MỚI (CÓ KIỂM DUYỆT) -->
+        <div class="contribute-section">
+            <h2>ĐÓNG GÓP TỪ MỚI CHỐNG TỐI CỔ </h2>
+            
+            <div class="form-group">
+                <label>THUẬT NGỮ MẠNG (GENZ):</label>
+                <input type="text" id="new-word" placeholder="Ví dụ: Xịt keo, Ao trình...">
+            </div>
+
+            <div class="form-group">
+                <label>PHÂN LOẠI:</label>
+                <input type="text" id="new-category" placeholder="Ví dụ: Từ ghép sáng tạo, Từ mượn...">
+            </div>
+
+            <div class="form-group">
+                <label>TỪ CHUẨN MỰC:</label>
+                <input type="text" id="new-standard" placeholder="Ví dụ: Đơ người, Vượt trội đẳng cấp...">
+            </div>
+
+            <div class="form-group">
+                <label>Ý NGHĨA:</label>
+                <textarea id="new-meaning" placeholder="Giải thích chi tiết nghĩa của từ..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>NGỮ CẢNH GIAO TIẾP:</label>
+                <input type="text" id="new-context" placeholder="Ví dụ: Mô tả phản ứng bất ngờ...">
+            </div>
+
+            <div class="form-group">
+                <label>LỜI KHUYÊN SỬ DỤNG:</label>
+                <input type="text" id="new-advice" placeholder="Ví dụ: Dùng vui vẻ giữa bạn bè thân thiết...">
+            </div>
+
+            <button id="submit-btn" class="gradient-btn">GỬI LÊN VŨ TRỤ (CHỜ DUYỆT)</button>
+        </div>
+    </div>
+<!-- Kết nối đến file dữ liệu 354 từ trước -->
+<script src="data.js"></script>
+
+<!-- Sau đó mới chạy file xử lý logic -->
+<script src="script.js"></script>
+<script src="contribute.js"></script>
+</body>
+</html>

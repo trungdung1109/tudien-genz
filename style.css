@@ -1,0 +1,233 @@
+/* 1. ĐỊNH DẠNG CHUNG VÀ MÀU NỀN XANH MINT */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a; /* Màu nền xanh đen tối sang trọng */
+    color: #f1f5f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 800px;
+    background: #0b0f19; /* Khối chứa bên trong màu đen tuyền */
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff; /* Tiêu đề chữ trắng in hoa nổi bật */
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    display: none; /* Ẩn dòng subtitle để giống ảnh tối giản */
+}
+
+/* 2. THANH TÌM KIẾM XÁM ĐEN + Ô TRA CỨU OVAL ĐỎ CHỮ VÀNG */
+.search-section {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.search-row-container {
+    display: flex;
+    gap: 15px; /* Khoảng cách vừa vặn giữa ô gõ và nút */
+    align-items: center;
+}
+
+/* Thanh gõ chữ màu xám đen, bo góc nhẹ */
+.search-input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: #1e293b; /* Màu xám đen của ô gõ chữ */
+    border: 1px solid #334155; /* Viền mờ tinh tế */
+    border-radius: 12px; /* Bo góc nhẹ giống ảnh */
+    padding: 4px 20px;
+}
+
+#search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 14px 0;
+    font-size: 16px;
+    color: #ffffff; /* Chữ gõ vào hiển thị màu trắng rõ nét */
+    outline: none;
+}
+
+#search-input::placeholder {
+    color: #64748b; /* Chữ gợi ý mờ "Gõ từ GenZ cần tra ở đây..." */
+}
+
+/* Nút xóa nhanh chữ ✖️ */
+.clear-button {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    display: none;
+}
+
+/* Ô TRA CỨU HÌNH OVAL MÀU ĐỎ - CHỮ VÀNG RỰC RỠ (Y HỆT ẢNH) */
+.search-oval-btn {
+    background-color: #ff003c; /* Màu đỏ rực cháy */
+    color: #ffee58; /* Chữ màu vàng sáng */
+    border: none;
+    padding: 16px 35px;
+    font-size: 16px;
+    font-weight: 800; /* Chữ dày đậm cá tính */
+    letter-spacing: 1px;
+    border-radius: 50px; /* Bo tròn tuyệt đối thành hình OVAL */
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 0, 60, 0.4);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.search-oval-btn:hover {
+    background-color: #e60036;
+    transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ lên khi di chuột */
+}
+
+/* Hộp gợi ý thả xuống đồng bộ Dark mode */
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% - 150px);
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    display: none;
+}
+
+.suggestion-item {
+    padding: 14px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #cbd5e1;
+    border-bottom: 1px solid #334155;
+}
+
+.suggestion-item:hover {
+    background-color: #334155;
+    color: #ffee58; /* Hiện chữ vàng khi di chuột qua từ gợi ý */
+}
+
+/* 3. KHU VỰC KẾT QUẢ TRA CỨU */
+.result-card {
+    background: #111827;
+    padding: 30px;
+    border-radius: 16px;
+    border-left: 6px solid #ff003c;
+    margin-bottom: 40px;
+    min-height: 100px;
+    border-top: 1px solid #1f2937;
+    border-right: 1px solid #1f2937;
+    border-bottom: 1px solid #1f2937;
+}
+
+.result-item {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.result-item strong {
+    color: #ff003c; /* Thẻ tiêu đề thông tin màu đỏ */
+    display: inline-block;
+    width: 200px;
+}
+
+.placeholder-text {
+    color: #4b5563;
+    text-align: center;
+    font-style: italic;
+}
+
+/* 4. KHU VỰC ĐỒNG GÓP TỪ MỚI (CHỮ IN HOA MÀU XANH BIỂN) */
+.contribute-section {
+    border-top: 2px dashed #38bdf8;
+    padding-top: 35px;
+}
+
+.contribute-section h2 {
+    color: #38bdf8; /* Chữ tiêu đề IN HOA màu xanh biển sáng */
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #38bdf8; /* Nhãn chữ in hoa xanh biển */
+    margin-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #38bdf8;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* NÚT BẤM GRADIENT CAM - HỒNG */
+.gradient-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #ff7f50, #ff6b81);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 107, 129, 0.3);
+    transition: all 0.2s ease;
+}
+
+.gradient-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 129, 0.5);
+}
