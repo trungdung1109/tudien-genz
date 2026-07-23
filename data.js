@@ -1,4 +1,4 @@
-[
+const genzDictionary = [
   {
     "word": "10 điểm không có nhưng",
     "category": "",
@@ -4455,7 +4455,7 @@
     "status": "approved"
   },
   {
-    "word": "Trra xanh",
+    "word": "Trà xanh",
     "category": "Phép ẩn dụ/Hoán dụ",
     "standard": "Kẻ thứ ba giả tạo",
     "meaning": "Chỉ những cá nhân bên ngoài biểu hiện ngây thơ, thánh thiện nhưng bên trong chuyên phá hoại tình cảm.",
@@ -4670,4 +4670,4 @@
     "advice": "Được chấp nhận sử dụng rộng rãi, tự nhiên trong giao tiếp đời sống hằng ngày của giới trẻ.",
     "status": "approved"
   }
-]
+];
