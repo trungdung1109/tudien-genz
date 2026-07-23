@@ -1,4 +1,4 @@
-const genzDictionary =[
+[
   {
     "word": "10 điểm không có nhưng",
     "category": "",
@@ -3175,5 +3175,1499 @@ const genzDictionary =[
     "context": "Thằng bạn mình nó ngồi yap cả buổi về trận game hôm qua.",
     "advice": "Thích hợp tán gẫu vui vẻ. Cần định hướng học sinh biết lắng nghe, tránh nói dông dài cắt lời người khác trong giờ học.",
     "status": "approved"
+  },
+  {
+    "word": "Bốc trúng sít rịt",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Lựa chọn chuẩn xác, khít khao",
+    "meaning": "Diễn tả việc chọn được thứ phù hợp hoàn toàn với nhu cầu, không có một vết lệch.",
+    "context": "Chọn được người làm bài tập nhóm ăn ý, chọn được bộ quần áo vừa vặn.",
+    "advice": "Dùng khen ngợi sự may mắn, khéo léo trong các quyết định đời sống thường ngày.",
+    "status": "approved"
+  },
+  {
+    "word": "Ra đường em nể mình anh",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Tôn trọng duy nhất một người",
+    "meaning": "Khẳng định lòng trung thành, sự ngưỡng mộ hoặc tình cảm độc tôn dành cho đối phương.",
+    "context": "Thể hiện tình cảm với người yêu hoặc tôn vinh người đàn anh có uy tín.",
+    "advice": "Dùng tạo sự tin cậy, hóm hỉnh trong mối quan hệ thân thiết đời thường.",
+    "status": "approved"
+  },
+  {
+    "word": "Hướng nội hết phần đời còn",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Sống quá khép kín, ngại ngùng",
+    "meaning": "Cách nói cường điệu hài hước về một người cực kỳ rụt rè, sợ đám đông.",
+    "context": "Trêu đùa vui vẻ một bạn học không dám lên bảng thuyết trình trước lớp.",
+    "advice": "Dùng chia sẻ tâm lý hóm hỉnh, tránh lạm dụng làm bạn mình tự ti.",
+    "status": "approved"
+  },
+  {
+    "word": "Tôi là nạn nhân của...",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Bị cuốn theo một trào lưu",
+    "meaning": "Cách nói vui vẻ, trào phúng về việc mình bị mê mệt, nghiện một món ăn hoặc bài hát nào đó.",
+    "context": "Mua trà sữa liên tục vì quá thèm, nghe đi nghe lại một giai điệu hot mạng.",
+    "advice": "Dùng trào phúng bản thân hóm hỉnh trên mạng xã hội, không dùng trong văn bản hành chính.",
+    "status": "approved"
+  },
+  {
+    "word": "Tuyệt đối điện ảnh",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Đẹp như phim, hoàn mỹ",
+    "meaning": "Diễn tả một khoảnh khắc, phong cảnh hoặc ngoại hình đẹp, nghệ thuật đến mức vô thực.",
+    "context": "Khen ngợi một cảnh hoàng hôn trên biển hoặc một góc chụp ảnh nghệ thuật.",
+    "advice": "Dùng làm tính từ ca ngợi cái đẹp duy mỹ trong đời sống thường ngày.",
+    "status": "approved"
+  },
+  {
+    "word": "Chưa có đủ wow",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Chưa đủ ấn tượng, còn nhạt nhòa",
+    "meaning": "Câu nhận xét một sản phẩm hoặc bài biểu diễn chưa tạo được sự đột phá, kinh ngạc.",
+    "context": "Góp ý sửa bài thuyết trình nhóm, nhận xét về một tác phẩm phim ảnh.",
+    "advice": "Dùng để góp ý thẳng thắn nhưng mang tính xây dựng, vui vẻ giữa bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Đại đại đi",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Làm qua loa cho xong chuyện",
+    "meaning": "Thái độ buông xuôi, làm đại khái cho có, không cần quá cầu kỳ hoặc kỹ lưỡng.",
+    "context": "Chọn món ăn khi quá lười suy nghĩ, làm bài tập một cách đối phó.",
+    "advice": "Lời nhắc nhở về thói quen lười biếng, không nên lạm dụng trong học tập.",
+    "status": "approved"
+  },
+  {
+    "word": "Lốp trưởng",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Lớp trưởng",
+    "meaning": "Cách nói chệch âm hóm hỉnh để gọi người đứng đầu quản lý, điều hành lớp học.",
+    "context": "Gọi lớp trưởng khi cần nộp bài hoặc thông báo việc chung của lớp.",
+    "advice": "Chỉ dùng đùa vui trong nội bộ học sinh, không dùng khi có giáo viên, bề trên.",
+    "status": "approved"
+  },
+  {
+    "word": "Gọi (ai đó) bằng số điện thoại",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Coi người khác là tổng đài",
+    "meaning": "Chỉ hành vi liên tục làm phiền, réo gọi đối phương giải quyết mọi việc cho mình.",
+    "context": "Than vãn về việc bị bạn học nhắn tin hỏi bài liên tục suốt đêm.",
+    "advice": "Dùng trêu đùa vui vẻ về sự phiền toái hóm hỉnh giữa bạn bè thân thiết.",
+    "status": "approved"
+  },
+  {
+    "word": "Cạn phước lắm mới thấy",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Xui xẻo lắm mới bắt gặp",
+    "meaning": "Cách nói cường điệu thể hiện sự ngán ngẩm khi vô tình chứng kiến một việc lố lăng.",
+    "context": "Gặp phải một bài đăng nhảm nhí, tiêu cực độc hại trên mạng xã hội.",
+    "advice": "Dùng bày tỏ thái độ từ chối tiếp nhận nội dung xấu trên mạng, giữ văn minh mạng.",
+    "status": "approved"
+  },
+  {
+    "word": "Cơm nước gì chưa người đẹp?",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Câu hỏi thăm xã giao hài hước",
+    "meaning": "Cách mở đầu cuộc trò chuyện thân mật, mang tính trêu đùa vui vẻ, gần gũi.",
+    "context": "Nhắn tin bắt chuyện với bạn bè hoặc người mình đang thầm mến (crush).",
+    "advice": "Dùng tạo không khí vui vẻ, thân thiện lúc bắt đầu nói chuyện đời thường.",
+    "status": "approved"
+  },
+  {
+    "word": "Ê nha",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Này nhé, cảnh báo nhé",
+    "meaning": "Từ cảm thán dùng để ngắt lời hoặc cảnh báo đối phương không được đùa quá trớn.",
+    "context": "Nhắc nhở bạn bè khi họ bắt đầu trêu chọc quá đà, đụng chạm cá nhân.",
+    "advice": "Dòng từ cảm thán giúp đặt giới hạn vui vẻ, văn minh trong giao tiếp bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Chúa hề",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Người khôi hài, hay làm trò vui",
+    "meaning": "Danh hiệu vui vẻ dành cho người luôn chọc cười, diễn hài cho đám đông.",
+    "context": "Gọi bạn thân chuyên kể chuyện tiếu lâm, làm mặt xấu gây cười cho lớp.",
+    "advice": "Dùng ca ngợi tính cách khôi hài, mang lại năng lượng tích cực cho tập thể.",
+    "status": "approved"
+  },
+  {
+    "word": "U là trời",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Ơi là trời",
+    "meaning": "Cách thốt lên kinh ngạc bằng cách chèn chữ U vào trước cụm \"Ơi là trời\".",
+    "context": "Chứng kiến một sự việc quá bất ngờ, kỳ lạ hoặc một thành tích quá đỉnh.",
+    "advice": "Từ cảm thán bình dân, dùng tạo sự sinh động khi trò chuyện vui đời thường.",
+    "status": "approved"
+  },
+  {
+    "word": "Lemỏn",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Chảnh chọe",
+    "meaning": "Từ chữ Lemon (Chanh) trong tiếng Anh, thêm dấu huyền thành Chảnh, chỉ sự kiêu kỳ.",
+    "context": "Trêu đùa một bạn nữ đang làm ngơ, giữ khoảng cách khi được bắt chuyện.",
+    "advice": "Chỉ dùng đùa giỡn vui vẻ giữa bạn bè thân thiết, không dùng với người lớn tuổi.",
+    "status": "approved"
+  },
+  {
+    "word": "Mong tôn Hoa Sen thấy được cảnh này",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Đỉnh cao của sự tôn lợp, nhún nhường",
+    "meaning": "Mượn thương hiệu tôn để ví von hành động nhường nhịn, tôn kính đối phương hết mực.",
+    "context": "Khi mình chịu thua, nhường bạn mình thắng hoàn toàn trong một cuộc tranh luận.",
+    "advice": "Dùng tạo tiếng cười hòa giải hóm hỉnh khi gặp bất đồng ý kiến giữa bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Trí thông minh giản dị",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Nhận thức có phần ngây ngô",
+    "meaning": "Cách nói giảm nói tránh hóm hỉnh về một hành động có phần ngốc nghếch, ngây ngô.",
+    "context": "Trêu đùa bạn bè khi họ làm sai một việc hiển nhiên cực kỳ ngớ ngẩn.",
+    "advice": "Dùng tạo tiếng cười vô hại đời thường, tránh lạm dụng làm tổn thương người khác.",
+    "status": "approved"
+  },
+  {
+    "word": "Hơn cả khu tự trị",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Sống biệt lập, bảo thủ",
+    "meaning": "Cách ví von một người sống quá khép kín, độc đoán, không chịu lắng nghe ai.",
+    "context": "Nhận xét hóm hỉnh về một bạn có tính cách quá bướng bỉnh, cô độc.",
+    "advice": "Dùng nói vui bình dân giữa bạn bè, không đưa vào văn bản nghị luận.",
+    "status": "approved"
+  },
+  {
+    "word": "Mãi mận",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Mãi đỉnh, quá xuất sắc",
+    "meaning": "Sự kết hợp giữa Mãi mặn mà và Mận (quả mận) để khen ngợi sự đỉnh cao.",
+    "context": "Khen ngợi một bộ trang phục đẹp hoặc một bài biểu diễn nghệ thuật xuất sắc.",
+    "advice": "Chỉ dùng làm từ lóng khen ngợi trên mạng, tránh dùng trước mặt bề trên.",
+    "status": "approved"
+  },
+  {
+    "word": "Mai đẹt-ti-ni",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Định mệnh của đời tôi",
+    "meaning": "Phiên âm từ câu tiếng Anh \"My destiny\" trong phim, chỉ người là chân ái của đời mình.",
+    "context": "Chỉ người yêu lý tưởng hoặc người bạn tri kỷ gắn bó, hợp cạ.",
+    "advice": "Dùng thể hiện tình cảm hóm hỉnh, đáng yêu trên không gian mạng xã hội.",
+    "status": "approved"
+  },
+  {
+    "word": "No star where",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Không sao đâu",
+    "meaning": "Cách dịch hài hước, ngô nghê từng chữ một từ cụm từ \"Không (No) sao (star) đâu (where)\" để tạo tiếng cười.",
+    "context": "An ủi nhẹ nhàng bạn bè khi họ lỡ làm đổ nước hoặc đến muộn.",
+    "advice": "Chỉ dùng viết tin nhắn vui vẻ với bạn bè, tuyệt đối không dùng trong văn viết chính thống.",
+    "status": "approved"
+  },
+  {
+    "word": "Phanh xích lô",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Bóp phanh, dừng lại ngay",
+    "meaning": "Mô phỏng tiếng kêu \"Kíttt\" khi bóp phanh xe xích lô, ý bảo dừng ngay một hành động lại.",
+    "context": "Ngăn bạn mình lại khi họ sắp nói ra một bí mật hoặc chuẩn bị làm liều.",
+    "advice": "Dùng làm tín hiệu dừng lại vui vẻ giữa bạn bè, tránh dùng trong giao tiếp trang trọng.",
+    "status": "approved"
+  },
+  {
+    "word": "Mlem mlem",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Thèm thuồng, hấp dẫn",
+    "meaning": "Từ mô phỏng tiếng liếm môi, dùng để khen ngợi một món ăn ngon hoặc ngoại hình thu hút.",
+    "context": "Bình luận dưới ảnh chụp đồ ăn ngon hoặc ca ngợi thần thái của một người.",
+    "advice": "Chỉ dùng giải trí thuần túy trên không gian mạng, tránh dùng trước mặt người lớn tuổi.",
+    "status": "approved"
+  },
+  {
+    "word": "Cháy quá",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Quá nhiệt huyết, bùng nổ",
+    "meaning": "Ví sự cuồng nhiệt như ngọn lửa bùng cháy, khen ngợi sự hết mình, phong cách hoặc tài năng.",
+    "context": "Khen ngợi một tiết mục văn nghệ sôi động, một trận bóng đá hay, kịch tính.",
+    "advice": "Dùng truyền năng lượng tích cực, cổ vũ tinh thần tập thể rất tốt trong học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Hết cứu",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Không thể cứu vãn, vô phương",
+    "meaning": "Trạng thái một sự việc hoặc tính cách đã quá tệ, không còn cách nào để sửa chữa.",
+    "context": "Nói vui về việc máy tính bị hỏng nặng hoặc trêu đùa về thói lười biếng của bạn thân.",
+    "advice": "Dùng phê bình hóm hỉnh giữa bạn bè, tránh lạm dụng làm người khác bị tổn thương.",
+    "status": "approved"
+  },
+  {
+    "word": "Toang rồi",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Hỏng bét rồi, đổ vỡ rồi",
+    "meaning": "Tiếng đổ vỡ của đồ sứ, chỉ một kế hoạch hoặc một sự việc đã bị thất bại hoàn toàn.",
+    "context": "Phát hiện ra mình quên mang tài liệu đi thi hoặc lỡ làm hỏng một kế hoạch.",
+    "advice": "Từ cảm thán nhận diện sự cố đời thường, dùng trò chuyện vui để cùng tìm hướng xử lý.",
+    "status": "approved"
+  },
+  {
+    "word": "Căng đét",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Rất căng thẳng, kịch tính",
+    "meaning": "Chỉ tình huống đạt đến mức độ cao trào, vô cùng gay cấn và nghiêm trọng.",
+    "context": "Nhận xét về một trận chung kết thể thao kịch tính hoặc mùa thi cử áp lực.",
+    "advice": "Dùng miêu tả tính kịch tính, hấp dẫn của một sự kiện, tránh dùng nói về mâu thuẫn lớn.",
+    "status": "approved"
+  },
+  {
+    "word": "Đỉnh nóc",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Đỉnh cao tối thượng",
+    "meaning": "Nằm ở vị trí cao nhất trên mái nhà, chỉ sự thành công xuất sắc vượt trội, bậc nhất.",
+    "context": "Đạt điểm tối đa trong kỳ thi học sinh giỏi, lập kỷ lục mới cho bản thân.",
+    "advice": "Từ ca ngợi thành tích xuất sắc, dùng cổ vũ tạo động lực bứt phá trong học tập.",
+    "status": "approved"
+  },
+  {
+    "word": "Hết nước chấm",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Quá hoàn hảo, không điểm chê",
+    "meaning": "Ví von món ăn có nước chấm ngon đến mức ăn hết sạch, chỉ sự xuất sắc toàn diện.",
+    "context": "Khen ngợi một bài văn hay, một bức ảnh chụp thần thái hoặc một hành động đẹp.",
+    "advice": "Dùng làm từ cảm thán đời thường, trong văn nghị luận nên đổi thành từ \"hoàn hảo\".",
+    "status": "approved"
+  },
+  {
+    "word": "Sập nguồn",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Kiệt sức, ngủ thiếp đi",
+    "meaning": "Mượn hình ảnh thiết bị điện tử hết pin sập nguồn để chỉ sự mệt mỏi tột độ của con người.",
+    "context": "Trạng thái ngủ gục ngay sau một ngày học tập, thi cử hoặc lao động vất vả.",
+    "advice": "Dùng miêu tả thể trạng kiệt sức hóm hỉnh để nhắc nhở nhau cần nghỉ ngơi, điều độ.",
+    "status": "approved"
+  },
+  {
+    "word": "Đơ luôn",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Sững sờ, đứng hình",
+    "meaning": "Mượn hình ảnh máy tính bị treo máy (đơ) để chỉ sự ngỡ ngàng, đứng hình của con người.",
+    "context": "Bị gọi tên lên bảng kiểm tra bài cũ bất ngờ khi chưa kịp chuẩn bị bài.",
+    "advice": "Từ miêu tả phản ứng tâm lý đứng hình tạm thời trước tình huống đột xuất.",
+    "status": "approved"
+  },
+  {
+    "word": "Sốc ngang",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Kinh ngạc tột độ, bất ngờ",
+    "meaning": "Trạng thái bất thình lình nghe một tin tức quá bất ngờ khiến bản thân ngỡ ngàng.",
+    "context": "Nghe tin một bộ phim yêu thích bị hủy chiếu hoặc lịch kiểm tra bị dời đột ngột.",
+    "advice": "Dùng bộc lộ cảm xúc mạnh đời thường, văn viết nên đổi thành từ \"kinh ngạc\".",
+    "status": "approved"
+  },
+  {
+    "word": "Quá đã",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Thỏa mãn, tuyệt vời",
+    "meaning": "Cảm giác cực kỳ sảng khoái và hài lòng khi đạt được điều mình mong muốn.",
+    "context": "Được uống một cốc nước mát khi trời nóng, hoàn thành xong bài thi khó.",
+    "advice": "Từ bộc lộ cảm xúc tích cực, được dùng rộng rãi trong giao tiếp hằng ngày.",
+    "status": "approved"
+  },
+  {
+    "word": "Phê lòi",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Cực kỳ sung sướng, thích thú",
+    "meaning": "Trạng thái phấn khích, thích thú tột độ khi được trải nghiệm một điều tuyệt vời.",
+    "context": "Cảm giác khi nghe một bài hát quá hay hoặc ăn một món ăn hợp khẩu vị.",
+    "advice": "Chỉ dùng trong trò chuyện phiếm thân mật giữa bạn bè, không dùng trước mặt bề trên.",
+    "status": "approved"
+  },
+  {
+    "word": "Vui xỉu",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Vui mừng khôn xiết",
+    "meaning": "Cách nói quá thể hiện niềm vui cực kỳ lớn đến mức cường điệu là muốn ngất đi.",
+    "context": "Nhận được món quà bất ngờ từ người thân hoặc được điểm cao môn học khó.",
+    "advice": "Thể hiện cảm xúc hạnh phúc hóm hỉnh, dùng giao tiếp hằng ngày rất tốt.",
+    "status": "approved"
+  },
+  {
+    "word": "Buồn nhẹ",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Thoáng chút hụt hẫng, buồn man mác",
+    "meaning": "Trạng thái tiếc nuối hoặc buồn bã ở mức độ nhẹ, không quá nặng nề.",
+    "context": "Bài kiểm tra bị hụt mất 0.5 điểm để đạt điểm tối đa, trời mưa làm hủy lịch đi chơi.",
+    "advice": "Dùng chia sẻ tâm trạng nhẹ nhàng, giúp giải tỏa nỗi buồn nhanh chóng.",
+    "status": "approved"
+  },
+  {
+    "word": "Cringe",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Sượng sùng, nổi da gà",
+    "meaning": "Cảm giác rùng mình, gượng trân khi chứng kiến hành động quá lố, sến súa của người khác.",
+    "context": "Xem các video diễn xuất gượng gạo hoặc các lời thoại quá sến trên mạng.",
+    "advice": "Chỉ dùng trò chuyện đời thường giữa giới trẻ, không đưa vào văn bản học thuật.",
+    "status": "approved"
+  },
+  {
+    "word": "Ngại ghê",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Xấu hổ, e thẹn",
+    "meaning": "Bộc lộ sự ngượng ngùng hóm hỉnh khi được khen ngợi hoặc khi làm điều gì đó lúng túng.",
+    "context": "Được bạn bè bất ngờ khen ngợi trước đám đông hoặc vô tình đi nhầm lớp.",
+    "advice": "Từ ngữ thể hiện sự duyên dáng, hóm hỉnh để chữa ngượng trong giao tiếp.",
+    "status": "approved"
+  },
+  {
+    "word": "Stress nhẹ",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Áp lực vừa phải",
+    "meaning": "Trạng thái mệt mỏi, áp lực ở mức độ vừa phải do bài vở hoặc công việc gây ra.",
+    "context": "Tâm sự về mùa thi cử căng thẳng, áp lực điểm số với bạn bè.",
+    "advice": "Có thể dùng làm trạng thái chia sẻ hóm hỉnh để cùng bạn bè giảm áp lực học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Overthinking",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Suy nghĩ quá nhiều, lo âu",
+    "meaning": "Hành vi tự diễn dịch, phức tạp hóa vấn đề quá mức dẫn đến tâm lý lo âu, mệt mỏi.",
+    "context": "Chia sẻ tâm sự đêm khuya, nói về tâm lý nhạy cảm, lo lắng cá nhân.",
+    "advice": "Có thể dùng làm dẫn chứng tâm lý học học đường khi có định nghĩa rõ ràng.",
+    "status": "approved"
+  },
+  {
+    "word": "Tạch rồi",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Thi trượt, thất bại",
+    "meaning": "Diễn tả trạng thái một bài kiểm tra hoặc một kế hoạch đã bị thất bại, không đạt điểm qua.",
+    "context": "Nói về việc làm bài thi không tốt hoặc bị trượt một mục tiêu nào đó.",
+    "advice": "Dùng giải tỏa tâm lý hóm hỉnh với bạn bè, tránh dùng trong đơn từ chính thống.",
+    "status": "approved"
+  },
+  {
+    "word": "Fail toàn tập",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Thất bại hoàn toàn",
+    "meaning": "Kế hoạch hoặc hành động bị hỏng bét hoàn toàn từ đầu đến cuối, không vớt vát được gì.",
+    "context": "Nói về một buổi thi hỏng hoặc một món ăn tự nấu thử nghiệm bị cháy.",
+    "advice": "Dùng hóm hỉnh khi tự trào phúng bản thân, không dùng làm văn chính luận.",
+    "status": "approved"
+  },
+  {
+    "word": "Gắt quá",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Quá dữ dội, nghiêm khắc",
+    "meaning": "Chỉ hành vi đối đáp hoặc xử lý vấn đề vô cùng mạnh mẽ, triệt để và không nhượng bộ.",
+    "context": "Một câu trả lời phản biện sắc bén, hoặc lối chơi thể thao áp sát quyết liệt.",
+    "advice": "Dùng ca ngợi sự cá tính, sắc sảo trong tranh luận, tránh dùng làm tăng mâu thuẫn.",
+    "status": "approved"
+  },
+  {
+    "word": "Rén",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Sợ hãi, rụt rè",
+    "meaning": "Trạng thái lo sợ, e dè không dám thực hiện một hành động nào đó vì e ngại hậu quả.",
+    "context": "Không dám đi qua nhà có chó dữ hoặc ngại ngùng không dám thổ lộ tình cảm.",
+    "advice": "Từ miêu tả phản ứng tâm lý lo sợ tự nhiên, dùng vui vẻ đời thường giữa bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Rén ngang",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Bất ngờ hoảng sợ",
+    "meaning": "Đang tự tin bỗng dưng gặp một yếu tố xuất hiện bất thình lình làm cho hoảng sợ ngay lập tức.",
+    "context": "Đang nghịch ngợm vui vẻ thì quay lưng lại thấy thầy cô/cha mẹ đang đứng nhìn.",
+    "advice": "Miêu tả tình huống giật mình, hoảng hốt đột xuất một cách hóm hỉnh.",
+    "status": "approved"
+  },
+  {
+    "word": "Tạch rồi",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Thi trượt, thất bại",
+    "meaning": "Diễn tả trạng thái một bài kiểm tra hoặc một kế hoạch đã bị thất bại, không đạt điểm qua.",
+    "context": "Nói về việc làm bài thi không tốt hoặc bị trượt một mục tiêu nào đó.",
+    "advice": "Dùng giải tỏa tâm lý hóm hỉnh với bạn bè, tránh dùng trong đơn từ chính thống.",
+    "status": "approved"
+  },
+  {
+    "word": "Ổn áp",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Khá tốt, ổn định",
+    "meaning": "Mượn tên thiết bị điện (Ổn áp) để chỉ một sự việc, tình trạng đang diễn ra tốt đẹp, bình ổn.",
+    "context": "Hỏi thăm tình hình học tập, sức khỏe hoặc công việc hằng ngày của nhau.",
+    "advice": "Dùng rất phổ biến, tự nhiên trong giao tiếp đời sống của mọi lứa tuổi.",
+    "status": "approved"
+  },
+  {
+    "word": "Ôkela",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Đồng ý, nhất trí",
+    "meaning": "Biến tấu từ chữ OK để câu trả lời đồng thuận trở nên vui vẻ, nhẹ nhàng và đáng yêu hơn.",
+    "context": "Xác nhận lịch hẹn đi chơi hoặc đồng ý làm bài tập nhóm cùng bạn bè.",
+    "advice": "Dùng trong giao tiếp thân mật, tránh lạm dụng trong email, văn bản công việc.",
+    "status": "approved"
+  },
+  {
+    "word": "Phèn",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Quê mùa, chưa đẹp",
+    "meaning": "Mượn hình ảnh phèn chua bám ở ruộng đất để chỉ gu thẩm mỹ, vẻ ngoài chưa được sang trọng.",
+    "context": "Nhận xét vui vẻ về một cách phối đồ quần áo nhìn hơi buồn cười, lỗi thời.",
+    "advice": "Nên dùng trêu đùa nhẹ nhàng với bạn thân, tránh miệt thị hoàn cảnh của người khác.",
+    "status": "approved"
+  },
+  {
+    "word": "Mặn",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Hóm hỉnh, duyên dáng",
+    "meaning": "Cách nói ví von (ngược với \"nhạt\"), chỉ người nói chuyện rất có duyên, hài hước và cuốn hút.",
+    "context": "Khen ngợi một bạn luôn có những câu phát biểu thông minh làm cả lớp cười òa.",
+    "advice": "Từ khen ngợi khiếu hài hước, tạo năng lượng tích cực trong giao tiếp học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Hài vãi",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Cực kỳ buồn cười",
+    "meaning": "Từ cảm thán thể hiện sự thích thú tột độ trước một trò đùa hoặc một câu chuyện vui nhộn.",
+    "context": "Xem một tiểu phẩm hài đặc sắc hoặc nghe bạn bè kể chuyện tiếu lâm.",
+    "advice": "Từ bộc lộ cảm xúc bình dân đời thường, trong văn viết nên đổi thành từ \"hài hước\".",
+    "status": "approved"
+  },
+  {
+    "word": "Cười xỉu",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Buồn cười đến mức ngất",
+    "meaning": "Cách nói quá thể hiện sự sảng khoái, vui sướng tột độ không thể nhịn được cười.",
+    "context": "Đọc một bài viết trào phúng, xem một tình huống tấu hài thông minh trên mạng.",
+    "advice": "Chỉ dùng làm từ cảm thán trong giao tiếp bạn bè thân mật cùng trang lứa.",
+    "status": "approved"
+  },
+  {
+    "word": "Khó đỡ",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Không thể hiểu nổi, kỳ quặc",
+    "meaning": "Tình huống trớ trêu hoặc hành động kỳ lạ đến mức không biết phải xử lý hay phản ứng sao.",
+    "context": "Một pha xử lý vụng về làm hỏng việc của đồng đội khi chơi thể thao giải trí.",
+    "advice": "Dùng nhận xét vui vẻ về các sự cố nhỏ để cùng nhau cười trừ và rút kinh nghiệm.",
+    "status": "approved"
+  },
+  {
+    "word": "Chịu luôn",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Bó tay, bất lực hoàn toàn",
+    "meaning": "Thể hiện sự đầu hàng, không thể thay đổi hoặc không thể hiểu được suy nghĩ của đối phương.",
+    "context": "Bạn học dù được khuyên bảo nhiều lần nhưng vẫn chứng nào tật nấy, bảo thủ.",
+    "advice": "Thể hiện thái độ tôn trọng sự khác biệt nhưng chủ động buông bỏ tranh cãi tiêu cực.",
+    "status": "approved"
+  },
+  {
+    "word": "Bất lực",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Không thể làm gì hơn",
+    "meaning": "Trạng thái mệt mỏi khi mọi nỗ lực thay đổi hoàn cảnh thực tế đều không đem lại kết quả.",
+    "context": "Học bài suốt đêm nhưng vào phòng thi gặp đúng phần mình lỡ bỏ qua.",
+    "advice": "Miêu tả trạng thái tâm lý mệt mỏi tạm thời để tìm kiếm sự đồng cảm, an ủi của bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Deep",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Sâu sắc, diễn sâu",
+    "meaning": "Chỉ việc cố tỏ ra trầm tư, triết lý hoặc buồn bã để thu hút sự chú ý của người khác.",
+    "context": "Chụp ảnh nhìn xa xăm kèm dòng trạng thái nói về triết lý cuộc sống sâu sắc.",
+    "advice": "Dùng trêu đùa vui vẻ về phong cách tạo dáng, chụp ảnh nghệ thuật của bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Gắt",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Quyết liệt, không khoan nhượng",
+    "meaning": "Chỉ thái độ làm việc quyết đoán hoặc lập luận vô cùng mạnh mẽ, triệt để, sắc bén.",
+    "context": "Lối chơi bóng áp sát quyết liệt để giành chiến thắng kịch tính trong trận đấu thể thao.",
+    "advice": "Dùng ca ngợi tinh thần chiến đấu nhiệt huyết hoặc tư duy sắc sảo trong tranh luận.",
+    "status": "approved"
+  },
+  {
+    "word": "Tỉnh táo",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Sáng suốt, tỉnh ngộ",
+    "meaning": "Lời nhắc nhở bản thân hoặc người khác phải giữ cái đầu lạnh, không bị lừa gạt bởi bẫy tâm lý.",
+    "context": "Nhận diện được các chiêu trò lừa đảo trúng thưởng hoặc tin tức giả trên mạng xã hội.",
+    "advice": "Lời khuyên giáo dục hành vi ứng xử cực kỳ cần thiết cho học sinh trên không gian mạng.",
+    "status": "approved"
+  },
+  {
+    "word": "Ngáo",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Ngơ ngác, mất tập trung",
+    "meaning": "Trạng thái đầu óc lơ mơ, làm những việc kỳ lạ do thiếu ngủ hoặc thiếu sự tập trung tinh thần.",
+    "context": "Đi vào lớp học nhầm phòng do đầu óc đang suy nghĩ vẩn vơ trên mây.",
+    "advice": "Dùng nhắc nhở nhau vui vẻ để tập trung, tránh lạm dụng làm từ ngữ nhục mạ bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Lạ vibe",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Không hợp phong cách, lạc lõng",
+    "meaning": "Cảm giác một người hoặc một đồ vật có năng lượng, phong thái không ăn khớp với bản thân.",
+    "context": "Bước vào một quán ăn có âm nhạc và cách trang trí nhìn hơi kỳ cục, không quen.",
+    "advice": "Nhận diện cảm xúc cá nhân để lựa chọn môi trường, hội nhóm phù hợp với mình.",
+    "status": "approved"
+  },
+  {
+    "word": "Ổn không",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Câu hỏi thăm tình hình tâm lý",
+    "meaning": "Lời hỏi thăm ngắn gọn nhưng thể hiện sự quan tâm sâu sắc đến trạng thái tinh thần của bạn mình.",
+    "context": "Hỏi thăm bạn khi thấy họ ngồi buồn một mình hoặc vừa gặp kết quả bài thi không tốt.",
+    "advice": "Câu nói xây dựng tinh thần đồng cảm, gắn kết tình bạn lành mạnh trong học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Quá trời",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Rất nhiều, vượt mức",
+    "meaning": "Từ định lượng chỉ số lượng đồ vật hoặc mức độ cảm xúc đạt đến mức tối đa, cường điệu.",
+    "context": "Bài tập về nhà được giao quá trời, hoặc hôm nay cả nhóm đi chơi vui quá trời.",
+    "advice": "Từ dùng phổ biến hằng ngày đời thường để nhấn mạnh quy mô hoặc cảm xúc của sự việc.",
+    "status": "approved"
+  },
+  {
+    "word": "Real",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Chân thực, hàng chính hãng",
+    "meaning": "Đánh giá một người sống thật lòng, không giả tạo hoặc dùng để kiểm tra chất lượng đồ vật.",
+    "context": "Nhận xét tính cách thẳng thắn của một người bạn hoặc kiểm tra quần áo chính hãng.",
+    "advice": "Dùng ở không gian đời thường thân mật, trong văn viết nên đổi thành từ \"chân thực\".",
+    "status": "approved"
+  },
+  {
+    "word": "Crush",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Người mình thầm thương trộm nhớ",
+    "meaning": "Đối tượng đang làm mình cảm thấy rung động, yêu mến đơn phương mà chưa dám thổ lộ.",
+    "context": "Giao tiếp bạn bè, chia sẻ chuyện tình cảm cá nhân tuổi học trò.",
+    "advice": "Dùng hóm hỉnh với bạn bè cùng trang lứa, tránh dùng trong các đơn từ trang trọng.",
+    "status": "approved"
+  },
+  {
+    "word": "Ship",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Gán ghép đôi, đẩy thuyền",
+    "meaning": "Hành vi ủng hộ, mong muốn và tác động tích cực để hai người nào đó thành một cặp.",
+    "context": "Bình luận về nhân vật phim ảnh, truyện tranh hoặc trêu đùa các cặp đôi trong lớp.",
+    "advice": "Dùng giải trí trên mạng xã hội, không đưa vào văn bản hành chính hoặc chính luận.",
+    "status": "approved"
+  },
+  {
+    "word": "Trap boy",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Kẻ lừa tình, thợ săn tình ái",
+    "meaning": "Nam giới chuyên dùng lời ngon tiếng ngọt, ngoại hình để bẫy tình cảm của người khác.",
+    "context": "Cảnh báo bạn bè, thảo luận về các mối quan hệ tình cảm phức tạp giới trẻ.",
+    "advice": "Chỉ dùng trên mạng hoặc đời thường, không dùng làm từ ngữ chính thống trong văn viết.",
+    "status": "approved"
+  },
+  {
+    "word": "Trap girl",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Nữ quái lừa tình",
+    "meaning": "Nữ giới chuyên dùng ngoại hình và mật ngọt để đùa giỡn, bẫy tình cảm đối phương.",
+    "context": "Thảo luận xã hội, tâm sự chuyện tình yêu của giới trẻ trên các diễn đàn.",
+    "advice": "Dùng ở không gian đời sống, không đưa vào văn bản hành chính hoặc bài tập làm văn.",
+    "status": "approved"
+  },
+  {
+    "word": "Toxic",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Độc hại, tiêu cực",
+    "meaning": "Chỉ những người hoặc môi trường luôn gieo rắc sự đố kỵ, tiêu cực và xấu xa cho người khác.",
+    "context": "Đánh giá một mối quan hệ, một môi trường làm việc nhóm hoặc một hội nhóm mạng xã hội.",
+    "advice": "Có thể dùng làm dẫn chứng nghị luận xã hội học đường khi có định nghĩa rõ ràng.",
+    "status": "approved"
+  },
+  {
+    "word": "Lụy",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Bi lụy, sâu đậm",
+    "meaning": "Trạng thái tình cảm quá sâu sắc đến mức đau khổ, không thể buông bỏ người yêu cũ.",
+    "context": "Tâm sự buồn với bạn thân khi không thể quên được một mối quan hệ đã qua.",
+    "advice": "Từ miêu tả trạng thái tâm lý, nên dùng để thấu hiểu và khuyên nhủ bạn mình tích cực hơn.",
+    "status": "approved"
+  },
+  {
+    "word": "Thả thính",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Cố ý thu hút tình cảm",
+    "meaning": "Hành vi cố tình dùng lời nói, hình ảnh ẩn ý nhằm lôi cuốn, tạo sự chú ý tình cảm từ người khác.",
+    "context": "Đăng một dòng trạng thái tâm trạng bâng quơ lên mạng để gây chú ý với ai đó.",
+    "advice": "Thể hiện tâm lý tuổi mới lớn hóm hỉnh, tránh dùng bừa bãi tạo sự hiểu lầm.",
+    "status": "approved"
+  },
+  {
+    "word": "Dính thính",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Bị thu hút tình cảm, phải lòng",
+    "meaning": "Trạng thái bản thân bị xiêu lòng, nảy sinh tình cảm trước những lời ẩn ý của đối phương.",
+    "context": "Bị rung động sau khi nhận được tin nhắn hỏi thăm, quan tâm ngọt ngào từ bạn học.",
+    "advice": "Thể hiện cảm xúc rung động tự nhiên, dùng trò chuyện vui vẻ với hội bạn thân.",
+    "status": "approved"
+  },
+  {
+    "word": "Say nắng",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Cảm mến nhất thời",
+    "meaning": "Tình cảm yêu mến, thích thú một ai đó một cách đột ngột và nhất thời trong thời gian ngắn.",
+    "context": "Bất ngờ cảm thấy mến một bạn học mới chuyển trường vì nụ cười duyên dáng.",
+    "advice": "Trạng thái cảm xúc học đường quen thuộc, giúp lưu giữ những kỷ niệm đẹp tuổi học trò.",
+    "status": "approved"
+  },
+  {
+    "word": "Rung động",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Xao xuyến, nảy sinh tình cảm",
+    "meaning": "Cảm giác trái tim bị lỗi nhịp, xao xuyến trước ngoại hình hoặc tính cách của người khác.",
+    "context": "Cảm thấy hồi hộp, ngượng ngùng mỗi khi vô tình đi ngang qua người mình thích.",
+    "advice": "Từ ngữ văn minh, hoàn toàn có thể đưa vào bài viết phân tích tâm lý lứa tuổi.",
+    "status": "approved"
+  },
+  {
+    "word": "Flop tình",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Thất bại trong tình yêu",
+    "meaning": "Chuyện tình cảm đơn phương bị từ chối hoặc mối tình bị đổ vỡ, không thành công.",
+    "context": "Tâm sự buồn với bạn bè khi lời tỏ tình không được đối phương chấp nhận.",
+    "advice": "Dùng an ủi, động viên bạn bè vượt qua nỗi buồn để tập trung học tập.",
+    "status": "approved"
+  },
+  {
+    "word": "Hết duyên",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Không còn hợp nhau, xa cách",
+    "meaning": "Diễn tả việc một mối quan hệ tình cảm hoặc bạn bè kết thúc một cách tự nhiên, không oán trách.",
+    "context": "Hai người bạn thân thiết lúc trước nay dần ít nói chuyện và có hướng đi riêng.",
+    "advice": "Thái độ ứng xử văn minh trước sự thay đổi của các mối quan hệ xã hội.",
+    "status": "approved"
+  },
+  {
+    "word": "Hợp vibe",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Chung tần số, hợp phong cách",
+    "meaning": "Trạng thái hai người có cùng sở thích, quan điểm sống hoặc năng lượng ăn khớp với nhau.",
+    "context": "Tìm được người bạn cùng thích nghe một dòng nhạc hoặc cùng gu thời trang tối giản.",
+    "advice": "Ca ngợi tình bạn tri kỷ, sự hòa hợp trong không gian giao tiếp hằng ngày.",
+    "status": "approved"
+  },
+  {
+    "word": "Không vibe",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Lệch pha, không hợp",
+    "meaning": "Cảm giác đối phương có tính cách và lối sống hoàn toàn trái ngược, khó nói chuyện.",
+    "context": "Thử trò chuyện với một người bạn mới nhưng thấy không có chủ đề chung để nói.",
+    "advice": "Nhận diện để giữ khoảng cách xã giao lịch sự, tránh gây mâu thuẫn không đáng có.",
+    "status": "approved"
+  },
+  {
+    "word": "OTP",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Cặp đôi lý tưởng",
+    "meaning": "Cặp đôi được người hâm mộ yêu thích và mong muốn họ thành một đôi thực sự ngoài đời.",
+    "context": "Bình luận về các diễn viên phim ảnh, ca sĩ thần tượng hoặc truyện tranh.",
+    "advice": "Chỉ dùng trong cộng đồng người hâm mộ giải trí, không dùng nơi trang trọng.",
+    "status": "approved"
+  },
+  {
+    "word": "Quay xe",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Thay đổi ý định phút chót",
+    "meaning": "Hành động lật ngược tình thế, thay đổi quyết định hoặc đổi phe một cách đột ngột.",
+    "context": "Ban đầu định tham gia câu lạc bộ nhưng phút cuối lại hủy kế hoạch ở nhà.",
+    "advice": "Dùng miêu tả sự thay đổi kế hoạch linh hoạt, hóm hỉnh đời thường giữa bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Hợp gu/ Hợp cạ",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Hợp sở thích, ăn ý",
+    "meaning": "Trạng thái hai người có chung sở thích, tính cách hoặc phong cách sống tương đồng.",
+    "context": "Tìm được người bạn cùng sở thích đọc sách, chơi thể thao hoặc làm bài tập nhóm.",
+    "advice": "Cụm từ tích cực thể hiện sự kết nối tình bạn văn minh, lành mạnh trong trường học.",
+    "status": "approved"
+  },
+  {
+    "word": "Viral",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Lan truyền chóng mặt",
+    "meaning": "Hiện tượng một video, hình ảnh hoặc câu nói phổ biến khắp internet trong thời gian ngắn.",
+    "context": "Thảo luận về một trào lưu âm nhạc hoặc một bài đăng ý nghĩa trên mạng xã hội.",
+    "advice": "Được phép sử dụng bình thường trong các báo cáo công việc, truyền thông học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Flop",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Thất bại, chìm nghỉm",
+    "meaning": "Sự việc hoặc sản phẩm bị người xem ngó lơ, không đạt được lượng tương tác như mong đợi.",
+    "context": "Đánh giá một sản phẩm nghệ thuật mới hoặc bài đăng bị ít lượt yêu thích trên mạng.",
+    "advice": "Dùng hóm hỉnh khi nói chuyện phiếm, tránh dùng trong các bài phát biểu trang trọng.",
+    "status": "approved"
+  },
+  {
+    "word": "Trend",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Xu hướng, trào lưu",
+    "meaning": "Xu thế thịnh hành được nhiều người bắt chước, làm theo trong một thời điểm cụ thể.",
+    "context": "Trò chuyện về đời sống mạng, phong cách thời trang hoặc giai điệu hot hằng ngày.",
+    "advice": "Có thể đưa vào bài phân tích xã hội học đường dưới nghĩa \"xu hướng\".",
+    "status": "approved"
+  },
+  {
+    "word": "Top trend",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Xu hướng hàng đầu",
+    "meaning": "Đứng ở vị trí dẫn đầu trong danh sách các trào lưu được quan tâm, tìm kiếm nhiều nhất.",
+    "context": "Theo dõi bảng xếp hạng video, bài hát đang thu hút giới trẻ trực tuyến trên internet.",
+    "advice": "Thích hợp sử dụng trong các chủ đề thảo luận về công nghệ truyền thông số.",
+    "status": "approved"
+  },
+  {
+    "word": "Cày view",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Tăng lượt xem liên tục",
+    "meaning": "Hành vi xem đi xem lại một video nhiều lần nhằm mục đích tăng thành tích cho thần tượng.",
+    "context": "Đón chờ và ủng hộ MV ca nhạc mới của ca sĩ, nhóm nhạc mình yêu thích.",
+    "advice": "Hoạt động giải trí lành mạnh của giới trẻ, lưu ý không làm ảnh hưởng thời gian học tập.",
+    "status": "approved"
+  },
+  {
+    "word": "Spam",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Gửi tin nhắn rác bừa bãi",
+    "meaning": "Hành vi rải tin nhắn hoặc bình luận trùng lặp liên tục gây phiền toái, nghẽn mạng.",
+    "context": "Nhắc nhở thành viên trong nhóm lớp không gửi sticker liên tục gây trôi tin nhắn thông báo.",
+    "advice": "Được dùng rộng rãi trong thuật ngữ tin học đời sống và công nghệ thông tin.",
+    "status": "approved"
+  },
+  {
+    "word": "Drama",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Phốt, vụ tai tiếng",
+    "meaning": "Những vụ tranh cãi, mâu thuẫn ầm ĩ thu hút sự hiếu kỳ của cư dân mạng trực tuyến.",
+    "context": "Theo dõi tin tức giải trí hoặc bàn tán về một cuộc tranh luận của ai đó trên mạng.",
+    "advice": "Hạn chế lạm dụng từ này để sa đà vào các cuộc bàn tán tiêu cực, ảnh hưởng tâm lý học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Bóc phốt",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Vạch trần sự thật tiêu cực",
+    "meaning": "Hành vi đưa các bằng chứng, sai phạm hoặc đời tư xấu của một cá nhân lên không gian mạng.",
+    "context": "Phản ánh các hành vi gian lận thương mại hoặc lừa đảo trực tuyến trên các hội nhóm.",
+    "advice": "Cần tỉnh táo khi tiếp nhận thông tin, không tự ý chia sẻ khi chưa rõ thực hư.",
+    "status": "approved"
+  },
+  {
+    "word": "Content",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Nội dung sáng tạo",
+    "meaning": "Ý tưởng, kịch bản hoặc bài viết được dàn dựng nhằm mục đích truyền tải thông điệp.",
+    "context": "Thảo luận kế hoạch làm video thuyết trình bài học hoặc xây dựng trang web dự thi.",
+    "advice": "Thuật ngữ chuẩn mực, được khuyến khích sử dụng trong lĩnh vực truyền thông số.",
+    "status": "approved"
+  },
+  {
+    "word": "KOL",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Người có sức ảnh hưởng",
+    "meaning": "Chỉ những cá nhân nổi tiếng, có kiến thức chuyên môn và tiếng nói trong một lĩnh vực.",
+    "context": "Đánh giá một chiến dịch truyền thông giáo dục, nhắc về hình mẫu thanh niên tiêu biểu.",
+    "advice": "Từ ngữ được sử dụng chuẩn xác trong ngành kinh tế, marketing và xã hội hiện đại.",
+    "status": "approved"
+  },
+  {
+    "word": "Out trend",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Lỗi thời, lạc hậu",
+    "meaning": "Bị tụt lại phía sau, không còn giữ được sức hút so với các trào lưu mới ở hiện tại.",
+    "context": "Nhận xét hóm hỉnh về một phong cách quần áo cũ hoặc một câu nói đã bớt hot mạng.",
+    "advice": "Dùng vui vẻ khi giao tiếp đời thường để nhắc nhở nhau luôn đổi mới, sáng tạo.",
+    "status": "approved"
+  },
+  {
+    "word": "Bắt trend",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Đuổi theo xu hướng",
+    "meaning": "Hành vi nhanh nhạy làm theo, áp dụng các trào lưu đang thịnh hành vào sản phẩm của mình.",
+    "context": "Chèn các câu nói hài hước vào bài thuyết trình lớp để tăng tính sinh động, lôi cuốn.",
+    "advice": "Biểu hiện của sự thích ứng nhạy bén, nên chọn lọc các xu hướng văn minh, giáo dục.",
+    "status": "approved"
+  },
+  {
+    "word": "Edit",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Chỉnh sửa video/hình ảnh",
+    "meaning": "Hành vi hậu kỳ cắt ghép, thêm hiệu ứng âm thanh cho sản phẩm truyền thông bằng máy tính.",
+    "context": "Thảo luận nhóm thực hiện bài tập clip, chỉnh sửa hình ảnh hoạt động Đoàn trường.",
+    "advice": "Từ ngữ chuẩn công nghệ, được sử dụng bình thường trong đời sống học đường và công việc.",
+    "status": "approved"
+  },
+  {
+    "word": "View khủng",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Lượt xem khổng lồ",
+    "meaning": "Diễn tả một bài đăng hoặc một video đạt số lượng người xem cực kỳ lớn, mang tính đột phá.",
+    "context": "Một video chia sẻ kiến thức ôn thi đạt hàng triệu lượt xem trên nền tảng trực tuyến.",
+    "advice": "Từ ngữ thể hiện sự trầm trồ, ca ngợi một sản phẩm có sức lan tỏa cộng đồng cao.",
+    "status": "approved"
+  },
+  {
+    "word": "Combat",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Tranh luận nảy lửa, đối đầu",
+    "meaning": "Cuộc đấu khẩu gay gắt, phân định đúng sai bằng lý lẽ trên không gian mạng xã hội.",
+    "context": "Theo dõi các cuộc tranh luận biện hộ quan điểm hoặc tranh tài trong trò chơi điện tử.",
+    "advice": "Dùng vui khi chơi game, tuyệt đối không áp dụng lối đôi co gắt gao vào tranh luận lớp học.",
+    "status": "approved"
+  },
+  {
+    "word": "Troll",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Trêu chọc, chơi khăm",
+    "meaning": "Hành vi chơi khăm nhẹ nhàng hoặc nói đùa nhằm mục đích trêu ghẹo, gây cười cho tập thể.",
+    "context": "Kể lại một trò đùa nghịch ngợm vô hại nhưng hài hước giữa các bạn thân với nhau.",
+    "advice": "Dùng giải trí đời thường tạo tiếng cười, tránh đùa cợt vào khuyết điểm làm tổn thương bạn.",
+    "status": "approved"
+  },
+  {
+    "word": "Game over",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Trò chơi kết thúc, thất bại",
+    "meaning": "Diễn tả trạng thái mọi chuyện đã hạ màn, không còn cơ hội để thay đổi hoặc cứu vãn.",
+    "context": "Nói vui về việc làm hỏng một kế hoạch đi chơi hoặc một bài kiểm tra không như ý.",
+    "advice": "Dùng hóm hỉnh khi tự trào vui vẻ, không đưa vào văn bản viết chính luận, đơn từ.",
+    "status": "approved"
+  },
+  {
+    "word": "Comeback",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Tái xuất, trở lại",
+    "meaning": "Sự quay trở lại hoạt động nghệ thuật hoặc mạng xã hội sau một thời gian dài vắng bóng.",
+    "context": "Chờ đón sản phẩm âm nhạc mới của ca sĩ thần tượng hoặc sự trở lại của một fanpage hay.",
+    "advice": "Thuật ngữ chuẩn mực, được dùng rộng rãi trong đời sống nghệ thuật và giải trí số.",
+    "status": "approved"
+  },
+  {
+    "word": "Tới công chuyện",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Có biến lớn, gặp rắc rối",
+    "meaning": "Diễn tả tình huống một sự việc bất ngờ xảy ra đòi hỏi phải lao vào giải quyết ngay lập tức.",
+    "context": "Thấy mẹ chuẩn bị kiểm tra sổ liên lạc điện tử, hoặc nhóm trưởng réo gọi làm bài tập.",
+    "advice": "Câu nói cảm thán hóm hỉnh, tạo không khí vui vẻ trước áp lực công việc đời thường.",
+    "status": "approved"
+  },
+  {
+    "word": "Đỉnh của chóp",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Đỉnh cao tối thượng",
+    "meaning": "Ví von vị trí cao nhất trên đỉnh chóp, khen ngợi một thành tích hoặc sản phẩm đạt điểm tối đa.",
+    "context": "Khen ngợi một bức tranh vẽ quá đẹp, một bài thuyết trình xuất sắc của bạn học trước lớp.",
+    "advice": "Từ ca ngợi mang năng lượng tích cực, dùng cổ vũ tinh thần học tập sáng tạo rất tốt.",
+    "status": "approved"
+  },
+  {
+    "word": "Hết nước chấm",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Quá xuất sắc, hoàn hảo",
+    "meaning": "Ví món ăn ngon đến mức ăn sạch cả nước chấm, chỉ sự hoàn mỹ không có điểm chê.",
+    "context": "Trầm trồ trước một hành động ga lăng, lịch sự hoặc một thành tích xuất sắc của bạn mình.",
+    "advice": "Dùng làm từ cảm thán khen ngợi đời thường, văn viết nên thay thế bằng từ \"hoàn hảo\".",
+    "status": "approved"
+  },
+  {
+    "word": "Căng như dây đàn",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Vô cùng áp lực, kịch tính",
+    "meaning": "Chỉ trạng thái tâm lý hoặc tình huống đạt đến đỉnh điểm của sự căng thẳng, nghiêm trọng.",
+    "context": "Không khí tập trung cao độ trong phòng thi đại học, hoặc mâu thuẫn tranh luận chưa giải quyết.",
+    "advice": "Thành ngữ có tính biểu cảm cao, hoàn toàn có thể đưa vào bài văn miêu tả tâm lý.",
+    "status": "approved"
+  },
+  {
+    "word": "Chịu luôn á",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Bó tay, bất lực",
+    "meaning": "Câu bộc lộ sự bất lực, đầu hàng trước một tính cách bướng bỉnh hoặc tình huống trớ trêu.",
+    "context": "Bạn thân dù được nhắc nhở nhiều lần nhưng vẫn chứng nào tật nấy, lười biếng học bài.",
+    "advice": "Thể hiện sự buông bỏ mâu thuẫn một cách hóm hỉnh, giữ hòa khí cho mối quan hệ.",
+    "status": "approved"
+  },
+  {
+    "word": "Khó đỡ",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Kỳ quặc, khó đỡ nổi",
+    "meaning": "Tình huống trớ trêu hoặc hành động ngớ ngẩn đến mức không biết phải phản ứng sao cho hợp lý.",
+    "context": "Một pha xử lý vụng về làm mất điểm của cả đội khi tham gia thi đấu thể thao trường.",
+    "advice": "Dùng nhận xét vui vẻ về các sự cố nhỏ hằng ngày để cùng cười xòa và rút kinh nghiệm.",
+    "status": "approved"
+  },
+  {
+    "word": "Quá hợp lý",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Hoàn toàn chính xác, nhất trí",
+    "meaning": "Đồng tình tuyệt đối với một ý kiến hoặc giải pháp được đưa ra, không có điểm phản bác.",
+    "context": "Đồng ý với kế hoạch chia nhỏ công việc làm bài tập nhóm của bạn nhóm trưởng.",
+    "advice": "Thể hiện sự nhất trí, tinh thần đồng đội cao trong các hoạt động tập thể học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Sốc",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Kinh ngạc, bàng hoàng",
+    "meaning": "Trạng thái tâm lý bị chấn động, bất ngờ tột độ trước một thông tin hoặc sự việc đột ngột.",
+    "context": "Nghe tin bạn cùng bàn đạt giải nhất cuộc thi nghiên cứu khoa học cấp quốc gia.",
+    "advice": "Từ ngữ bộc lộ cảm xúc mạnh, được chấp nhận dùng phổ biến trong đời sống giao tiếp.",
+    "status": "approved"
+  },
+  {
+    "word": "What the heck",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Cái quái gì thế",
+    "meaning": "Câu cảm thán bộc lộ sự kinh ngạc, khó hiểu trước một sự việc quá kỳ lạ, vô lý trên mạng.",
+    "context": "Bất ngờ bắt gặp một thuật toán máy tính quá phức tạp chưa từng được học qua.",
+    "advice": "Chỉ dùng làm từ ngữ cảm thán khi nhắn tin phiếm, tuyệt đối không đưa vào bài kiểm tra văn.",
+    "status": "approved"
+  },
+  {
+    "word": "Ảo thật đấy",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Quá vô lý, khó tin",
+    "meaning": "Diễn tả sự kinh ngạc trước một hiện tượng kỳ lạ, phi thực tế hoặc một kỹ xảo chỉnh sửa ảnh.",
+    "context": "Chứng kiến một pha lật ngược tình thế ghi bàn thắng ngoạn mục ở giây cuối cùng của trận đấu.",
+    "advice": "Câu nói bộc lộ sự trầm trồ, tăng tính hài hước cho cuộc trò chuyện đời thường.",
+    "status": "approved"
+  },
+  {
+    "word": "Lạy luôn",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Nghiêng mình bái phục, bó tay",
+    "meaning": "Hành động chắp tay bái lạy (ẩn dụ) để thể hiện sự chịu thua trước một hành vi quá lố hoặc ngớ ngẩn.",
+    "context": "Bạn thân ngủ gật ngay trong tiết học dù ngồi ở bàn đầu tiên đối diện giáo viên.",
+    "advice": "Dùng tạo tiếng cười vui vẻ hóm hỉnh, tránh dùng với thái độ gắt gao làm bạn mình xấu hổ.",
+    "status": "approved"
+  },
+  {
+    "word": "Bó tay",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Bất lực, không có cách giải quyết",
+    "meaning": "Ví hành động bị trói tay (bó tay) để chỉ việc không thể tìm ra phương án xử lý một sự cố.",
+    "context": "Đứng trước một bài toán hình học hóc búa, nâng cao vượt quá kiến thức hiện tại.",
+    "advice": "Thành ngữ đời thường quen thuộc, dùng bộc lộ giới hạn kiến thức để chủ động hỏi bài bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Bất lực",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Không thể thay đổi hoàn cảnh",
+    "meaning": "Trạng thái mệt mỏi khi mọi cố gắng xoay chuyển tình thế thực tế đều không đem lại kết quả.",
+    "context": "Ôn bài thi rất kỹ nhưng khi vào phòng thi lại gặp đúng phần mình lỡ bỏ sót không xem.",
+    "advice": "Miêu tả tâm lý mệt mỏi tạm thời hóm hỉnh để tìm kiếm sự an ủi, chia sẻ từ bạn bè thân.",
+    "status": "approved"
+  },
+  {
+    "word": "Deep quá",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Diễn sâu quá, tâm trạng quá",
+    "meaning": "Nhận xét một người đang cố tình tỏ ra trầm tư, triết lý hoặc buồn bã để gây sự chú ý.",
+    "context": "Bạn thân đăng ảnh chụp góc nghiêng đen trắng kèm dòng thơ buồn triết lý cuộc sống.",
+    "advice": "Dùng trêu đùa nhẹ nhàng về phong cách chụp ảnh nghệ thuật của bạn bè cùng lớp học.",
+    "status": "approved"
+  },
+  {
+    "word": "Chill phết",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Rất thư giãn, bình yên",
+    "meaning": "Đánh giá một không gian, một bài hát mang lại cảm giác thoải mái, dễ chịu và nhẹ nhàng.",
+    "context": "Ngồi nghe một bản nhạc nhẹ nhàng sau một ngày ôn thi căng thẳng, áp lực bài vở.",
+    "advice": "Tính từ tích cực miêu tả trạng thái giải tỏa áp lực tinh thần lành mạnh của giới trẻ.",
+    "status": "approved"
+  },
+  {
+    "word": "Căng đét luôn",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Cực kỳ áp lực, gay cấn",
+    "meaning": "Chỉ tình huống đạt đến đỉnh điểm của sự kịch tính, vô cùng gay gắt, không thể lơ là.",
+    "context": "Không khí tranh luận phân chia công việc làm bài tập lớn đạt cao trào kịch tính.",
+    "advice": "Dùng nhấn mạnh tính chất gay cấn của sự kiện đời thường, văn viết nên đổi thành từ \"gay cấn\".",
+    "status": "approved"
+  },
+  {
+    "word": "Vibe lạ",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Cảm giác kỳ lạ, phong thái lạ",
+    "meaning": "Nhận diện một người hoặc một không gian mang lại năng lượng, phong cách khác biệt, khó gần.",
+    "context": "Bước vào một lớp học mới và cảm thấy không khí ở đây có vẻ hơi nghiêm nghị, trầm lắng.",
+    "advice": "Nhận thức trực giác cá nhân, giúp bản thân điều chỉnh hành vi ứng xử cho phù hợp môi trường.",
+    "status": "approved"
+  },
+  {
+    "word": "Drama to",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Vụ bê bối lớn, tranh cãi lớn",
+    "meaning": "Diễn tả một vụ tranh bối bùng nổ ầm ĩ thu hút đông đảo cư dân mạng kéo vào đối khẩu.",
+    "context": "Một vụ bóc phốt gian lận bản quyền công nghệ lớn đang chấn động các diễn đàn mạng xã hội.",
+    "advice": "Cần giữ cái đầu lạnh tỉnh táo, tuyệt đối không hùa theo đám đông bình luận tiêu cực.",
+    "status": "approved"
+  },
+  {
+    "word": "Đời không như mơ",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Thực tế phũ phàng, hụt hẫng",
+    "meaning": "Lời tự thán khi thực tế diễn ra trái ngược và phũ phàng hơn so với kỳ vọng, kế hoạch ban đầu.",
+    "context": "Dự định dậy sớm học bài nhưng thực tế ngủ quên đến tận giờ vào lớp học.",
+    "advice": "Câu nói tự trào hóm hỉnh giúp giảm bớt sự hụt hẫng trước các sự cố nhỏ hằng ngày.",
+    "status": "approved"
+  },
+  {
+    "word": "Real life",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Cuộc sống thực tế, ngoài đời thực",
+    "meaning": "Đối chiếu không gian đời thực ngoài đời với không gian ảo trực tuyến trên màn hình máy tính.",
+    "context": "Chia sẻ về những hoạt động tình nguyện, thể thao thực tế sau khi tắt máy tính rời mạng.",
+    "advice": "Có thể dùng làm thuật ngữ đối chiếu khoa học xã hội khi viết báo cáo nghiên cứu dự thi.",
+    "status": "approved"
+  },
+  {
+    "word": "Tỉnh lại đi",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Hãy thực tế lên, đừng ảo tưởng",
+    "meaning": "Lời nhắc nhở đối phương ngừng mơ mộng hão huyền hoặc dừng suy nghĩ phi thực tế lại.",
+    "context": "Bạn thân mơ ước trúng số độc đắc để mua siêu xe trong khi không chịu học bài làm bài.",
+    "advice": "Lời khuyên thẳng thắn, hóm hỉnh kéo bạn mình quay trở lại với mục tiêu học tập thực tế.",
+    "status": "approved"
+  },
+  {
+    "word": "Đừng đùa",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Hãy nghiêm túc, không thể xem thường",
+    "meaning": "Khẳng định tính chất nghiêm túc, quan trọng của một sự việc, không được phép lơ là.",
+    "context": "Nhắc nhở bạn học rằng kỳ thi học kỳ sắp tới cực kỳ khó, đừng đùa giỡn chủ quan.",
+    "advice": "Lời nhắc nhở có trọng lượng, giúp thúc đẩy tinh thần nghiêm túc, tập trung của đồng đội.",
+    "status": "approved"
+  },
+  {
+    "word": "Gắt gao",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Vô cùng quyết liệt, dữ dội",
+    "meaning": "Mức độ xử lý vấn đề hoặc đối đáp đạt tới độ mạnh mẽ, nghiêm khắc tối đa, không khoan nhượng.",
+    "context": "Sự kiểm tra nghiêm ngặt của thầy cô giám thị trong phòng thi học sinh giỏi cấp tỉnh.",
+    "advice": "Từ ngữ chuẩn mực, miêu tả tính chất nghiêm khắc của quy trình quản lý học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Phèn nhưng duyên",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Giản dị nhưng có duyên",
+    "meaning": "Khen ngợi một người tuy vẻ ngoài không lộng lẫy, sang trọng nhưng tính cách lại cực kỳ đáng yêu.",
+    "context": "Một bạn học ăn mặc rất giản dị nhưng luôn nhiệt tình, hòa đồng giúp đỡ mọi người.",
+    "advice": "Lời khen ngợi văn minh, trân trọng nét đẹp tính cách nội tâm hơn vẻ bề ngoài hào nhoáng.",
+    "status": "approved"
+  },
+  {
+    "word": "Mặn như biển",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Cực kỳ hóm hỉnh, duyên dáng",
+    "meaning": "Cách nói quá ví von sự hài hước như lượng muối của biển, ca ngợi người nói chuyện siêu mặn mà.",
+    "context": "Khen ngợi một bạn luôn là tâm điểm tạo tiếng cười vui vẻ, lành mạnh cho cả lớp học.",
+    "advice": "Ca ngợi khiếu hài hước tinh tế, mang lại năng lượng tích cực cho giao tiếp học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Ngáo ngơ",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Ngơ ngác, lóng ngóng",
+    "meaning": "Trạng thái vụng về, lóng ngóng do chưa quen việc hoặc đang bị mất tập trung tạm thời.",
+    "context": "Bạn học mới ngày đầu làm trực nhật lớp còn lúng túng chưa biết để chổi ở đâu.",
+    "advice": "Dùng miêu tả sự lúng túng vô hại tuổi học trò, cần chủ động đến hỗ trợ bạn mình hướng dẫn.",
+    "status": "approved"
+  },
+  {
+    "word": "Hết cứu luôn",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Hoàn toàn vô phương cứu vãn",
+    "meaning": "Cấp độ cao nhất của sự bất lực trước một tình huống hoặc tính cách đã quá tệ, không thể sửa.",
+    "context": "Quyển vở ghi chép bài học bị đổ mực đen nhòe nhoẹt khắp các trang không đọc được nữa.",
+    "advice": "Dùng phê bình hóm hỉnh sự cố đồ vật đời thường, tránh dùng làm tổn thương tinh thần bạn bè.",
+    "status": "approved"
+  },
+  {
+    "word": "Quá trời quá đất",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Quá mức tưởng tượng",
+    "meaning": "Cụm từ định lượng cường điệu, chỉ một sự việc hoặc cảm xúc vượt qua giới hạn thông thường.",
+    "context": "Bài tập được giao nhiều quá trời quá đất, hoặc hôm nay cả lớp đi cổ vũ văn nghệ vui quá trời quá đất.",
+    "advice": "Dùng nhấn mạnh cảm xúc mạnh mẽ đời thường, văn viết nên đổi thành từ \"vô cùng\" hoặc \"rất nhiều\".",
+    "status": "approved"
+  },
+  {
+    "word": "Sốc toàn tập",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Bàng hoàng hoàn toàn",
+    "meaning": "Trạng thái tâm lý bị chấn động mạnh, ngỡ ngàng toàn bộ từ đầu đến cuối trước một thông tin bất ngờ.",
+    "context": "Nghe tin nhà trường thay đổi đột ngột toàn bộ lịch thi học kỳ sớm hơn một tuần.",
+    "advice": "Bộc lộ phản ứng kinh ngạc đời thường, giúp giải tỏa tâm lý bất ngờ trước khi tìm giải pháp xử lý.",
+    "status": "approved"
+  },
+  {
+    "word": "Không nói nổi",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Cạn lời, nghẹn ngào",
+    "meaning": "Diễn tả trạng thái bất lực hoặc ngao ngán đến mức không muốn lên tiếng hay giải thích thêm gì nữa.",
+    "context": "Chứng kiến hành động đổ rác bừa bãi của bạn học ngay dưới ngăn bàn dù thùng rác ở rất gần.",
+    "advice": "Thể hiện thái độ phê phán nhẹ nhàng nhưng dứt khoát trước những hành vi thiếu văn minh học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Chuyện gì vậy",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Câu hỏi thăm khi có biến cố",
+    "meaning": "Câu cảm thán mở đầu dùng để tìm hiểu thông tin khi thấy một đám đông đang xôn xao, bàn tán.",
+    "context": "Bước vào lớp thấy các bạn đang tụm năm tụm ba xôn xao bàn tán về đề thi thử.",
+    "advice": "Dùng bắt chuyện nhanh để cập nhật thông tin tập thể, tránh hùa theo các tin đồn thất thiệt.",
+    "status": "approved"
+  },
+  {
+    "word": "Cười muốn xỉu",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Buồn cười tột độ",
+    "meaning": "Cách nói quá bộc lộ sự thích thú, sảng khoái tối đa trước một tình huống tấu hài hước.",
+    "context": "Xem một video clip ngắn trào phúng thông minh hoặc nghe bạn thân kể chuyện tiếu lâm.",
+    "advice": "Chỉ nên dùng làm từ cảm thán trong trò chuyện thân mật giữa bạn bè, không dùng trước mặt bề trên.",
+    "status": "approved"
+  },
+  {
+    "word": "Drama level max",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Vụ bê bối đạt đỉnh điểm",
+    "meaning": "Diễn tả một vụ tranh cãi mâu thuẫn ầm ĩ đạt đến mức độ gay cấn, kịch tính và thu hút nhiều người nhất.",
+    "context": "Cuộc tranh luận nảy lửa phân chia quyền lợi làm bài tập lớn giữa hai nhóm trong lớp học.",
+    "advice": "Cần giữ cái đầu lạnh tỉnh táo để hòa giải mâu thuẫn, tuyệt đối không kích động làm lớn chuyện.",
+    "status": "approved"
+  },
+  {
+    "word": "Sống ảo",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Chăm chút hình ảnh trên mạng",
+    "meaning": "Hành vi quá chú trọng vào việc đăng ảnh, câu tương tác trên mạng xã hội mà xa rời cuộc sống thực tế.",
+    "context": "Dành hàng giờ đồng hồ để chỉnh sửa một bức ảnh đăng Facebook chỉ để đếm lượt yêu thích.",
+    "advice": "Lời nhắc nhở ý nghĩa về việc cân bằng giữa cuộc sống thực tế với thế giới ảo trực tuyến.",
+    "status": "approved"
+  },
+  {
+    "word": "Thật luôn hả",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Câu hỏi xác minh kinh ngạc",
+    "meaning": "Câu hỏi bộc lộ sự ngỡ ngàng, hoài nghi, bắt buộc đối phương phải khẳng định lại tính xác thực.",
+    "context": "Nghe bạn thân thông báo mình vừa đạt điểm tối đa môn toán trong kỳ thi thử của trường.",
+    "advice": "Dùng bộc lộ cảm xúc trầm trồ vui vẻ đời thường, giúp tăng tính tương tác khi trò chuyện.",
+    "status": "approved"
+  },
+  {
+    "word": "Đùa à",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Không thể tin nổi",
+    "meaning": "Câu hỏi bộc lộ sự bất ngờ pha chút nghi ngờ, cho rằng thông tin đối phương nói chỉ là một trò đùa.",
+    "context": "Bạn học thông báo hôm nay lớp được nghỉ tiết thể dục nhưng thực tế thời tiết rất đẹp.",
+    "advice": "Dùng kiểm chứng thông tin vui vẻ giữa bạn bè, tránh dùng với thái độ gắt gao gây mất lòng.",
+    "status": "approved"
+  },
+  {
+    "word": "Tỉnh táo lên",
+    "category": "Ngữ cảnh thịnh hành",
+    "standard": "Hãy sáng suốt, ngừng mơ mộng",
+    "meaning": "Lời cảnh tỉnh mạnh mẽ giúp đối phương thoát khỏi suy nghĩ viển vông hoặc bẫy tâm lý sai lầm.",
+    "context": "Nhắc nhở bạn thân ngừng thức đêm cày game và tập trung ôn thi vì kỳ thi đã cận kề.",
+    "advice": "Lời khuyên thẳng thắn, có tính xây dựng cao giúp định hướng hành vi học tập lành mạnh.",
+    "status": "approved"
+  },
+  {
+    "word": "Gen Z chuẩn bài",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Phong cách thế hệ trẻ mẫu mực",
+    "meaning": "Khen ngợi một bạn trẻ có lối sống, tư duy nhạy bén công nghệ và ứng xử vô cùng thông minh, hiện đại.",
+    "context": "Một bạn học vừa học giỏi, vừa tự tay thiết kế được website từ điển trực tuyến xịn mịn.",
+    "advice": "Lời khen ngợi có tính cổ vũ lớn, ca ngợi năng lực sáng tạo đổi mới của thế hệ trẻ học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Zui",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Vui vẻ",
+    "meaning": "Cách viết cố tình thay đổi chữ cái đầu từ \"V\" sang \"Z\" để tạo cảm giác trẻ trung, tinh nghịch.",
+    "context": "Nhắn tin chúc mừng sinh nhật bạn học hoặc bày tỏ niềm vui khi được nghỉ học.",
+    "advice": "Chỉ sử dụng trong tin nhắn trò chuyện thân mật, tuyệt đối không viết vào bài kiểm tra Văn.",
+    "status": "approved"
+  },
+  {
+    "word": "Ngầu",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Phong cách, cá tính",
+    "meaning": "Từ lóng chỉ một người có vẻ ngoài, phong cách hoặc hành động cực kỳ chất và ấn tượng.",
+    "context": "Khen ngợi một bạn học vừa đàn giỏi vừa hát hay, hoặc có hành động giúp đỡ mọi người.",
+    "advice": "Từ ngữ ca ngợi cá tính tích cực, được sử dụng rất phổ biến trong giao tiếp giới trẻ.",
+    "status": "approved"
+  },
+  {
+    "word": "Chill",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Thư giãn, bình yên",
+    "meaning": "Trạng thái thả lỏng tinh thần, tận hưởng không gian thoải mái và không lo nghĩ áp lực.",
+    "context": "Nghe một bản nhạc nhẹ nhàng hoặc ngồi không gian quán cà phê yên tĩnh sau giờ học.",
+    "advice": "Thích hợp làm từ miêu tả trạng thái giải tỏa căng thẳng lành mạnh của học sinh.",
+    "status": "approved"
+  },
+  {
+    "word": "Flex",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Khoe khoang thành tích",
+    "meaning": "Hành vi khéo léo hoặc trực diện đưa ra những của cải, thành tích cá nhân để người khác trầm trồ.",
+    "context": "Trò chuyện về điểm số cao, các giải thưởng đạt được trong kỳ thi trên mạng xã hội.",
+    "advice": "Nên dùng với mục đích tạo động lực vui vẻ, tránh khoe khoang quá đà gây ác cảm.",
+    "status": "approved"
+  },
+  {
+    "word": "Crush",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Thầm thương trộm nhớ",
+    "meaning": "Chỉ đối tượng đang làm bản thân xao xuyến, nảy sinh tình cảm đơn phương tuổi học trò.",
+    "context": "Tâm sự với hội bạn thân về một người bạn lớp bên cạnh mà mình đang thầm mến.",
+    "advice": "Thể hiện cảm xúc tuổi mới lớn hồn nhiên, tránh để ảnh hưởng đến việc tập trung học tập.",
+    "status": "approved"
+  },
+  {
+    "word": "Tấm chiếu mới",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Chưa có trải nghiệm",
+    "meaning": "Mượn hình ảnh chiếc chiếu mới mua chưa từng trải ra đất để chỉ người còn ngây thơ, chưa có kinh nghiệm sự đời.",
+    "context": "Học sinh mới bước vào trường chưa nắm rõ các quy định khắt khe của thầy cô giám thị.",
+    "advice": "Dùng trêu đùa vui vẻ giúp nhắc nhở nhau tích lũy kinh nghiệm sống, tránh sơ suất.",
+    "status": "approved"
+  },
+  {
+    "word": "Trra xanh",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Kẻ thứ ba giả tạo",
+    "meaning": "Chỉ những cá nhân bên ngoài biểu hiện ngây thơ, thánh thiện nhưng bên trong chuyên phá hoại tình cảm.",
+    "context": "Bàn luận vui vẻ về các tình tiết câu chuyện phim ảnh hoặc tiểu thuyết tâm lý xã hội.",
+    "advice": "Hạn chế lạm dụng từ này để dán nhãn, nhục mạ cá nhân khi chưa rõ thực hư câu chuyện.",
+    "status": "approved"
+  },
+  {
+    "word": "Thao túng tâm lý",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Điều khiển suy nghĩ",
+    "meaning": "Hành vi dùng lời nói ẩn ý để khiến đối phương nghi ngờ bản thân và phải làm theo ý mình.",
+    "context": "Thầy cô phân tích thấu đáo giúp học sinh tự nhận ra lỗi sai của hành vi lệch lạc.",
+    "advice": "Thuật ngữ tâm lý học xã hội cực kỳ giá trị để phân tích nhận thức hành vi giới trẻ.",
+    "status": "approved"
+  },
+  {
+    "word": "Anh hùng bàn phím",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Kẻ mạnh miệng trên mạng",
+    "meaning": "Chỉ những người trên mạng cào phím chửi bới rất hung hăng nhưng ngoài đời lại rụt rè, nhút nhát.",
+    "context": "Các tài khoản ẩn danh bình luận ác ý, tiêu cực dưới bài đăng của người khác trên mạng.",
+    "advice": "Dùng để phê phán hành vi bạo lực mạng, định hướng lối sống ứng xử văn minh trực tuyến.",
+    "status": "approved"
+  },
+  {
+    "word": "Bạch liên hoa",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Giả vờ thánh thiện",
+    "meaning": "Từ mượn nghĩa văn học mạng chỉ người có vẻ ngoài thanh khiết như hoa sen trắng nhưng lòng dạ hiểm sâu.",
+    "context": "Thảo luận về tính cách độc hại của các nhân vật phản diện trong các tác phẩm giải trí.",
+    "advice": "Chỉ dùng nhận diện tính cách nhân vật hư cấu, không lạm dụng bôi nhọ bạn bè hằng ngày.",
+    "status": "approved"
+  },
+  {
+    "word": "Block",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Chặn liên lạc",
+    "meaning": "Hành động ngắt kết nối mạng xã hội hoàn toàn với một tài khoản khác bằng tính năng chặn.",
+    "context": "Chặn các tài khoản lạ liên tục gửi tin nhắn rác hoặc quảng cáo độc hại gây phiền toái.",
+    "advice": "Thuật ngữ công nghệ số phổ biến, văn viết hành chính nên đổi thành từ \"chặn\".",
+    "status": "approved"
+  },
+  {
+    "word": "Chốt đơn",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Quyết định chọn lựa",
+    "meaning": "Mượn từ ngành bán hàng livestream, chỉ hành vi đưa ra quyết định chốt hạ, đồng ý một kế hoạch.",
+    "context": "Cả lớp thống nhất đồng ý chọn mẫu thiết kế áo đồng phục lớp sau nhiều ngày tranh luận.",
+    "advice": "Từ ngữ đời sống kinh tế số hóm hỉnh, thể hiện sự đồng thuận cao của tập thể học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Chạn vương",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Người dựa dẫm nhà vợ",
+    "meaning": "Mượn câu tục ngữ \"Chui gầm chạn\" để chỉ người đàn ông đổi đời, có của cải nhờ kết hôn với vợ giàu.",
+    "context": "Bàn luận hài hước về các câu chuyện tình cảm, đám cưới của những người nổi tiếng.",
+    "advice": "Từ ngữ mang tính định kiến xã hội, hạn chế lạm dụng trong giao tiếp ứng xử chuẩn mực.",
+    "status": "approved"
+  },
+  {
+    "word": "Cùng tần số",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Hợp rơ, chung suy nghĩ",
+    "meaning": "Mượn thuật ngữ vật lý (Tần số sóng) để chỉ hai người vô cùng thấu hiểu và chung sở thích với nhau.",
+    "context": "Tìm được một người bạn thân có cùng chí hướng học tập hoặc cùng gu nghe nhạc nhẹ.",
+    "advice": "Từ ngữ mang năng lượng tích cực, ca ngợi sự hòa hợp gắn kết trong tình bạn học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Gà mờ",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Người chưa có kinh nghiệm",
+    "meaning": "Ví như con gà ban đêm mắt bị mờ, chỉ người mới bắt đầu tập tành làm một lĩnh vực nào đó.",
+    "context": "Học sinh mới ngày đầu làm quen với các câu lệnh lập trình giao diện website trực tuyến.",
+    "advice": "Dùng thể hiện sự khiêm tốn của bản thân để chủ động học hỏi thêm kiến thức từ người đi trước.",
+    "status": "approved"
+  },
+  {
+    "word": "Gánh team/Gánh tim",
+    "category": "Từ mượn Tiếng Anh",
+    "standard": "Trụ cột gánh vác cả đội",
+    "meaning": "Hành vi một thành viên xuất sắc nỗ lực hết mình để giúp cả nhóm đạt kết quả cao trong công việc.",
+    "context": "Bạn nhóm trưởng hoàn thành xuất sắc phần nội dung khó nhất để cứu điểm cho bài tập lớn.",
+    "advice": "Tuyên dương tinh thần trách nhiệm cá nhân, năng lực gánh vác tập thể học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Học bá",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Học sinh giỏi toàn diện",
+    "meaning": "Từ mượn cấu trúc Hán-Việt để khen ngợi những học sinh học siêu xuất sắc, thủ khoa của trường.",
+    "context": "Ca ngợi gương sáng bạn học đứng đầu khối về thành tích điểm số các môn tự nhiên.",
+    "advice": "Có thể sử dụng làm từ ngữ tuyên dương, tạo động lực phấn đấu thi đua học tập tốt.",
+    "status": "approved"
+  },
+  {
+    "word": "Hủy kèo/Bùng kèo",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Hủy lịch hẹn phút chót",
+    "meaning": "Hành động đơn phương hủy bỏ một cuộc hẹn hoặc kế hoạch đã thống nhất trước đó với tập thể.",
+    "context": "Hẹn bạn bè đi đá bóng giải trí nhưng đến giờ bóng lăn lại báo bận ở nhà ngủ.",
+    "advice": "Phản ánh một hành vi thiếu uy tín cá nhân, nhắc nhở học sinh cần giữ lời hứa và đúng giờ.",
+    "status": "approved"
+  },
+  {
+    "word": "Lụy/Lụy tình",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Tình cảm bi lụy, sâu đậm",
+    "meaning": "Trạng thái tình cảm quá sâu sắc đến mức chịu nhiều đau khổ, không thể buông bỏ mối tình cũ.",
+    "context": "Tâm sự buồn với bạn thân khi bản thân vẫn luôn nhớ về người yêu cũ dù đã chia tay.",
+    "advice": "Từ miêu tả tâm lý lứa tuổi, nên dùng để thấu hiểu và đưa ra lời khuyên tích cực cho bạn mình.",
+    "status": "approved"
+  },
+  {
+    "word": "Lệch pha",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Bất đồng, không hiểu nhau",
+    "meaning": "Mượn hiện tượng dòng điện lệch pha trong vật lý để chỉ hai người có suy nghĩ, quan điểm trái ngược.",
+    "context": "Con cái và cha mẹ gặp bất đồng ý kiến trong việc lựa chọn khối thi, ngành học tương lai.",
+    "advice": "Nhận diện xung đột tâm lý thế hệ để chủ động tìm giải pháp đối thoại hòa hợp, lắng nghe.",
+    "status": "approved"
+  },
+  {
+    "word": "Lúa",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Quá giản đơn, chưa cập nhật",
+    "meaning": "Ví von như cây lúa đồng quê, chỉ người chưa biết đến các công nghệ hay xu hướng hiện đại.",
+    "context": "Bạn học chưa biết cách sử dụng các phím tắt cơ bản trên máy tính phòng thực hành.",
+    "advice": "Nên dùng nhắc nhở vui vẻ để cùng nhau tiến bộ, tránh dùng chê bai vùng miền gây chia rẽ.",
+    "status": "approved"
+  },
+  {
+    "word": "Màu mè",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Cố tình gây chú trình diễn",
+    "meaning": "Chỉ hành vi quá chú trọng vào vẻ bề ngoài hoặc các hình thức rườm rà nhằm mục đích gây chú ý.",
+    "context": "Thiết kế một bài slide thuyết trình quá nhiều hiệu ứng bay nhảy rối mắt, khó đọc chữ.",
+    "advice": "Góp ý thẳng thắn để tập trung vào giá trị nội dung cốt lõi của công việc học tập.",
+    "status": "approved"
+  },
+  {
+    "word": "Ngoan xinh yêu",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Đáng yêu, dễ mến",
+    "meaning": "Cụm từ ghép dùng để cưng nựng, khen ngợi một người có tính cách vô cùng dễ thương, dễ mến.",
+    "context": "Dùng để khen ngợi người yêu, thú cưng hoặc nói vui với đứa bạn thân ngoan ngoãn.",
+    "advice": "Thể hiện cảm xúc ngọt ngào, hóm hỉnh đời thường, giúp gắn kết mối quan hệ thân thiết.",
+    "status": "approved"
+  },
+  {
+    "word": "Nhọ",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Xui xẻo, đen đủi",
+    "meaning": "Mượn hình ảnh nhọ nồi đen thui để chỉ việc bản thân liên tục gặp những sự cố không may mắn.",
+    "context": "Vừa dắt xe ra khỏi cửa thì trời mưa to lại còn dính thêm thủng săm xe giữa đường.",
+    "advice": "Từ cảm thán than vãn hóm hỉnh về sự kém may mắn tạm thời, giúp giải tỏa tâm lý ức chế.",
+    "status": "approved"
+  },
+  {
+    "word": "Ném đá",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Chỉ trích, công kích đám đông",
+    "meaning": "Hành vi đồng loạt để lại bình luận chê bai, chửi bới gắt gao nhằm hạ nhục một cá nhân trên mạng.",
+    "context": "Đám đông cư dân mạng kéo vào tổng tấn công trang cá nhân của một người vì một câu nói lỗi.",
+    "advice": "Phê phán hành vi bạo lực ngôn từ trên không gian mạng, định hướng lối sống bao dung.",
+    "status": "approved"
+  },
+  {
+    "word": "Quẩy",
+    "category": "Từ biến âm/Lóng ngắn",
+    "standard": "Vui chơi hết mình",
+    "meaning": "Hành vi nhảy múa, vui chơi vô cùng cuồng nhiệt và hết mình trong các buổi tiệc, liên hoan tập thể.",
+    "context": "Tham gia buổi giao lưu liên hoan văn nghệ cuối năm học cùng với các bạn trong lớp.",
+    "advice": "Sử dụng trong không gian giải trí, lễ hội lành mạnh của học sinh nhằm xả stress học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Ra đảo",
+    "category": "Phép ẩn dụ/Hoán dụ",
+    "standard": "Khóa tài khoản, cấm truy cập",
+    "meaning": "Ví việc bị trục xuất khỏi nhóm mạng xã hội như bị đày ra đảo hoang, không thể tương tác.",
+    "context": "Tài khoản mạng xã hội bị vi phạm tiêu chuẩn cộng đồng nên bị admin xóa tên khỏi hội nhóm.",
+    "advice": "Thuật ngữ phổ biến trong công nghệ quản trị nội dung mạng xã hội trực tuyến hiện nay.",
+    "status": "approved"
+  },
+  {
+    "word": "Ra ngô ra khoai",
+    "category": "Thành ngữ hiện đại",
+    "standard": "Giải quyết làm cho rõ lẽ",
+    "meaning": "Biến tấu câu thành ngữ dân gian để chỉ việc làm sáng tỏ một vụ mâu thuẫn, tranh chấp đến cùng.",
+    "context": "Tổ chức họp lớp phân định rõ ràng trách nhiệm làm hỏng dụng cụ lao động của tập thể.",
+    "advice": "Hướng tới hành vi giải quyết mâu thuẫn minh bạch, công bằng và tôn trọng luật lệ học đường.",
+    "status": "approved"
+  },
+  {
+    "word": "Xỉu úp xỉu down",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Kinh ngạc, ngất lên ngất xuống",
+    "meaning": "Trạng thái quá đỗi kinh ngạc hoặc quá thích thú trước một sự việc đến mức không chịu nổi.",
+    "context": "Nghe tin nhóm nhạc thần tượng quốc tế chuẩn bị có chuyến lưu diễn chính thức tại Việt Nam.",
+    "advice": "Chỉ sử dụng làm từ cảm thán cường điệu cảm xúc vui vẻ trên không gian mạng xã hội.",
+    "status": "approved"
+  },
+  {
+    "word": "Xịn xò",
+    "category": "Từ ghép sáng tạo",
+    "standard": "Đẳng cấp, chất lượng tốt",
+    "meaning": "Từ lóng chỉ một đồ vật có giá trị cao, xịn mịn hoặc khen ngợi một người có năng lực rất ngầu.",
+    "context": "Khen ngợi chiếc máy tính xách tay mới mua của bạn học đạt cấu hình rất cao.",
+    "advice": "Được chấp nhận sử dụng rộng rãi, tự nhiên trong giao tiếp đời sống hằng ngày của giới trẻ.",
+    "status": "approved"
   }
-];
+]
