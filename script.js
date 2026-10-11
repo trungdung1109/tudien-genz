@@ -60,7 +60,7 @@ searchInput.addEventListener('input', () => {
     // Hiện nút xóa nhanh chữ ✖️
     clearBtn.style.display = 'block';
 
-    // Tìm các từ trong 354 từ có chứa ký tự đang gõ
+    // Tìm các từ trong 600 từ có chứa ký tự đang gõ
     const matchedWords = currentDictionary.filter(item => 
         item.word.toLowerCase().includes(query)
     );
@@ -69,7 +69,7 @@ searchInput.addEventListener('input', () => {
     if (matchedWords.length > 0) {
         suggestionsBox.innerHTML = "";
         // Giới hạn hiển thị tối đa 5 từ gợi ý để giao diện gọn gàng
-        matchedWords.slice(0, 5).forEach(item => {
+        matchedWords.slice(0, 15).forEach(item => {
             const div = document.createElement('div');
             div.className = 'suggestion-item';
             div.innerText = item.word.toUpperCase(); // In hoa chữ gợi ý
