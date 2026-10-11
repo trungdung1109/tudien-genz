@@ -78,24 +78,9 @@
 <!-- Sau đó mới chạy file xử lý logic -->
 <script src="script.js"></script>
 <script src="contribute.js"></script>
-
-<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
-<script>
-  new CozeWebSDK.WebChatClient({
-    config: {
-      bot_id: '7694941702440239157',
-    },
-    componentProps: {
-      title: 'Coze',
-    },
-    auth: {
-      type: 'token',
-      token: 'pat_********',
-      onRefreshToken: function () {
-        return 'pat_********'
-      }
-    }
-  });
-</script>
+<!-- Nút bấm mở Trợ lý AI giải mã bối cảnh GenZ -->
+<a href="https://www.coze.com/space/7694868172491423749/bot/7694941702440239157" target="_blank" style="position: fixed; bottom: 25px; right: 25px; background-color: #7B2CBF; color: white; padding: 14px 24px; border-radius: 30px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; text-decoration: none; box-shadow: 0px 4px 15px rgba(123, 44, 191, 0.4); z-index: 9999; display: flex; align-items: center; gap: 10px; transition: all 0.3s ease;">
+   🤖 Trợ Lý Ảo AI Định Hướng GenZ (Click để Chat)
+</a>
 </body>
 </html>
