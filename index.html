@@ -88,4 +88,18 @@
    🤖 Trợ Lý Ảo AI Định Hướng GenZ (Click để Chat)
 </a>
 </body>
+    <!-- Hệ thống Trợ lý ảo AI tự động hiển thị ô chat góc màn hình (Bảo mật 100%, không lo lộ Token) -->
+<script src="https://coze.com"></script>
+<script>
+    new CozeWebSDK.WebChatClient({
+        config: {
+            bot_id: '7694941702440239157', // Định danh chính xác căn hộ Bot của bạn
+        },
+        componentProps: {
+            title: 'Trợ Lý Ảo AI Định Hướng GenZ',
+            icon: 'https://coze.com',
+            layout: 'component',
+        },
+    });
+</script>
 </html>
