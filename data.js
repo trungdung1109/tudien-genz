@@ -1,4 +1,4 @@
-const currentDictionary = [
+const genzDictionary = [
  {
     "word": "10 điểm không có nhưng",
     "category": "Thành ngữ hiện đại",
