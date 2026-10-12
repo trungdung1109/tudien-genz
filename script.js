@@ -32,7 +32,7 @@ const submitBtn = document.getElementById('submit-btn');
 // =========================================================================
 
 // Hàm hiển thị chi tiết đầy đủ 7 trường thông tin ra màn hình
-function displayWordDetails(item) {
+function displayWordDetails_CU(item) {
     resultBox.innerHTML = `
         <div class="result-item"><strong>THUẬT NGỮ MẠNG (GENZ):</strong> <span style="color: #ffee58; font-weight: bold; font-size: 20px;">${item.word.toUpperCase()}</span></div>
         <div class="result-item"><strong>PHÂN LOẠI:</strong> ${item.category || 'Chưa phân loại'}</div>
@@ -43,6 +43,44 @@ function displayWordDetails(item) {
         <div class="result-item"><strong>TRẠNG THÁI:</strong> <span style="color: #2ecc71; font-weight: bold;">${item.status || 'Đã duyệt'}</span></div>
     `;
     suggestionsBox.style.display = 'none'; // Đóng hộp gợi ý lại sau khi chọn xong
+}
+// Hàm hiển thị chi tiết đầy đủ thông tin ra màn hình (Đã chuyển sang hệ thống "Màu" + Bảng đối chiếu)
+function displayWordDetails(item) {
+    // Thuật toán tự động nhận diện ký hiệu màu từ file dữ liệu
+    let lightEmoji = "🟢";
+    if (item.warning_light.includes("Vàng")) lightEmoji = "🟡";
+    if (item.warning_light.includes("Đỏ")) lightEmoji = "🔴";
+
+    resultBox.innerHTML = `
+        <!-- Khung Hệ Thống Màu Cảnh Báo Trực Quan -->
+        <div style="display: flex; align-items: center; background-color: #2a2a40; padding: 15px; border-radius: 12px; margin-bottom: 20px; border-left: 6px solid ${lightEmoji === '🟢' ? '#2ecc71' : lightEmoji === '🟡' ? '#f1c40f' : '#e74c3c'}">
+            <span style="font-size: 40px; margin-right: 15px;">${lightEmoji}</span>
+            <div>
+                <strong style="color: #fff; font-size: 16px;">HỆ THỐNG MÀU CẢNH BÁO BỐI CẢNH:</strong>
+                <p style="margin: 5px 0 0 0; color: #bbb; font-size: 14px;">Từ này thuộc nhóm <span style="font-weight: bold; color: #fff;">${item.warning_light.toUpperCase()}</span>.</p>
+            </div>
+        </div>
+
+        <!-- BẢNG ĐỐI CHIẾU Ý NGHĨA MÃ MÀU (Người dùng nhìn vào biết ngay bối cảnh) -->
+        <div style="background-color: #1e1e2f; border: 1px solid #3d3d5c; padding: 15px; border-radius: 12px; margin-bottom: 20px; font-family: Arial, sans-serif;">
+            <strong style="color: #ffee58; display: block; margin-bottom: 10px; font-size: 14px;">📋 BẢNG ĐỐI CHIẾU QUY ƯỚC MÀU BỐI CẢNH SƯ PHẠM:</strong>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+                <div style="display: flex; align-items: center; gap: 10px; color: #2ecc71;"><span style="font-size: 18px;">🟢</span> <strong>Màu Xanh (An toàn):</strong> Thuật ngữ vui vẻ, lành tính. Tự do dùng giao tiếp bạn bè.</div>
+                <div style="display: flex; align-items: center; gap: 10px; color: #f1c40f;"><span style="font-size: 18px;">🟡</span> <strong>Màu Vàng (Hạn chế):</strong> Dễ gây hoang mang cho người lớn. Hạn chế dùng ở nhà để bảo vệ giao tiếp gia đình.</div>
+                <div style="display: flex; align-items: center; gap: 10px; color: #e74c3c;"><span style="font-size: 18px;">🔴</span> <strong>Màu Đỏ (Nghiêm cấm):</strong> Từ ngữ tiêu cực, lỗi bối cảnh nặng. Nghiêm cấm dùng trong học đường, bài thi, lớp học.</div>
+            </div>
+        </div>
+
+        <!-- Khung Hiển Thị Chi Tiết Kết Quả -->
+        <div class="result-item"><strong>THUẬT NGỮ MẠNG (GENZ):</strong> <span style="color: #ffee58; font-weight: bold; font-size: 20px;">${item.word.toUpperCase()}</span></div>
+        <div class="result-item"><strong>PHÂN LOẠI:</strong> ${item.category || 'Chưa phân loại'}</div>
+        <div class="result-item"><strong>TỪ CHUẨN MỰC:</strong> ${item.standard || 'Chưa cập nhật'}</div>
+        <div class="result-item"><strong>Ý NGHĨA:</strong> ${item.meaning}</div>
+        <div class="result-item"><strong>NGỮ CẢNH GIAO TIẾP:</strong> ${item.context || 'Chưa cập nhật'}</div>
+        <div class="result-item"><strong>LỜI KHUYÊN SỬ DỤNG:</strong> ${item.advice || 'Chưa có lời khuyên'}</div>
+        <div class="result-item"><strong>TRẠNG THÁI:</strong> <span style="color: #2ecc71; font-weight: bold;">${item.status || 'Đã duyệt'}</span></div>
+    `;
+    suggestionsBox.style.display = 'none';
 }
 
 // Kích hoạt Instant Search: Gõ chữ đến đâu gợi ý nhảy ra đến đó
