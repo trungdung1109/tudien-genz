@@ -83,25 +83,13 @@
 <!-- Sau đó mới chạy file xử lý logic -->
 <script src="script.js"></script>
 <script src="contribute.js"></script>
-<!-- Nút bấm mở Trợ lý AI giải mã Ngôn ngữ GenZ (Đã cấu hình link công khai không lỗi) 
-<!-- 1. Nhúng thư viện SDK chính thức từ Coze -->
-<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
-<!-- 2. Cấu hình hiển thị nút chat công khai không đòi đăng nhập -->
-<script>
-   new CozeWebChat.WebChat({
-        config: {
-            bot_id: '7694941702440239157',
-        },
-        componentProps: {
-            title: 'Trợ Lý Ảo AI Định Hướng GenZ',
-        },
-        auth_type: 'anonymous',
-        display_type: 'as_button', // Kích hoạt hiển thị Bot dưới dạng nút bấm tròn ở góc màn hình
-        buttonConfig: {
-            icon: 'https://coze.com', // Hình ảnh icon đại diện của nút
-            backgroundColor: '#7B2CBF', // Màu tím đồng bộ với giao diện web của bạn
-        }
-    });
-</script>
+<!-- Nút bấm mở phòng Chat giải mã GenZ cố định ở góc màn hình -->
+<div style="position: fixed; bottom: 25px; right: 25px; z-index: 99999;">
+    <a href="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js" 
+       target="_blank" 
+       style="background-color: #7B2CBF; color: white; padding: 14px 24px; border-radius: 30px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; text-decoration: none; box-shadow: 0px 4px 15px rgba(123, 44, 191, 0.4); display: flex; align-items: center; gap: 10px; transition: all 0.3s ease;">
+       🤖 Trợ Lý Ảo AI Định Hướng GenZ (Click để Chat)
+    </a>
+</div>
 </body>
 </html>
