@@ -88,7 +88,7 @@
 <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
 <!-- 2. Cấu hình hiển thị nút chat công khai không đòi đăng nhập -->
 <script>
-    new CozeWebChat.WebChat({
+   new CozeWebChat.WebChat({
         config: {
             bot_id: '7694941702440239157',
         },
@@ -96,6 +96,11 @@
             title: 'Trợ Lý Ảo AI Định Hướng GenZ',
         },
         auth_type: 'anonymous',
+        display_type: 'as_button', // Kích hoạt hiển thị Bot dưới dạng nút bấm tròn ở góc màn hình
+        buttonConfig: {
+            icon: 'https://coze.com', // Hình ảnh icon đại diện của nút
+            backgroundColor: '#7B2CBF', // Màu tím đồng bộ với giao diện web của bạn
+        }
     });
 </script>
 </body>
