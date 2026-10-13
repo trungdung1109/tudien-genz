@@ -78,24 +78,24 @@
             <button id="submit-btn" class="gradient-btn">GỬI LÊN VŨ TRỤ (CHỜ DUYỆT)</button>
         </div>
     </div>
-<!-- Kết nối đến file dữ liệu 354 từ trước -->
+<!-- Kết nối đến file dữ liệu 600 từ trước -->
 <script src="data.js"></script>
 <!-- Sau đó mới chạy file xử lý logic -->
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 <!-- 1. Nhúng thư viện SDK chính thức từ Coze -->
-<script src="https://coze.com"></script>
-
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
 <!-- 2. Cấu hình hiển thị nút chat công khai không đòi đăng nhập -->
 <script>
     new CozeWebChat.WebChat({
         config: {
-            bot_id: '7694941702440239157', // Đã điền đúng mã định danh của bạn
+            bot_id: '7694941702440239157',
         },
         componentProps: {
             title: 'Trợ Lý Ảo AI Định Hướng GenZ',
         },
-        auth_type: 'anonymous', // Quyết định bot chạy tự do, không bắt đăng nhập
+        auth_type: 'anonymous',
     });
 </script>
+</body>
 </html>
