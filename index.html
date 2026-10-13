@@ -83,10 +83,37 @@
 <!-- Sau đó mới chạy file xử lý logic -->
 <script src="script.js"></script>
 <script src="contribute.js"></script>
+<!-- Khởi tạo thư viện Coze Web SDK chính thức -->
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
 
-<!-- Nút bấm mở phòng Chat giải mã GenZ cố định ở góc màn hình (Ép điều hướng không tải file) -->
+<script>
+  // Kích hoạt cấu hình hiển thị bong bóng chat tự động ẩn/hiển thị góc màn hình
+  const bot = new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7694941702440239157', // ID con bot của bạn
+    },
+    componentProps: {
+      title: 'Giải Mã GenZ AI',
+    },
+    auth: {
+      type: 'anon', // Chế độ Khách (Anonymous): Tắt hoàn toàn bắt đăng nhập Email/SĐT
+    }
+  });
+
+  // Hàm bổ trợ để khi người dùng bấm vào nút của bạn, phòng chat sẽ tự động mở ra trực tiếp
+  function openGenZChat() {
+    if (bot && typeof bot.showChat === 'function') {
+      bot.showChat();
+    } else {
+      // Gợi ý sơ phòng nếu SDK chưa tải xong
+      alert("Trợ lý AI đang khởi động, bạn đợi một xíu nhé!");
+    }
+  }
+</script>
+
+<!-- Nút bấm mở phòng Chat giải mã GenZ cố định ở góc màn hình -->
 <div style="position: fixed; bottom: 25px; right: 25px; z-index: 99999;">
-    <button onclick="window.open('https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js', '_blank', 'noopener,noreferrer')" 
+    <button onclick="openGenZChat()" 
             style="background-color: #7B2CBF; color: white; padding: 14px 24px; border-radius: 30px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; border: none; box-shadow: 0px 4px 15px rgba(123, 44, 191, 0.4); display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease;">
        🤖 Trợ Lý Ảo AI Định Hướng GenZ (Click để Chat)
     </button>
@@ -94,3 +121,4 @@
 
 </body>
 </html>
+
