@@ -84,102 +84,19 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 
-<!-- ===================================== -->
-<!-- KHUNG CHAT ROBOT AI THÔNG MINH DỰ THI -->
-<!-- ===================================== -->
-
-<!-- Nút bấm mở ô Chat cố định ở góc dưới bên phải -->
-<div style="position: fixed; bottom: 25px; right: 25px; z-index: 99999;">
-    <button onclick="moOChating()" 
-            style="background-color: #ff0055; color: white; padding: 14px 24px; border-radius: 30px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; border: none; box-shadow: 0px 4px 15px rgba(255, 0, 85, 0.4); display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease;">
-       🤖 Trợ lý AI giải mã ngôn ngữ GenZ (Click để Chat)
-    </button>
-</div>
-
-<!-- Cửa sổ khung Chat thông minh -->
-<div id="khung-chat-ai" style="display: none; position: fixed; bottom: 90px; right: 25px; width: 360px; height: 500px; background: #161a23; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border: 1px solid #2d3748; z-index: 100000; flex-direction: column; font-family: sans-serif;">
-    <!-- Tiêu đề khung chat -->
-    <div style="background-color: #1a202c; padding: 15px; color: white; font-weight: bold; border-bottom: 1px solid #2d3748; display: flex; justify-content: space-between; align-items: center;">
-        <span>🤖 Trợ Lý Từ Điển GenZ AI</span>
-        <button onclick="dongOChating()" style="background: none; border: none; color: #a0aec0; font-size: 20px; cursor: pointer;">&times;</button>
-    </div>
-    
-    <!-- Vùng hiển thị tin nhắn -->
-    <div id="vung-tin-nhan" style="flex: 1; padding: 15px; overflow-y: auto; color: white; font-size: 14px; display: flex; flex-direction: column; gap: 10px;">
-        <div style="background: #2d3748; padding: 10px; border-radius: 8px; max-width: 85%; align-self: flex-start;">
-            Chào bạn! Mình là Trợ lý AI giải mã ngôn ngữ GenZ. Bạn có thể tra cứu nhanh bằng các gợi ý dưới đây hoặc gõ từ cần tìm nhé!
-        </div>
-        
-        <!-- Các nút câu hỏi gợi ý thông minh hiện sẵn giống Coze -->
-        <div id="nut-goi-y" style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;">
-            <button onclick="guiCauHoiGoiY('Cứu nét là gì?')" style="background: #2b1b40; color: #d6bcfa; border: 1px solid #6b46c1; padding: 8px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 13px;">💡 Cứu nét là gì?</button>
-            <button onclick="guiCauHoiGoiY('Khum nghĩa là gì?')" style="background: #2b1b40; color: #d6bcfa; border: 1px solid #6b46c1; padding: 8px; border-radius: 6px; text-align: left; cursor: pointer; font-size: 13px;">💡 Khum nghĩa là gì?</button>
-        </div>
-    </div>
-
-    <!-- Ô nhập tin nhắn -->
-    <div style="padding: 10px; border-top: 1px solid #2d3748; display: flex; gap: 5px; background: #1a202c;">
-        <input type="text" id="o-nhap-lieu" placeholder="Nhập từ cần tra ở đây..." style="flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #4a5568; background: #2d3748; color: white; outline: none;">
-        <button onclick="xuLyGuiTinNhan()" style="background: #ff0055; color: white; border: none; padding: 0 15px; border-radius: 8px; cursor: pointer; font-weight: bold;">Gửi</button>
-    </div>
-</div>
-
-<!-- Tải thư viện tích hợp thông minh thế hệ mới tương thích mã AQ -->
-<script type="importmap">
-  {
-    "imports": {
-      "@google/generative-ai": "https://esm.run"
-    }
-  }
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://tawk.to';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
-
-<script type="module">
-  import { GoogleGenAI } from "@google/generative-ai";
-
-  // Ráp mã khóa AQ chính xác của bạn vào hệ thống chạy ẩn
-  const ai = new GoogleGenAI({ apiKey: "AQ.Ab8RN6KlYWP4gYBMGvMVxYsUTndrMSW21Y2bJk5JW0gMKWPYVQ" });
-  const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-  window.moOChating = function() { document.getElementById('khung-chat-ai').style.display = 'flex'; }
-  window.dongOChating = function() { document.getElementById('khung-chat-ai').style.display = 'none'; }
-
-  window.guiCauHoiGoiY = function(cauHoi) {
-      document.getElementById('o-nhap-lieu').value = cauHoi;
-      window.xuLyGuiTinNhan();
-      document.getElementById('nut-goi-y').style.display = 'none';
-  }
-
-  window.xuLyGuiTinNhan = async function() {
-      const input = document.getElementById('o-nhap-lieu');
-      const text = input.value.trim();
-      if(!text) return;
-
-      const vungTinNhan = document.getElementById('vung-tin-nhan');
-      vungTinNhan.innerHTML += `<div style="background: #ff0055; padding: 10px; border-radius: 8px; max-width: 85%; align-self: flex-end; color: white;">${text}</div>`;
-      input.value = '';
-      vungTinNhan.scrollTop = vungTinNhan.scrollHeight;
-
-      const loadingId = 'load-' + Date.now();
-      vungTinNhan.innerHTML += `<div id="${loadingId}" style="background: #2d3748; padding: 10px; border-radius: 8px; max-width: 85%; align-self: flex-start;">AI đang suy nghĩ...</div>`;
-      vungTinNhan.scrollTop = vungTinNhan.scrollHeight;
-      
-      try {
-          // Gửi dữ liệu yêu cầu giải nghĩa từ kèm theo tập chỉ dẫn 600 từ nâng cao
-          const result = await model.generateContent("Bạn là một trợ lý AI thông minh chuyên giải mã tiếng lóng của giới trẻ (ngôn ngữ GenZ) tại Việt Nam. Hãy đóng vai một người bạn vui nhộn, hài hước, sử dụng các icon trẻ trung để giải thích từ ngữ người dùng yêu cầu một cách thật ngắn gọn, dễ hiểu và đưa ra ví dụ thực tế. Khi người dùng tra cứu, hãy ưu tiên tìm thông tin và giải nghĩa theo tệp dữ liệu 600 từ từ điển GenZ gốc của hệ thống. Nếu người dùng hỏi một từ lóng mới nằm ngoài danh sách 600 từ, bạn hãy tự động vận dụng trí tuệ thông minh của mô hình AI để tự phân tích ngữ cảnh và giải nghĩa chi tiết cho họ nhé. Từ lóng người dùng cần tra là: " + text);
-          const response = await result.response;
-          const bieuDienTraVoi = response.text();
-          document.getElementById(loadingId).innerText = bieuDienTraVoi;
-      } catch (error) {
-          console.error(error);
-          document.getElementById(loadingId).innerText = "Trợ lý đang bận xử lý dữ liệu, bạn thử lại từ khác nhé!";
-      }
-      vungTinNhan.scrollTop = vungTinNhan.scrollHeight;
-  }
-</script>
-
-<!-- ===================================== -->
-<!-- KẾT THÚC KHUNG CHAT ROBOT AI -->
-<!-- ===================================== -->
+<!--End of Tawk.to Script-->
 
 </body>
 </html>
