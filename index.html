@@ -109,8 +109,9 @@
       title: 'Giải Mã GenZ AI',
     },
     auth: {
-      type: 'anon', // ĐÂY CHÍNH LÀ LỆNH TẮT ĐĂNG NHẬP: Người dùng truy cập tự do hoàn toàn
-    }
+  type: 'unauth', // 1. Đổi tên phương thức xác thực chuẩn của Coze
+  client_id: 'genz_user_' + Math.random().toString(36).substring(2, 9), // 2. BẮT BUỘC: Tạo ID ngẫu nhiên cho khách truy cập tự do
+}, // ĐÂY CHÍNH LÀ LỆNH TẮT ĐĂNG NHẬP: Người dùng truy cập tự do hoàn toàn
   });
 </script>
 
