@@ -105,15 +105,19 @@
     config: {
       bot_id: '7694941702440239157', // Mã số bot chính xác của bạn
     },
-    componentProps: {
-     title: 'Giải Mã GenZ AI',
-  },
-  auth: {
-    type: 'token', // Bắt buộc chuyển sang 'token'
-    token: 'pat_Zk9fSN6ucbjFsxkwlmzGYjCkkzgGAGFkDZck87A93n5fXKvNYeB0elLrrQzGjrac' // Dán chính xác mã token bạn vừa copy vào đây
-  } 
-});
-</script> 
+   componentProps: {
+      title: 'Giải Mã GenZ AI',
+    },
+    auth: {
+      type: 'token', 
+      token: 'pat_Zk9fSN6ucbjFsxkwlmzGYjCkkzgGAGFkDZck87A93n5fXKvNYeB0elLrrQzGjrac',
+      // BỔ SUNG HÀM NÀY ĐỂ SỬA LỖI ĐỎ TRÊN CONSOLE:
+      onRefreshToken: async () => {
+        return 'pat_Zk9fSN6ucbjFsxkwlmzGYjCkkzgGAGFkDZck87A93n5fXKvNYeB0elLrrQzGjrac';
+      }
+    }
+  });
+</script>
 
 <!-- Nút bấm mở phòng Chat giải mã GenZ cố định ở góc dưới bên phải màn hình -->
 <div style="position: fixed; bottom: 25px; right: 25px; z-index: 99999;">
