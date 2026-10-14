@@ -85,46 +85,58 @@
 <script src="contribute.js"></script>
 
 <!-- ===================================== -->
-<!-- PHẦN CẤU HÌNH PHÒNG CHÁT DỰ THI ĐỘC LẬP -->
+<!-- CẤU HÌNH TRỢ LÝ AI COZE CHUẨN DỰ THI -->
 <!-- ===================================== -->
 
-<!-- Nút bấm mở phòng Chat giải mã GenZ cố định ở góc dưới bên phải -->
-<div style="position: fixed; bottom: 25px; right: 25px; z-index: 99999;">
-    <button onclick="moPhongChatGenZ()" 
-            style="background-color: #ff0055; color: white; padding: 14px 24px; border-radius: 30px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; border: none; box-shadow: 0px 4px 15px rgba(255, 0, 85, 0.4); display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease;">
-       🤖 Trợ Lý AI Giải Mã ngôn ngữ GenZ (Click để Chat)
-    </button>
-</div>
-
-<!-- Khởi tạo thư viện Coze Web SDK độc lập -->
-<script src="https://coze.com"></script>
+<!-- 1. Tải thư viện chính thức của Coze Web SDK -->
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
 
 <script>
-  // Cấu hình con bot Coze thông minh chạy ngầm
+  // 2. Khởi tạo con bot với cấu hình định danh tự động (Sửa lỗi onRefreshToken)
   const CozeGenzBot = new CozeWebSDK.WebChatClient({
     config: {
-      bot_id: '7694941702440239157',
+      bot_id: '7694941702440239157', // ID bot từ điển của bạn
     },
     componentProps: {
       title: 'Giải Mã GenZ AI',
     },
     auth: {
-      type: 'token', 
-      token: 'pat_Zk9fSN6ucbjFsxkwlmzGYjCkkzgGAGFkDZck87A93n5fXKvNYeB0elLrrQzGjrac',
-      onRefreshToken: async () => {
-        return 'pat_Zk9fSN6ucbjFsxkwlmzGYjCkkzgGAGFkDZck87A93n5fXKvNYeB0elLrrQzGjrac';
+      type: 'anon',
+      // Hàm bắt buộc này tự tạo 1 mã ngẫu nhiên cho khách, giải quyết triệt để lỗi đỏ Console
+      onRefreshToken: function () {
+        return new Promise((resolve) => {
+          const s4 = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+          const uuid = s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+          resolve({
+            token: uuid,
+            expiration_time: 86400 // Giữ phiên đăng nhập trong 24 giờ
+          });
+        });
       }
     }
   });
+
+  // 3. Hàm kích hoạt phòng chat mượt mà, không lo bị đơ lệnh
+  function kichHoatChatGenz() {
+    if (CozeGenzBot && typeof CozeGenzBot.showChat === 'function') {
+        CozeGenzBot.showChat();
+    } else {
+        console.log("Hệ thống Coze đang kết nối...");
+    }
+  }
 </script>
 
-<!-- Nút bấm mở phòng Chat giải mã GenZ cố định ở góc dưới bên phải màn hình -->
+<!-- 4. Nút bấm mở phòng Chat màu tím neon cố định ở góc dưới bên phải -->
 <div style="position: fixed; bottom: 25px; right: 25px; z-index: 99999;">
-    <button onclick="CozeGenzBot.show()" 
+    <button onclick="kichHoatChatGenz()" 
             style="background-color: #7B2CBF; color: white; padding: 14px 24px; border-radius: 30px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; border: none; box-shadow: 0px 4px 15px rgba(123, 44, 191, 0.4); display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.3s ease;">
        🤖 Trợ Lý AI Giải Mã Ngôn Ngữ GenZ (Click để Chat)
     </button>
 </div>
+
+<!-- ===================================== -->
+<!-- KẾT THÚC CẤU HÌNH TRỢ LÝ AI COZE -->
+<!-- ===================================== -->
 
 </body>
 </html>
