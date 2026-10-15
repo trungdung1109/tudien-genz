@@ -83,20 +83,40 @@
 <!-- Sau đó mới chạy file xử lý logic -->
 <script src="script.js"></script>
 <script src="contribute.js"></script>
-<!-- ===================================== -->
-<!-- BONG BÓNG CHAT ROBOT AI THÔNG MINH DỰ THI -->
-<!-- ===================================== -->
+<!-- ======================================================= -->
+<!-- BONG BÓNG CHAT VÀ DÒNG CHỮ TRỢ LÝ AI ĐỒNG BỘ GIAO DIỆN -->
+<!-- ======================================================= -->
+
+<!-- Dòng chữ gợi ý bên cạnh bong bóng chat -->
+<div onclick="document.querySelector('typebot-standard').shadowRoot.querySelector('.typebot-bubble-button').click()" 
+     style="position: fixed; bottom: 32px; right: 95px; z-index: 99999; background: #161a23; color: #ff0055; border: 1px solid #ff0055; padding: 10px 18px; border-radius: 20px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; font-size: 13px; box-shadow: 0px 4px 15px rgba(255, 0, 85, 0.3); cursor: pointer; transition: all 0.3s ease; animation: nhapNhayNeon 2s infinite alternate;">
+   🤖 Trợ lý ảo AI giải mã ngôn ngữ GenZ
+</div>
+
+<style>
+  /* Hiệu ứng neon nhấp nháy thu hút sự chú ý của giám khảo */
+  @keyframes nhapNhayNeon {
+    0% { box-shadow: 0 0 5px rgba(255, 0, 85, 0.2); }
+    100% { box-shadow: 0 0 15px rgba(255, 0, 85, 0.6); }
+  }
+</style>
+
+<!-- Kích hoạt lõi công nghệ Typebot chuẩn ID của bạn -->
 <script type="module">
-  import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js"
+  import Typebot from "https://jsdelivr.net"
 
   Typebot.initBubble({
-    typebot: "my-typebot-29zqhfz",
+    typebot: "cmv8tpfav000a04ju5ht3e1d2", 
     theme: {
-      button: { backgroundColor: "#ff0055" }, // Đã đổi sang màu đỏ hồng neon đồng bộ với nút tra cứu trên web của bạn
-      chatWindow: { backgroundColor: "#161a23" }, // Đã đổi nền tối đồng bộ với giao diện Dark Mode của từ điển
+      button: { backgroundColor: "#ff0055" }, 
+      chatWindow: { backgroundColor: "#161a23" }, 
     },
   });
 </script>
+
+<!-- ======================================================= -->
+<!-- KẾT THÚC PHẦN CODE CHATBOT -->
+<!-- ======================================================= -->
 
 </body>
 </html>
