@@ -84,34 +84,42 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 <!-- ======================================================= -->
-<!-- BONG BÓNG CHAT VÀ DÒNG CHỮ TRỢ LÝ AI ĐỒNG BỘ GIAO DIỆN -->
+<!-- KHUNG PHÒNG CHAT TRỢ LÝ AI ĐỘC LẬP TỐI ƯU DỰ THI -->
 <!-- ======================================================= -->
 
-<!-- Dòng chữ gợi ý bên cạnh bong bóng chat -->
-<div onclick="document.querySelector('typebot-standard').shadowRoot.querySelector('.typebot-bubble-button').click()" 
-     style="position: fixed; bottom: 32px; right: 95px; z-index: 99999; background: #161a23; color: #ff0055; border: 1px solid #ff0055; padding: 10px 18px; border-radius: 20px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; font-size: 13px; box-shadow: 0px 4px 15px rgba(255, 0, 85, 0.3); cursor: pointer; transition: all 0.3s ease; animation: nhapNhayNeon 2s infinite alternate;">
-   🤖 Trợ lý ảo AI giải mã ngôn ngữ GenZ
+<!-- Dòng chữ gợi ý kiêm nút bấm mở phòng chat cố định ở góc dưới bên phải -->
+<div onclick="moOChatTypebot()" 
+     style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; background: #161a23; color: #ff0055; border: 1px solid #ff0055; padding: 12px 22px; border-radius: 25px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; font-size: 14px; box-shadow: 0px 4px 15px rgba(255, 0, 85, 0.4); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;">
+   🤖 Trợ lý ảo AI giải mã ngôn ngữ GenZ (Click để Chat)
 </div>
 
-<style>
-  /* Hiệu ứng neon nhấp nháy thu hút sự chú ý của giám khảo */
-  @keyframes nhapNhayNeon {
-    0% { box-shadow: 0 0 5px rgba(255, 0, 85, 0.2); }
-    100% { box-shadow: 0 0 15px rgba(255, 0, 85, 0.6); }
+<!-- Cửa sổ phòng Chat bung mở mượt mà giữa màn hình, bỏ qua lỗi chặn mạng jsdelivr -->
+<div id="vung-nen-typebot" onclick="dongOChatTypebot()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.75); z-index: 100000; justify-content: center; align-items: center;">
+    <div onclick="event.stopPropagation()" style="position: relative; width: 90%; max-width: 440px; height: 80vh; background: #161a23; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border: 1px solid #2d3748; display: flex; flex-direction: column;">
+        
+        <!-- Thanh tiêu đề phòng chat và nút đóng nhanh -->
+        <div style="background-color: #1a202c; padding: 15px; color: white; font-weight: bold; font-family: sans-serif; border-bottom: 1px solid #2d3748; display: flex; justify-content: space-between; align-items: center;">
+            <span>🤖 Trợ Lý Giải Mã GenZ AI</span>
+            <button onclick="dongOChatTypebot()" style="background: none; border: none; color: #a0aec0; font-size: 24px; cursor: pointer; padding: 0 5px; line-height: 1;">&times;</button>
+        </div>
+
+        <!-- ĐÂY LÀ ĐƯỜNG LINK HIỂN THỊ CHUẨN: Dành riêng cho khách vãng lai, tự động đồng bộ từ sơ đồ của bạn -->
+        <iframe 
+            src="https://typebot.io" 
+            style="width: 100%; height: 100%; border: none; background: #161a23;"
+            allow="clipboard-write">
+        </iframe>
+    </div>
+</div>
+
+<script>
+  // Các hàm điều khiển đóng mở bằng JavaScript thuần, cam kết 100% không lo đơ lệnh
+  function moOChatTypebot() {
+      document.getElementById('vung-nen-typebot').style.display = 'flex';
   }
-</style>
-
-<!-- Kích hoạt lõi công nghệ Typebot chuẩn ID của bạn -->
-<script type="module">
-  import Typebot from "https://jsdelivr.net"
-
-  Typebot.initBubble({
-    typebot: "cmv8tpfav000a04ju5ht3e1d2", 
-    theme: {
-      button: { backgroundColor: "#ff0055" }, 
-      chatWindow: { backgroundColor: "#161a23" }, 
-    },
-  });
+  function dongOChatTypebot() {
+      document.getElementById('vung-nen-typebot').style.display = 'none';
+  }
 </script>
 
 <!-- ======================================================= -->
