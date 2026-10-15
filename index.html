@@ -84,26 +84,28 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 <!-- ======================================================= -->
-<!-- KHUNG PHÒNG CHAT TRỢ LÝ AI ĐỘC LẬP TỐI ƯU DỰ THI -->
+<!-- KHUNG PHÒNG CHAT TRỢ LÝ AI BUNG BÊN PHẢI MÀN HÌNH -->
 <!-- ======================================================= -->
 
-<!-- Dòng chữ gợi ý kiêm nút bấm mở phòng chat cố định ở góc dưới bên phải -->
+<!-- Dòng chữ gợi ý kiêm nút bấm cố định ở góc dưới bên phải -->
 <div onclick="moOChatTypebot()" 
      style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; background: #161a23; color: #ff0055; border: 1px solid #ff0055; padding: 12px 22px; border-radius: 25px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; font-size: 14px; box-shadow: 0px 4px 15px rgba(255, 0, 85, 0.4); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;">
    🤖 Trợ lý ảo AI giải mã ngôn ngữ GenZ (Click để Chat)
 </div>
 
-<!-- Cửa sổ phòng Chat bung mở mượt mà giữa màn hình, bỏ qua lỗi chặn mạng jsdelivr -->
-<div id="vung-nen-typebot" onclick="dongOChatTypebot()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.75); z-index: 100000; justify-content: center; align-items: center;">
-    <div onclick="event.stopPropagation()" style="position: relative; width: 90%; max-width: 440px; height: 80vh; background: #161a23; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border: 1px solid #2d3748; display: flex; flex-direction: column;">
+<!-- Khung nền tối mờ khi mở ô chat -->
+<div id="vung-nen-typebot" onclick="dongOChatTypebot()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 100000;">
+    
+    <!-- Cửa sổ Chat nép sát góc bên phải màn hình và có hiệu ứng trượt mượt mà -->
+    <div onclick="event.stopPropagation()" id="cua-so-chat-chinh" style="position: fixed; bottom: 90px; right: -460px; width: 90%; max-width: 420px; height: 75vh; background: #161a23; border-radius: 16px; overflow: hidden; box-shadow: -5px 8px 32px rgba(0,0,0,0.4); border: 1px solid #2d3748; display: flex; flex-direction: column; transition: right 0.4s ease-in-out;">
         
-        <!-- Thanh tiêu đề phòng chat và nút đóng nhanh -->
+        <!-- Thanh tiêu đề phòng chat -->
         <div style="background-color: #1a202c; padding: 15px; color: white; font-weight: bold; font-family: sans-serif; border-bottom: 1px solid #2d3748; display: flex; justify-content: space-between; align-items: center;">
             <span>🤖 Trợ Lý Giải Mã GenZ AI</span>
             <button onclick="dongOChatTypebot()" style="background: none; border: none; color: #a0aec0; font-size: 24px; cursor: pointer; padding: 0 5px; line-height: 1;">&times;</button>
         </div>
 
-        <!-- ĐÂY LÀ ĐƯỜNG LINK HIỂN THỊ CHUẨN: Dành riêng cho khách vãng lai, tự động đồng bộ từ sơ đồ của bạn -->
+        <!-- Khung nhúng đường link Viewer công khai chuẩn mã số của bạn -->
         <iframe 
             src="https://typebot.io" 
             style="width: 100%; height: 100%; border: none; background: #161a23;"
@@ -113,12 +115,20 @@
 </div>
 
 <script>
-  // Các hàm điều khiển đóng mở bằng JavaScript thuần, cam kết 100% không lo đơ lệnh
+  // Hàm điều khiển trượt mở mượt mà nép sát vào góc bên phải
   function moOChatTypebot() {
-      document.getElementById('vung-nen-typebot').style.display = 'flex';
+      document.getElementById('vung-nen-typebot').style.display = 'block';
+      setTimeout(() => {
+          document.getElementById('cua-so-chat-chinh').style.right = '25px';
+      }, 50);
   }
+  
+  // Hàm điều khiển trượt đóng ẩn đi
   function dongOChatTypebot() {
-      document.getElementById('vung-nen-typebot').style.display = 'none';
+      document.getElementById('cua-so-chat-chinh').style.right = '-460px';
+      setTimeout(() => {
+          document.getElementById('vung-nen-typebot').style.display = 'none';
+      }, 400);
   }
 </script>
 
