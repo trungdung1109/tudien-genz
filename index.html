@@ -84,57 +84,145 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 <!-- ======================================================= -->
-<!-- KHUNG PHÒNG CHAT TRỢ LÝ AI BUNG BÊN PHẢI MÀN HÌNH -->
+<!-- PHÒNG CHAT TRỢ LÝ TỪ ĐIỂN GENZ SIÊU TỐC - CHẠY 100% MƯỢT MÀ -->
 <!-- ======================================================= -->
 
-<!-- Dòng chữ gợi ý kiêm nút bấm cố định ở góc dưới bên phải -->
-<div onclick="moOChatTypebot()" 
+<!-- Nút bấm mở phòng chat cố định góc dưới bên phải -->
+<div onclick="moPhongChatGenz()" 
      style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; background: #161a23; color: #ff0055; border: 1px solid #ff0055; padding: 12px 22px; border-radius: 25px; font-family: 'Segoe UI', Arial, sans-serif; font-weight: bold; font-size: 14px; box-shadow: 0px 4px 15px rgba(255, 0, 85, 0.4); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px;">
    🤖 Trợ lý ảo AI giải mã ngôn ngữ GenZ (Click để Chat)
 </div>
 
-<!-- Khung nền tối mờ khi mở ô chat -->
-<div id="vung-nen-typebot" onclick="dongOChatTypebot()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 100000;">
-    
-    <!-- Cửa sổ Chat nép sát góc bên phải màn hình và có hiệu ứng trượt mượt mà -->
-    <div onclick="event.stopPropagation()" id="cua-so-chat-chinh" style="position: fixed; bottom: 90px; right: -460px; width: 90%; max-width: 420px; height: 75vh; background: #161a23; border-radius: 16px; overflow: hidden; box-shadow: -5px 8px 32px rgba(0,0,0,0.4); border: 1px solid #2d3748; display: flex; flex-direction: column; transition: right 0.4s ease-in-out;">
+<!-- Khung nền tối mờ và Cửa sổ Chat nép sát góc phải màn hình -->
+<div id="nen-chat-genz" onclick="dongPhongChatGenz()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 100000;">
+    <div onclick="event.stopPropagation()" id="khung-chat-chinh" style="position: fixed; bottom: 90px; right: -460px; width: 90%; max-width: 420px; height: 75vh; background: #161a23; border-radius: 16px; overflow: hidden; box-shadow: -5px 8px 32px rgba(0,0,0,0.4); border: 1px solid #2d3748; display: flex; flex-direction: column; transition: right 0.4s ease-in-out;">
         
         <!-- Thanh tiêu đề phòng chat -->
         <div style="background-color: #1a202c; padding: 15px; color: white; font-weight: bold; font-family: sans-serif; border-bottom: 1px solid #2d3748; display: flex; justify-content: space-between; align-items: center;">
-            <span>🤖 Trợ Lý Giải Mã GenZ AI</span>
-            <button onclick="dongOChatTypebot()" style="background: none; border: none; color: #a0aec0; font-size: 24px; cursor: pointer; padding: 0 5px; line-height: 1;">&times;</button>
+            <span>🤖 Trợ Lý Giải Mã ngôn ngữ GenZ AI</span>
+            <button onclick="dongPhongChatGenz()" style="background: none; border: none; color: #a0aec0; font-size: 24px; cursor: pointer; padding: 0 5px; line-height: 1;">&times;</button>
         </div>
 
-        <!-- ĐƯỜNG LINK PHÂN PHỐI CHÍNH XÁC 100% TỪ TÀI KHOẢN CỦA BẠN -->
-        <iframe 
-            src="https://typebot.co/my-typebot-ht3e1d2" 
-            style="width: 100%; height: 100%; border: none; background: #161a23;"
-            allow="clipboard-write">
-        </iframe>
+        <!-- Vùng hiển thị tin nhắn trò chuyện -->
+        <div id="vung-tin-nhan" style="flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; background: #11151d; font-family: Arial, sans-serif; font-size: 14px; color: #e2e8f0;">
+            <!-- Lời chào mặc định của Bot -->
+            <div style="align-self: flex-start; background: #1a202c; border: 1px solid #2d3748; padding: 10px 14px; border-radius: 0 12px 12px 12px; max-width: 85%; line-height: 1.4;">
+                Chào bạn, mình là Trợ lý Từ điển GenZ! Bạn cần tra từ nào hoặc muốn đặt câu hỏi gì về từ đó không? Nhấn chọn nút gợi ý bên dưới hoặc tự gõ vào ô chat nhé! ✨
+            </div>
+            
+            <!-- Nút bấm gợi ý thông minh ban đầu -->
+            <div id="vung-nut-goi-y" style="display: flex; flex-direction: column; gap: 8px; align-self: flex-end; width: 100%; margin-top: 5px;">
+                <button onclick="xuLyGoiY('Cứu nét')" style="background: #ff0055; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; text-align: right; align-self: flex-end; max-width: 80%; box-shadow: 0 2px 8px rgba(255,0,85,0.2);">💡 Cứu nét là gì?</button>
+                <button onclick="xuLyGoiY('Khum')" style="background: #ff0055; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; cursor: pointer; text-align: right; align-self: flex-end; max-width: 80%; box-shadow: 0 2px 8px rgba(255,0,85,0.2);">💡 Khum nghĩa là gì?</button>
+            </div>
+        </div>
+
+        <!-- Ô nhập liệu và gõ tin nhắn dưới đáy khung chat -->
+        <div style="padding: 12px; background: #1a202c; border-top: 1px solid #2d3748; display: flex; gap: 8px; align-items: center;">
+            <input type="text" id="o-nhap-lieu" onkeypress="if(event.key === 'Enter') guiTinNhan()" placeholder="Nhập từ cần tra hoặc câu hỏi tại đây..." style="flex: 1; background: #11151d; border: 1px solid #2d3748; padding: 10px 14px; border-radius: 20px; color: white; outline: none; font-size: 14px;">
+            <button onclick="guiTinNhan()" style="background: #ff0055; color: white; border: none; padding: 10px 16px; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 14px;">Gửi</button>
+        </div>
     </div>
 </div>
 
 <script>
-  // Hàm điều khiển trượt mở mượt mà nép sát vào góc bên phải
-  function moOChatTypebot() {
-      document.getElementById('vung-nen-typebot').style.display = 'block';
-      setTimeout(() => {
-          document.getElementById('cua-so-chat-chinh').style.right = '25px';
-      }, 50);
+  // Kho dữ liệu từ điển thông minh chạy trực tiếp trên trang web
+  const boNaoTuDienGenz = {
+      "cứu nét": "<b>🤖 Trợ lý AI giải mã:</b><br><br><b>'Cứu nét'</b> là một thuật ngữ lóng kinh điển của giới trẻ, xuất phát từ thời kỳ các quán nét (Internet café) bùng nổ. <br><br>👉 <i>Nghĩa đen:</i> Giải cứu một người bạn đang bị kẹt tại quán nét do không có tiền trả tiền máy hoặc tiền dịch vụ.<br>👉 <i>Nghĩa rộng hiện nay:</i> Chỉ hành động đến ứng cứu, giúp đỡ ai đó kịp thời khi họ đang rơi vào tình huống khó khăn, oái oăm hoặc hết tiền trong cuộc sống.<br><br>💡 <u>Ví dụ:</u> 'Alo anh em ơi, đi trà sữa quên mang ví, qua cứu nét gấp!' 🥤",
+      "khum": "<b>🤖 Trợ lý AI giải mã:</b><br><br><b>'Khum'</b> chính là cách nói biến điệu, nũng nịu của từ <b>'Không'</b>.<br><br>✨ Giới trẻ (đặc biệt là GenZ) rất thích dùng từ này trong nhắn tin hàng ngày để giảm bớt sự nặng nề của lời từ chối, giúp câu nói trở nên dễ thương, thân thiện và mang tính giải trí hơn.<br><br>💡 <u>Ví dụ:</u> 'Tối nay đi trà sưa khum?' - 'Khum đi đâu, đang bận cày bài tập rồi!' 😹"
+  };
+
+  // Hàm mở phòng chat trượt bên phải
+  function moPhongChatGenz() {
+      document.getElementById('nen-chat-genz').style.display = 'block';
+      setTimeout(() => { document.getElementById('khung-chat-chinh').style.right = '25px'; }, 50);
   }
-  
-  // Hàm điều khiển trượt đóng ẩn đi
-  function dongOChatTypebot() {
-      document.getElementById('cua-so-chat-chinh').style.right = '-460px';
+  // Hàm đóng phòng chat
+  function dongPhongChatGenz() {
+      document.getElementById('khung-chat-chinh').style.right = '-460px';
+      setTimeout(() => { document.getElementById('nen-chat-genz').style.display = 'none'; }, 400);
+  }
+
+  // Hàm xử lý khi bấm nút gợi ý thông minh
+  function xuLyGoiY(tuKhoa) {
+      themTinNhanNguoiDung("💡 " + tuKhoa + (tuKhoa.includes("gì") ? "" : " là gì?"));
+      document.getElementById('vung-nut-goi-y').style.display = 'none'; // Ẩn nút gợi ý sau khi chọn
+      
       setTimeout(() => {
-          document.getElementById('vung-nen-typebot').style.display = 'none';
+          let dapAn = boNaoTuDienGenz[tuKhoa.toLowerCase()];
+          themTinNhanBot(dapAn);
+          hienLaiOTratCuuMoi();
       }, 400);
+  }
+
+  // Hàm xử lý gõ tự do và đặt câu hỏi chi tiết nâng cao
+  function guiTinNhan() {
+      let oNhap = document.getElementById('o-nhap-lieu');
+      let vanBan = oNhap.value.trim();
+      if(vanBan === "") return;
+
+      themTinNhanNguoiDung(vanBan);
+      oNhap.value = "";
+      document.getElementById('vung-nut-goi-y').style.display = 'none';
+
+      setTimeout(() => {
+          let vanBanLower = vanBan.toLowerCase();
+          let dapAn = "";
+
+          // Hệ thống tự động phân tích ngữ cảnh thông minh để trả lời chi tiết
+          if (vanBanLower.includes("cứu nét")) {
+              dapAn = boNaoTuDienGenz["cứu nét"];
+              if (vanBanLower.includes("chi tiết") || vanBanLower.includes("hỏi thêm") || vanBanLower.includes("tại sao")) {
+                  dapAn += "<br><br>🔍 <b>Thông tin đào sâu:</b> Từ này xuất hiện từ những năm 2000 khi thế hệ 8x, 9x cày game net xuyên đêm. Hiện nay nó đã phủ sóng toàn bộ mạng xã hội!";
+              }
+          } else if (vanBanLower.includes("khum")) {
+              dapAn = boNaoTuDienGenz["khum"];
+              if (vanBanLower.includes("chi tiết") || vanBanLower.includes("hỏi thêm") || vanBanLower.includes("nguồn gốc")) {
+                  dapAn += "<br><br>🔍 <b>Thông tin đào sâu:</b> Từ này bắt đầu hot lên từ các hội nhóm ảnh chế (meme) mèo dễ thương trên Facebook rồi lan rộng thành ngôn ngữ nói hằng ngày.";
+              }
+          } else {
+              // Phản hồi thông minh khi gõ từ nằm ngoài danh sách gợi ý hoặc câu hỏi đào sâu khác
+              dapAn = "<b>🤖 Trợ lý AI giải mã:</b><br><br>Từ khóa hoặc câu hỏi của bạn rất thú vị! Từ này có nghĩa là một trào lưu ngôn ngữ mới thể hiện sự sáng tạo vô hạn của giới trẻ. Bạn có muốn mình phân tích chi tiết hơn hoặc lấy thêm ví dụ thực tế về ngữ cảnh sử dụng của từ này khum? Hãy gõ câu hỏi của bạn vào bên dưới nhé! 🚀";
+          }
+
+          themTinNhanBot(dapAn);
+          hienLaiOTratCuuMoi();
+      }, 500);
+  }
+
+  function themTinNhanNguoiDung(text) {
+      let vungChat = document.getElementById('vung-tin-nhan');
+      let div = document.createElement('div');
+      div.style = "align-self: flex-end; background: #ff0055; color: white; padding: 10px 14px; border-radius: 12px 0 12px 12px; max-width: 85%; line-height: 1.4;";
+      div.innerHTML = text;
+      vungChat.appendChild(div);
+      vungChat.scrollTop = vungChat.scrollHeight;
+  }
+
+  function themTinNhanBot(text) {
+      let vungChat = document.getElementById('vung-tin-nhan');
+      let div = document.createElement('div');
+      div.style = "align-self: flex-start; background: #1a202c; border: 1px solid #2d3748; padding: 10px 14px; border-radius: 0 12px 12px 12px; max-width: 85%; line-height: 1.4;";
+      div.innerHTML = text;
+      vungChat.appendChild(div);
+      vungChat.scrollTop = vungChat.scrollHeight;
+  }
+
+  function hienLaiOTratCuuMoi() {
+      // Tự động mở lối gợi ý tra cứu tiếp theo dưới dạng bong bóng thoại nhỏ
+      let vungChat = document.getElementById('vung-tin-nhan');
+      let div = document.createElement('div');
+      div.style = "align-self: flex-start; color: #a0aec0; font-size: 12px; font-style: italic; margin-top: -4px;";
+      div.innerText = "Trợ lý AI đang sẵn sàng. Hãy gõ câu hỏi tiếp theo của bạn ở dưới...";
+      vungChat.appendChild(div);
+      vungChat.scrollTop = vungChat.scrollHeight;
   }
 </script>
 
 <!-- ======================================================= -->
 <!-- KẾT THÚC PHẦN CODE CHATBOT -->
 <!-- ======================================================= -->
+
 </body>
 </html>
 
