@@ -86,7 +86,45 @@
 
 <!-- Cầu nối API ẩn đến Hugging Face -->
 <iframe id="hfBridge" src="https://trungdung1109-tro-ly-genz.hf.space" style="display:none;"></iframe>
+<!-- BONG BÓNG CHAT TỰ CHẾ (MÀU ĐỎ OVAL GRADIENT) -->
+<div id="coze-custom-btn" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #ff416c, #ff4b2b); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 999999; transition: transform 0.2s;">
+  <span style="font-size: 28px; color: white;">💬</span>
+</div>
 
+<!-- THƯ VIỆN CHAT SDK MỚI NHẤT CỦA COZE (ĐÃ ẨN NÚT GỐC) -->
+<script src="https://coze.com"></script>
+
+<script>
+  // Khởi tạo cấu hình trợ lý AI ở chế độ Tự do không cần Token (unauth)
+  const cozeAgent = new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7698270385372512309', // Mã bộ não của bạn
+    },
+    componentProps: {
+      title: 'Trợ lý ảo giải mã ngôn ngữ GenZ',
+      layout: 'drawer', // Hiện dạng ngăn kéo trượt từ phải sang cực mượt
+    },
+    auth: {
+      type: 'unauth' // MỞ KHÓA MIỄN PHÍ: Ép hệ thống dùng chế độ không cần Token bảo mật
+    }
+  });
+
+  // Xử lý ẩn nút tròn mặc định màu xanh của Coze
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .coze-web-chat-trigger, 
+    div[class*="chat-trigger"], 
+    iframe[src*="coze"] .coze-chat-badge { 
+      display: none !important; 
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Kích hoạt hành động: Bấm vào bong bóng màu đỏ thì ô chat bung ra
+  document.getElementById('coze-custom-btn').addEventListener('click', function() {
+    cozeAgent.showChat();
+  });
+</script>
 </body>
 </html>
 
