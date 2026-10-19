@@ -84,47 +84,75 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 
-<!-- Cầu nối API ẩn đến Hugging Face -->
-<iframe id="hfBridge" src="https://trungdung1109-tro-ly-genz.hf.space" style="display:none;"></iframe>
-<!-- BONG BÓNG CHAT TỰ CHẾ (MÀU ĐỎ OVAL GRADIENT) -->
-<div id="coze-custom-btn" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #ff416c, #ff4b2b); border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 999999; transition: transform 0.2s;">
-  <span style="font-size: 28px; color: white;">💬</span>
+<!-- ==================== KHU VỰC TRỢ LÝ AI GIẢI MÃ GENZ ==================== -->
+<!-- 1. CỤM BONG BÓNG CHAT CÓ HIỂN THỊ TÊN CON BOT (CỐ ĐỊNH GÓC DƯỚI PHẢI) -->
+<div id="ai-chat-bubble-wrapper" style="position: fixed; bottom: 25px; right: 25px; display: flex; align-items: center; gap: 12px; z-index: 999999; cursor: pointer;">
+  <!-- Tên con bot hiển thị dạng nhãn chữ (Tag) bên cạnh bong bóng -->
+  <div style="background: rgba(255, 255, 255, 0.95); color: #ff416c; padding: 8px 16px; border-radius: 20px; font-family: sans-serif; font-size: 13px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid rgba(255, 61, 108, 0.2); white-space: nowrap;">
+    Trợ lý ảo giải mã ngôn ngữ GenZ ✨
+  </div>
+  <!-- Bong bóng chat hình tròn màu Đỏ-Cam Gradient -->
+  <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff416c, #ff4b2b); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 20px rgba(255, 65, 108, 0.4);">
+    <span style="font-size: 26px; color: white;">💬</span>
+  </div>
 </div>
 
-<!-- THƯ VIỆN CHAT SDK MỚI NHẤT CỦA COZE (ĐÃ ẨN NÚT GỐC) -->
-<script src="https://coze.com"></script>
+<!-- 2. KHUNG THÔNG BÁO KẾT NỐI AN TOÀN - MẶC ĐỊNH ẨN -->
+<div id="ai-chat-drawer" style="display: none; position: fixed; bottom: 25px; right: 25px; width: 360px; height: auto; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 999999; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); flex-direction: column; animation: slideUp 0.3s ease-out;">
+  
+  <!-- Thanh tiêu đề phía trên -->
+  <div style="background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+    <span style="font-size: 14px; font-family: sans-serif;">Trợ lý ảo giải mã ngôn ngữ GenZ</span>
+    <span id="ai-chat-close" style="cursor: pointer; font-size: 20px; padding: 0 5px; line-height: 20px;">✕</span>
+  </div>
+  
+  <!-- Nội dung hướng dẫn tra cứu -->
+  <div style="padding: 20px; text-align: center; font-family: sans-serif; color: #333;">
+    <p style="margin-top: 0; font-size: 14px; line-height: 1.5; text-align: left;">Mình sẽ giúp bạn giải mã sâu kỹ **580 từ sẵn có** trong từ điển và **tất cả các từ mới** không có trong từ điển bằng trí tuệ nhân tạo diện rộng!</p>
+    
+    <button id="start-chat-btn" style="background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white; border: none; padding: 12px 25px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; width: 100%; box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3); transition: transform 0.2s; margin-top: 10px;">
+      Bắt đầu Tra Cứu Tự Do (Miễn phí) 🚀
+    </button>
+    
+    <p style="font-size: 11px; color: #888; margin-bottom: 0; margin-top: 15px;">🔒 Không cần Token bảo mật • Không đòi mật khẩu đăng nhập</p>
+  </div>
+</div>
+
+<style>
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+</style>
 
 <script>
-  // Khởi tạo cấu hình trợ lý AI ở chế độ Tự do không cần Token (unauth)
-  const cozeAgent = new CozeWebSDK.WebChatClient({
-    config: {
-      bot_id: '7698270385372512309', // Mã bộ não của bạn
-    },
-    componentProps: {
-      title: 'Trợ lý ảo giải mã ngôn ngữ GenZ',
-      layout: 'drawer', // Hiện dạng ngăn kéo trượt từ phải sang cực mượt
-    },
-    auth: {
-      type: 'unauth' // MỞ KHÓA MIỄN PHÍ: Ép hệ thống dùng chế độ không cần Token bảo mật
-    }
+  const aiBubbleWrapper = document.getElementById('ai-chat-bubble-wrapper');
+  const aiDrawer = document.getElementById('ai-chat-drawer');
+  const aiClose = document.getElementById('ai-chat-close');
+  const startChatBtn = document.getElementById('start-chat-btn');
+
+  // ĐƯỜNG LINK WEB CHAT STORE CHUẨN XÁC ĐÃ RÁP THÀNH CÔNG:
+  const cozeBotUrl = "https://www.coze.com/store/bot/7698270385372512309";
+
+  // Khi click vào cụm bong bóng: Ẩn cụm bong bóng, bung ô thông báo lựa chọn tra cứu
+  aiBubbleWrapper.addEventListener('click', function() {
+    aiBubbleWrapper.style.display = 'none';
+    aiDrawer.style.display = 'flex';
   });
 
-  // Xử lý ẩn nút tròn mặc định màu xanh của Coze
-  const style = document.createElement('style');
-  style.innerHTML = `
-    .coze-web-chat-trigger, 
-    div[class*="chat-trigger"], 
-    iframe[src*="coze"] .coze-chat-badge { 
-      display: none !important; 
-    }
-  `;
-  document.head.appendChild(style);
+  // Khi click vào nút dấu ✕: Ẩn ô thông báo, hiện lại cụm bong bóng có tên Bot
+  aiClose.addEventListener('click', function(e) {
+    e.stopPropagation(); 
+    aiDrawer.style.display = 'none';
+    aiBubbleWrapper.style.display = 'flex';
+  });
 
-  // Kích hoạt hành động: Bấm vào bong bóng màu đỏ thì ô chat bung ra
-  document.getElementById('coze-custom-btn').addEventListener('click', function() {
-    cozeAgent.showChat();
+  // Khi click vào nút Bắt đầu Tra cứu: Mở thẳng link Store công khai sang tab mới
+  startChatBtn.addEventListener('click', function() {
+    window.open(cozeBotUrl, '_blank');
   });
 </script>
+<!-- ==================== KẾT THÚC KHU VỰC TRỢ LÝ AI ==================== -->
 </body>
 </html>
 
