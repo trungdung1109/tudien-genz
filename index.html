@@ -88,7 +88,7 @@
 <div id="genz-chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
     <!-- Nút bong bóng chat hiển thị trên Web (Bấm để bung mở mượt mà) -->
     <button onclick="toggleGenzChat()" id="genz-chat-button" style="background: linear-gradient(135deg, #6c5ce7, #4834d4); color: white; border: none; padding: 14px 22px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-size: 15px; transition: transform 0.2s;">
-        <span>🤖</span> Trợ Lý Giải Mã Ngôn Ngữ GenZ (Free)
+        <span>🤖</span> Trợ Lý Giải Mã GenZ (Free)
     </button>
 
     <!-- Hộp thoại chat ẩn hiện khi bấm vào nút -->
@@ -120,6 +120,9 @@
 </div>
 
 <script>
+// Khai báo chìa khóa bí mật cá nhân cá nhân của bạn (Đã điền sẵn mã PAT chuẩn xác)
+const YOUR_COZE_PAT = "pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG"; 
+
 // Hàm ẩn hiển bong bóng hộp chat khi người dùng click chuột
 function toggleGenzChat() {
     var chatBox = document.getElementById("genz-chat-box");
@@ -152,11 +155,11 @@ async function sendGenzMessage() {
         const response = await fetch("https://coze.com", {
             method: "POST",
             headers: {
-                "Authorization": "Bearer 7698270385372512309", // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
+                "Authorization": `Bearer ${YOUR_COZE_PAT}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                "bot_id": "7698270385372512309", // Đã điền chuẩn xác Bot ID của bạn
+                "bot_id": "7698270385372512309", // Đã tự động điền chuẩn xác Bot ID của bạn
                 "user_id": "genz_user_" + Math.random().toString(36).substring(7),
                 "stream": false,
                 "additional_messages": [{ "role": "user", "content": text, "content_type": "text" }]
@@ -176,7 +179,7 @@ async function sendGenzMessage() {
             while (status === "in_progress" || status === "created") {
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 checkResponse = await fetch(`https://coze.com/retrieve?chat_id=${chatId}`, {
-                    headers: { "Authorization": "Bearer 7698270385372512309" } // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
+                    headers: { "Authorization": `Bearer ${YOUR_COZE_PAT}` }
                 });
                 const checkData = await checkResponse.json();
                 status = checkData.data.status;
@@ -185,7 +188,7 @@ async function sendGenzMessage() {
             if (status === "completed") {
                 // Gọi API lấy nội dung danh sách tin nhắn trả ra
                 const msgListResponse = await fetch(`https://coze.com/message/list?chat_id=${chatId}`, {
-                    headers: { "Authorization": "Bearer 7698270385372512309" } // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
+                    headers: { "Authorization": `Bearer ${YOUR_COZE_PAT}` }
                 });
                 const msgListData = await msgListResponse.json();
                 
@@ -209,6 +212,7 @@ async function sendGenzMessage() {
     msgContainer.scrollTop = msgContainer.scrollHeight;
 }
 </script>
+
 
 </body>
 </html>
