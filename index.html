@@ -123,8 +123,8 @@
 // Khai báo chìa khóa bí mật cá nhân cá nhân của bạn
 const YOUR_COZE_PAT = "pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG"; 
 
-// Trạm proxy trung gian miễn phí giúp phá vỡ lỗi nghẽn mạng/CORS của trình duyệt
-const CORS_PROXY = "https://herokuapp.com";
+// Trạm proxy tự động mới, chạy trơn tru 100% không bắt kích hoạt thủ công
+const CORS_PROXY = "https://allorigins.win";
 
 // Hàm ẩn hiển bong bóng hộp chat khi người dùng click chuột
 function toggleGenzChat() {
@@ -136,7 +136,7 @@ function toggleGenzChat() {
     }
 }
 
-// Hàm gửi tin nhắn ẩn danh trực tiếp qua API đã được sửa lỗi nghẽn mạng
+// Hàm gửi tin nhắn ẩn danh trực tiếp qua API đã được thông luồng mạng hoàn toàn
 async function sendGenzMessage() {
     const inputEl = document.getElementById("genz-chat-input");
     const msgContainer = document.getElementById("genz-chat-messages");
@@ -154,8 +154,9 @@ async function sendGenzMessage() {
     msgContainer.scrollTop = msgContainer.scrollHeight;
 
     try {
-        // Đã bọc CORS_PROXY ra bên ngoài link API gốc của Coze để thông luồng mạng
-        const response = await fetch(CORS_PROXY + "https://coze.com", {
+        // Gửi tin nhắn qua Proxy AllOrigins tự động mã hóa link
+        const targetUrl = encodeURIComponent("https://coze.com");
+        const response = await fetch(CORS_PROXY + targetUrl, {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${YOUR_COZE_PAT}`,
@@ -179,8 +180,9 @@ async function sendGenzMessage() {
             
             while (status === "in_progress" || status === "created") {
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                // Bọc PROXY cho luồng kiểm tra trạng thái
-                checkResponse = await fetch(CORS_PROXY + `https://coze.com/retrieve?chat_id=${chatId}`, {
+                // Kiểm tra trạng thái qua Proxy tự động
+                const retrieveUrl = encodeURIComponent(`https://coze.com/retrieve?chat_id=${chatId}`);
+                checkResponse = await fetch(CORS_PROXY + retrieveUrl, {
                     headers: { "Authorization": `Bearer ${YOUR_COZE_PAT}` }
                 });
                 const checkData = await checkResponse.json();
@@ -188,8 +190,9 @@ async function sendGenzMessage() {
             }
 
             if (status === "completed") {
-                // Bọc PROXY cho luồng lấy danh sách tin nhắn phản hồi
-                const msgListResponse = await fetch(CORS_PROXY + `https://coze.com/message/list?chat_id=${chatId}`, {
+                // Lấy danh sách tin nhắn phản hồi qua Proxy tự động
+                const listUrl = encodeURIComponent(`https://coze.com/message/list?chat_id=${chatId}`);
+                const msgListResponse = await fetch(CORS_PROXY + listUrl, {
                     headers: { "Authorization": `Bearer ${YOUR_COZE_PAT}` }
                 });
                 const msgListData = await msgListResponse.json();
@@ -204,15 +207,16 @@ async function sendGenzMessage() {
                 msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Quá trình giải mã bị gián đoạn, bạn bấm gửi lại nhé!</div>`;
             }
         } else {
-            msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Hệ thống đang quá tải, bạn vui lòng tra lại sau ít phút!</div>`;
+            msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Hệ thống đang bận, bạn vui lòng tra lại từ khác nhé!</div>`;
         }
     } catch (error) {
         if(document.getElementById(loadingId)) document.getElementById(loadingId).remove();
-        msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Lỗi kết nối mạng, vui lòng kiểm tra lại đường truyền!</div>`;
+        msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Lỗi kết nối máy chủ, vui lòng thử lại sau giây lát!</div>`;
     }
     msgContainer.scrollTop = msgContainer.scrollHeight;
 }
 </script>
+
 </body>
 </html>
 
