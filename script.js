@@ -217,87 +217,153 @@ submitBtn.addEventListener('click', () => {
     });
 });
 // =========================================================================
-// KHỐI ĐIỀU KHIỂN HỢP NHẤT CHỐNG XUNG ĐỘT (DÁN THAY THẾ Ở CUỐI FILE SCRIPT.JS)
+// KHỞI TẠO TIỆN ÍCH TRỢ LÝ ẢO GENZ CHUYÊN NGHIỆP (DÁN VÀO CUỐI FILE SCRIPT.JS)
 // =========================================================================
 
-// 1. Hàm đóng gói và hiển thị dữ liệu lên bảng màu mẫu của bạn
-function hienThiKetQuaAI(tuWord, noiDungNghia) {
-    const aiMockItem = {
-        word: tuWord,
-        category: "🤖 AI Giải Mã Tự Do",
-        standard: "Thuật ngữ mạng mới",
-        meaning: noiDungNghia, 
-        context: "Ngữ cảnh MXH mới cập nhật",
-        advice: "Sử dụng vui vẻ với bạn bè, lưu ý không lạm dụng trong văn bản hành chính.",
-        status: "Đã duyệt bởi AI",
-        warning_light: "Vàng"
-    };
-    if (typeof displayWordDetails === 'function') {
-        displayWordDetails(aiMockItem);
-    }
-}
+(function TichHopWidgetChatbot() {
+    // 1. Tạo cấu trúc HTML cho Bong bóng chat và Hộp thoại chat
+    const divChatbotContainer = document.createElement('div');
+    divChatbotContainer.id = 'tro-ly-genz-widget';
+    divChatbotContainer.innerHTML = `
+        <!-- Bong bóng Chat tròn nằm góc dưới bên phải -->
+        <div id="chatbot-bubble" title="Trợ lý ảo giải mã ngôn ngữ GenZ">
+            <span style="font-size: 28px;">🤖</span>
+            <div id="chatbot-badge">AI</div>
+        </div>
 
-// 2. Tạo một nút bấm mới đè lên sự kiện cũ để chặn hoàn toàn thông báo "Không tìm thấy"
-if (searchBtn) {
-    // Nhân bản nút để xóa bỏ hoàn toàn tất cả các sự kiện (click event) cũ bám trên nút này
-    const newSearchBtn = searchBtn.cloneNode(true);
-    searchBtn.parentNode.replaceChild(newSearchBtn, searchBtn);
-    
-    // Gán lại biến searchBtn bằng nút mới tinh
-    searchBtn = newSearchBtn;
-
-    // Thiết lập sự kiện click chuột duy nhất và tối ưu nhất
-    searchBtn.addEventListener('click', async () => {
-        const query = searchInput.value.trim().toLowerCase();
-        if (!currentDictionary) return;
-        
-        // Bước A: Tìm trong kho 600 từ có sẵn
-        const found = currentDictionary.find(item => item.word.toLowerCase() === query);
-        
-        if (found) {
-            // Có từ sẵn -> Gọi hàm hiển thị mượt mà cũ của bạn
-            displayWordDetails(found);
-        } else if (query !== "") {
-            // Bước B: Nếu là từ MỚI -> Bật màn hình chờ AI lập tức
-            resultBox.innerHTML = `
-                <div style="text-align: center; padding: 40px 20px; color: #fff;">
-                    <div style="border: 4px solid rgba(255,255,255,0.1); border-left-color: #ffee58; border-radius: 50%; width: 35px; height: 35px; animation: hfSpin 1s linear infinite; margin: 0 auto 15px auto;"></div>
-                    <p style="font-size: 16px; color: #ffee58;">🔍 Đang kết nối Trợ lý AI để giải mã từ tự do: "<strong>${searchInput.value.trim()}</strong>"...</p>
-                    <p style="font-size: 13px; color: #bbb; margin-top: 5px;">Mô hình chuyên dụng đang phân tích ngữ cảnh, vui lòng đợi trong giây lát!</p>
+        <!-- Khung cửa sổ chat khi bung ra -->
+        <div id="chatbot-window">
+            <div id="chatbot-header">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 22px;">🤖</span>
+                    <div>
+                        <div style="font-weight: bold; font-size: 14px;">Trợ lý ảo GenZ</div>
+                        <div style="font-size: 11px; color: #4caf50; display: flex; align-items: center; gap: 4px;">
+                            <span style="width: 6px; height: 6px; background: #4caf50; border-radius: 50%; display: inline-block;"></span> Trực tuyến
+                        </div>
+                    </div>
                 </div>
-                <style>@keyframes hfSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
-            `;
-            
-            // Gọi trực tiếp API Hugging Face (Mô hình Llama 3 siêu tốc, hiểu tiếng Việt cực tốt)
-            try {
-                const response = await fetch("https://huggingface.co", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        inputs: `<|begin_of_text|><|start_header_id|>user<|end_header_id|>\nBạn là một chuyên gia ngôn ngữ học giải mã từ lóng GenZ Việt Nam. Hãy giải nghĩa chi tiết, phân tích tâm lý ngắn gọn, giải thích bản chất cho từ sau: "${searchInput.value.trim()}". Đưa ra lời khuyên sử dụng văn minh phù hợp học đường và gia đình.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n`
-                    })
-                });
-                
-                const result = await response.json();
-                let textAI = "";
-                
-                // Bóc tách văn bản phản hồi từ API
-                if (Array.isArray(result) && result[0] && result[0].generated_text) {
-                    textAI = result[0].generated_text;
-                } else if (result && result.generated_text) {
-                    textAI = result.generated_text;
-                }
-                
-                if (textAI) {
-                    const parts = textAI.split("<|start_header_id|>assistant<|end_header_id|>\n");
-                    const cauTraLoiCuoi = parts[parts.length - 1].replace("<|eot_id|>", "").trim();
-                    hienThiKetQuaAI(searchInput.value.trim(), cauTraLoiCuoi);
-                } else {
-                    resultBox.innerHTML = `<p style="text-align:center; padding:20px; color:#ff4d4d;">⚠️ Máy chủ AI đang bận, bạn vui lòng bấm "TRA CỨU" lại lần nữa nhé!</p>`;
-                }
-            } catch (err) {
-                resultBox.innerHTML = `<p style="text-align:center; padding:20px; color:#ff4d4d;">⚠️ Không thể kết nối với AI. Vui lòng kiểm tra mạng internet!</p>`;
-            }
-        }
+                <button id="chatbot-close-btn">&times;</button>
+            </div>
+            <div id="chatbot-messages">
+                <div class="msg bot">Chào bạn! Mình là Trợ lý ảo giải mã ngôn ngữ GenZ học đường. Bạn có thể gõ bất kỳ từ lóng nào ở đây, mình sẽ tra cứu trong kho 580 từ hoặc tự động dùng AI giải mã sâu kỹ cho bạn! ✨</div>
+            </div>
+            <div id="chatbot-input-container">
+                <input type="text" id="chatbot-input-field" placeholder="Nhập từ lóng GenZ cần giải mã..." autocomplete="off">
+                <button id="chatbot-send-btn">👉</button>
+            </div>
+        </div>
+
+        <!-- Khung CSS tạo phong cách độc lập, không làm hỏng giao diện gốc -->
+        <style>
+            #tro-ly-genz-widget { font-family: Arial, sans-serif; z-index: 999999; position: fixed; bottom: 20px; right: 20px; }
+            #chatbot-bubble { width: 60px; height: 60px; background: linear-gradient(135deg, #ff4d4d, #f44336); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(244,67,54,0.4); transition: transform 0.3s ease; position: relative; }
+            #chatbot-bubble:hover { transform: scale(1.1); }
+            #chatbot-badge { position: absolute; top: -2px; right: -2px; background: #ffeb3b; color: #000; font-size: 9px; font-weight: bold; padding: 2px 5px; border-radius: 10px; border: 2px solid #fff; }
+            #chatbot-window { width: 360px; height: 480px; background: #1a1a24; border: 1px solid #3d3d5c; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.5); display: none; flex-direction: column; overflow: hidden; position: absolute; bottom: 80px; right: 0; transition: all 0.3s ease; }
+            #chatbot-header { background: #252538; padding: 12px 16px; color: #fff; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #3d3d5c; }
+            #chatbot-close-btn { background: none; border: none; color: #aaa; font-size: 24px; cursor: pointer; }
+            #chatbot-close-btn:hover { color: #fff; }
+            #chatbot-messages { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+            .msg { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; word-wrap: break-word; white-space: pre-line; }
+            .msg.bot { background: #2a2a3a; color: #fff; align-self: flex-start; border-bottom-left-radius: 2px; border: 1px solid #3a3a52; }
+            .msg.user { background: #ff4d4d; color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
+            #chatbot-input-container { padding: 12px; background: #252538; display: flex; gap: 8px; border-top: 1px solid #3d3d5c; }
+            #chatbot-input-field { flex: 1; background: #14141f; border: 1px solid #3d3d5c; border-radius: 8px; padding: 10px; color: #fff; font-size: 13px; }
+            #chatbot-input-field:focus { outline: none; border-color: #ff4d4d; }
+            #chatbot-send-btn { background: #ff4d4d; border: none; color: #fff; padding: 0 16px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+            #chatbot-send-btn:hover { background: #e53935; }
+            .loading-dots span { animation: blink 1.4s infinite both; font-size: 18px; }
+            .loading-dots span:nth-child(2) { animation-delay: .2s; }
+            .loading-dots span:nth-child(3) { animation-delay: .4s; }
+            @keyframes blink { 0% { opacity: .2; } 20% { opacity: 1; } 100% { opacity: .2; } }
+        </style>
+    `;
+    document.body.appendChild(divChatbotContainer);
+
+    // 2. Lấy các thành phần giao diện của Chatbot
+    const bongBongChat = document.getElementById('chatbot-bubble');
+    const cuaSoChat = document.getElementById('chatbot-window');
+    const nutDongChat = document.getElementById('chatbot-close-btn');
+    const oNhapLieu = document.getElementById('chatbot-input-field');
+    const nutGuiTin = document.getElementById('chatbot-send-btn');
+    const khungTinNhan = document.getElementById('chatbot-messages');
+
+    // 3. Logic Đóng / Mở khung chat
+    bongBongChat.addEventListener('click', () => {
+        cuaSoChat.style.display = cuaSoChat.style.display === 'flex' ? 'none' : 'flex';
+        if (cuaSoChat.style.display === 'flex') oNhapLieu.focus();
     });
-}
+    nutDongChat.addEventListener('click', () => { cuaSoChat.style.display = 'none'; });
+
+    // 4. Hàm chèn tin nhắn vào khung thoại
+    function themTinNhanMoi(text, sender) {
+        const divMsg = document.createElement('div');
+        divMsg.className = `msg ${sender}`;
+        divMsg.innerHTML = text;
+        khungTinNhan.appendChild(divMsg);
+        khungTinNhan.scrollTop = khungTinNhan.scrollHeight;
+        return divMsg;
+    }
+
+    // 5. Hàm xử lý gửi tin nhắn chính và phân tích từ vựng
+    async function xuLyGuiTin() {
+        const text = oNhapLieu.value.trim();
+        if (!text) return;
+
+        themTinNhanMoi(text, 'user');
+        oNhapLieu.value = '';
+
+        // Hiển thị bong bóng ba chấm chờ AI xử lý
+        const divLoading = themTinNhanMoi('<div class="loading-dots">Đang giải mã<span>.</span><span>.</span><span>.</span></div>', 'bot');
+
+        const query = text.toLowerCase().trim();
+        let tuCoSan = null;
+
+        // Tra cứu nhanh trong kho 580 từ có sẵn của bạn
+        if (typeof currentDictionary !== 'undefined') {
+            tuCoSan = currentDictionary.find(item => item.word.toLowerCase() === query);
+        }
+
+        if (tuCoSan) {
+            // Trường hợp 1: Có sẵn từ trong hệ thống
+            divLoading.remove();
+            const phanHoiCucBo = `📌 **Từ khóa:** ${tuCoSan.word}\n📖 **Ý nghĩa:** ${tuCoSan.meaning}\n💡 **Bối cảnh:** ${tuCoSan.context || 'Thuật ngữ phổ biến của giới trẻ.'}\n🏫 **Lời khuyên học đường:** ${tuCoSan.advice || 'Sử dụng đúng ngữ cảnh văn minh.'}`;
+            themTinNhanMoi(phanHoiCucBo, 'bot');
+            return;
+        }
+
+        // Trường hợp 2: Từ mới hoàn toàn gõ tự do -> Gọi bộ não AI Llama 3 xử lý siêu tốc
+        try {
+            const response = await fetch("https://huggingface.co", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    inputs: `<|begin_of_text|><|start_header_id|>user<|end_header_id|>\nBạn là một trợ lý ảo chuyên giải mã tiếng lóng GenZ Việt Nam một cách khoa học, hài hước, phân tích tâm lý sâu sắc và có tính giáo dục văn minh học đường. Hãy giải nghĩa chi tiết, chỉ ra bản chất và đưa ra lời khuyên sử dụng cho từ/câu sau: "${text}".<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n`
+                })
+            });
+
+            const result = await response.json();
+            divLoading.remove();
+
+            let textAI = "";
+            if (Array.isArray(result) && result[0] && result[0].generated_text) textAI = result[0].generated_text;
+            else if (result && result.generated_text) textAI = result.generated_text;
+
+            if (textAI) {
+                const parts = textAI.split("<|start_header_id|>assistant<|end_header_id|>\n");
+                const cauTraLoiAI = parts[parts.length - 1].replace("<|eot_id|>", "").trim();
+                themTinNhanMoi(cauTraLoiAI, 'bot');
+            } else {
+                themTinNhanMoi("⚠️ Máy chủ AI phản hồi rỗng, bạn thử lại từ khác xem sao nhé!", 'bot');
+            }
+        } catch (err) {
+            divLoading.remove();
+            themTinNhanMoi("⚠️ Cổng AI đang bận xử lý, bạn vui lòng gửi lại từ này một lần nữa nhé!", 'bot');
+        }
+    }
+
+    // Sự kiện bấm nút gửi hoặc gõ Enter
+    nutGuiTin.addEventListener('click', xuLyGuiTin);
+    oNhapLieu.addEventListener('keypress', (e) => { if (e.key === 'Enter') xuLyGuiTin(); });
+})();
