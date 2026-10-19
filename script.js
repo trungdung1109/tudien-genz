@@ -217,48 +217,74 @@ submitBtn.addEventListener('click', () => {
     });
 });
 // =========================================================================
-// PHẦN TRỢ LÝ AI DỰ PHÒNG (NẰM ĐỘC LẬP Ở CUỐI FILE, KHÔNG CHẠM CODE CŨ)
+// PHẦN TRỢ LÝ AI DỰ PHÒNG TỐI ƯU CHỐNG NGHẼN (DÁN THAY THẾ Ở CUỐI FILE SCRIPT.JS)
 // =========================================================================
 
-// 1. Tạo một cổng lắng nghe AI, nếu có kết quả từ AI thì mượn hàm hiển thị của bạn để in ra
+// Hàm hiển thị kết quả đóng gói theo giao diện chuẩn của bạn
+function hienThiKetQuaAI(tuWord, noiDungNghia) {
+    const aiMockItem = {
+        word: tuWord,
+        category: "🤖 AI Giải Mã Tự Do",
+        standard: "Thuật ngữ mạng mới",
+        meaning: noiDungNghia, 
+        context: "Ngữ cảnh MXH mới cập nhật",
+        advice: "Sử dụng vui vẻ với bạn bè, lưu ý không lạm dụng trong văn bản hành chính hoặc nói chuyện với người lớn tuổi.",
+        status: "Đã duyệt bởi AI chuyên dụng",
+        warning_light: "Vàng"
+    };
+    if (typeof displayWordDetails === 'function') {
+        displayWordDetails(aiMockItem);
+    }
+}
+
+// Cổng 1: Lắng nghe qua Iframe ẩn (nếu chạy thông suốt)
 window.addEventListener('message', function(event) {
     const data = event.data;
     if (data && data.type === 'GENZ_REPLY') {
-        const queryWord = searchInput.value.trim();
-        const aiMockItem = {
-            word: queryWord,
-            category: "🤖 AI Giải Mã Tự Do",
-            standard: "Thuật ngữ mạng mới",
-            meaning: data.text, 
-            context: "Ngữ cảnh MXH mới cập nhật",
-            advice: "Sử dụng vui vẻ với bạn bè, lưu ý không lạm dụng trong văn bản hành chính.",
-            status: "Đã duyệt bởi AI",
-            warning_light: "Vàng"
-        };
-        if (typeof displayWordDetails === 'function') {
-            displayWordDetails(aiMockItem); // Gọi hàm hiển thị giao diện mượt mà của bạn
-        }
+        hienThiKetQuaAI(searchInput.value.trim(), data.text);
     }
 });
 
-// 2. Tự động bắt mạch nút Tìm Kiếm của bạn: Nếu tìm trong bộ nhớ không có, sẽ âm thầm gọi AI giúp
+// Cổng 2: Tự động bắt mạch và gọi API trực tiếp nếu Cổng 1 bị nghẽn quá 3 giây
 if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
+    searchBtn.addEventListener('click', async () => {
         const query = searchInput.value.trim().toLowerCase();
         if (!currentDictionary) return;
         
-        // Kiểm tra xem từ này có trong từ điển của bạn chưa
         const found = currentDictionary.find(item => item.word.toLowerCase() === query);
         
-        // Nếu KHÔNG có trong 580 từ, lúc này mới kích hoạt AI trợ giúp
         if (!found && query !== "") {
-            resultBox.innerHTML = `
-                <div style="text-align: center; padding: 20px; color: #fff;">
-                    <div style="border: 4px solid rgba(255,255,255,0.1); border-left-color: #ffee58; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto 10px auto;"></div>
-                    <p>🔍 Từ này chưa có trong kho từ điển! Đang kết nối Trợ lý ảo AI giải mã tự do...</p>
-                </div>
-                <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
-            `;
+            // Thiết lập chạy ngầm giải cứu nếu Iframe đứng im quá 2.5 giây
+            setTimeout(async () => {
+                const checkStatus = resultBox.innerHTML.includes("Đang kết nối Trợ lý ảo AI");
+                if (checkStatus) {
+                    try {
+                        // Gọi trực tiếp server nlp không qua trung gian, dùng mô hình Llama-3 siêu tốc
+                        const response = await fetch("https://huggingface.co", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                inputs: `<|begin_of_text|><|start_header_id|>user<|end_header_id|>\nBạn là chuyên gia giải mã ngôn ngữ GenZ. Hãy giải nghĩa ngắn gọn, hài hước, văn minh cho từ: "${searchInput.value.trim()}". Bản chất là gì và lời khuyên?<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n`
+                            })
+                        });
+                        const result = await response.json();
+                        let textAI = "";
+                        if (result && result.generated_text) {
+                            textAI = result.generated_text.split("<|start_header_id|>assistant<|end_header_id|>\n")[1] || result.generated_text;
+                        } else if (Array.isArray(result) && result[0].generated_text) {
+                            textAI = result[0].generated_text.split("<|start_header_id|>assistant<|end_header_id|>\n")[1] || result[0].generated_text;
+                        }
+                        
+                        if (textAI) {
+                            hienThiKetQuaAI(searchInput.value.trim(), textAI.trim());
+                        }
+                    } catch (err) {
+                        console.log("Đang chờ cổng Iframe phản hồi...");
+                    }
+                }
+            }, 2500);
+
+            // Lệnh kích hoạt cổng Iframe ẩn song song
             const iframe = document.getElementById('hfBridge');
             if (iframe && iframe.contentWindow) {
                 iframe.contentWindow.postMessage({ type: 'DECODE_GENZ', word: searchInput.value.trim() }, '*');
