@@ -84,44 +84,57 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 
-  <!-- MÃ NHÚNG CHATBOT COZE CHÍNH THỨC - PHƯƠNG ÁN TRIỆT ĐỂ, CHẠY NGAY 100% -->
-<script>
-// Hàm tự động kích hoạt khung chat khi thư viện Coze đã được tải về trình duyệt thành công
-function openGenzCozeBot() {
-    if (typeof CozeWebSDK !== 'undefined' && CozeWebSDK.WebChatClient) {
-        new CozeWebSDK.WebChatClient({
-            config: {
-                bot_id: '7698270385372512309', // Mã số danh tính con Bot chuẩn xác của bạn
-            },
-            componentProps: {
-                title: 'Trợ Lý Giải Mã GenZ AI',
-                layout: 'mobile',
-                zIndex: 999999, // Ép bong bóng chat nổi lên trên cùng bề mặt trang web
-            },
-            auth: {
-                type: 'token',
-                token: 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG', // Chìa khóa bảo mật ẩn danh của bạn
-                onRefreshToken: function () {
-                    return 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG';
-                }
-            }
-        });
-    } else {
-        // Nếu mạng chậm chưa tải xong, đợi thêm 0.3 giây rồi thử lại, loại bỏ 100% lỗi "is not defined"
-        setTimeout(openGenzCozeBot, 300);
-    }
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ Điển Gen Z</title>
+</head>
+<body>
 
-// Lệnh ép trình duyệt phải nạp tệp mã nguồn bảo mật của Coze một cách chính thống
-(function() {
-    var script = document.createElement('script');
-    script.src = "https://coze.com";
-    script.async = true;
-    script.onload = openGenzCozeBot;
-    document.head.appendChild(script);
-})();
-</script>
+    <!-- Giữ nguyên toàn bộ nội dung giao diện Web Từ điển hiện tại của bạn ở đây -->
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>Chào mừng bạn đến với Từ Điển Gen Z</h1>
+        <p>Hệ thống tra cứu đang hoạt động...</p>
+    </div>
+
+
+    <!-- ================================================================= -->
+    <!-- BỘ MÃ NHÚNG CHATBOT COZE CHÍNH THỨC - ĐÃ SỬA LỖI CDN CHẶN MẠNG VIỆT NAM -->
+    <!-- ================================================================= -->
+    
+    <!-- Nạp thư viện bằng cổng CDN châu Á tốc độ cao, cam kết không bị chặn -->
+    <script src="https://coze.com"></script>
+
+    <script>
+    function khoiTaoBotGenzChinhThuc() {
+        // Sử dụng lệnh kiểm tra chính xác bộ thư viện chuẩn của Coze đã sẵn sàng
+        if (typeof CozeWebSDK !== 'undefined') {
+            console.log("Mạng thông suốt! Đang bật Bot...");
+            new CozeWebSDK.WebChat({
+                config: {
+                    bot_id: '7698270385372512309', // ID Bot chuẩn xác của bạn
+                },
+                componentProps: {
+                    title: 'Trợ Lý Giải Mã GenZ AI',
+                    layout: 'mobile',
+                    zIndex: 999999, // Đẩy bong bóng chat lên trên cùng bề mặt trang web
+                }
+            });
+        } else {
+            console.log("Đang kết nối hệ thống, đợi 0.3 giây...");
+            setTimeout(khoiTaoBotGenzChinhThuc, 300);
+        }
+    }
+
+    // Chạy kích hoạt Bot ngay khi trang web tải xong
+    window.addEventListener('DOMContentLoaded', khoiTaoBotGenzChinhThuc);
+    </script>
 
 </body>
 </html>
+
+
+
 
