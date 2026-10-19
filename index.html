@@ -84,135 +84,22 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 
-<!-- Cấu trúc Khung Chatbot GenZ tự động, KHÔNG YÊU CẦU ĐĂNG NHẬP -->
-<div id="genz-chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-    <!-- Nút bong bóng chat hiển thị trên Web (Bấm để bung mở mượt mà) -->
-    <button onclick="toggleGenzChat()" id="genz-chat-button" style="background: linear-gradient(135deg, #6c5ce7, #4834d4); color: white; border: none; padding: 14px 22px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-size: 15px; transition: transform 0.2s;">
-        <span>🤖</span> Trợ Lý Giải Mã GenZ (Free)
-    </button>
-
-    <!-- Hộp thoại chat ẩn hiện khi bấm vào nút -->
-    <div id="genz-chat-box" style="display: none; width: 360px; height: 500px; background: #ffffff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.25); margin-top: 10px; overflow: hidden; border: 1px solid #eef2f3; flex-direction: column;">
-        <!-- Thanh tiêu đề phía trên -->
-        <div style="background: #6c5ce7; color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 18px;">🤖</span>
-                <div>
-                    <div style="font-size: 14px;">Trợ Lý Giải Mã GenZ AI</div>
-                    <div style="font-size: 10px; color: #a8df65; font-weight: normal;">● Đang hoạt động tự do</div>
-                </div>
-            </div>
-            <button onclick="toggleGenzChat()" style="background: none; border: none; color: white; cursor: pointer; font-size: 18px; padding: 5px;">✕</button>
-        </div>
-        <!-- Vùng hiển thị nội dung cuộc trò chuyện -->
-        <div id="genz-chat-messages" style="flex: 1; padding: 15px; overflow-y: auto; background: #f9f9fb; font-size: 14px; line-height: 1.5; display: flex; flex-direction: column; gap: 10px;">
-            <div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">
-                Chào bạn! Mình là AI giải mã ngôn ngữ GenZ văn minh. Hãy gõ bất kỳ từ khóa hoặc cụm từ nào bạn muốn tra cứu vào đây nhé! 
-                <br><small style="color:#777; font-size:11px; display:block; margin-top:5px;">*Lưu ý: Các câu trả lời dựa trên dữ liệu mạng và mang tính chất giải trí, tham khảo.</small>
-            </div>
-        </div>
-        <!-- Ô nhập liệu và nút bấm gửi tin nhắn phía dưới đáy -->
-        <div style="padding: 12px; background: white; border-top: 1px solid #eee; display: flex; gap: 8px;">
-            <input type="text" id="genz-chat-input" placeholder="Nhập từ hoặc cụm từ cần tra..." style="flex: 1; padding: 10px 14px; border: 1px solid #ddd; border-radius: 20px; outline: none; font-size: 14px;" onkeypress="if(event.key === 'Enter') sendGenzMessage()">
-            <button onclick="sendGenzMessage()" style="background: #6c5ce7; color: white; border: none; padding: 0 16px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: background 0.2s;">Gửi</button>
-        </div>
-    </div>
-</div>
-
+<!-- Bộ nhúng Chatbot Coze SDK chính thức - Tự do, không bắt đăng nhập -->
+<script src="https://coze.com"></script>
 <script>
-// Khai báo chìa khóa bí mật cá nhân cá nhân của bạn (Đã điền sẵn mã PAT chuẩn xác)
-const YOUR_COZE_PAT = "pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG"; 
-
-// Hàm ẩn hiển bong bóng hộp chat khi người dùng click chuột
-function toggleGenzChat() {
-    var chatBox = document.getElementById("genz-chat-box");
-    if (chatBox.style.display === "none" || chatBox.style.display === "") {
-        chatBox.style.display = "flex";
-    } else {
-        chatBox.style.display = "none";
-    }
-}
-
-// Hàm gửi tin nhắn ẩn danh trực tiếp qua API mã nguồn sạch của Coze
-async function sendGenzMessage() {
-    const inputEl = document.getElementById("genz-chat-input");
-    const msgContainer = document.getElementById("genz-chat-messages");
-    const text = inputEl.value.trim();
-    if (!text) return;
-
-    // 1. Hiển thị ngay tin nhắn của người dùng lên màn hình chat
-    msgContainer.innerHTML += `<div style="background: #6c5ce7; color: white; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-end;">${text}</div>`;
-    inputEl.value = "";
-    msgContainer.scrollTop = msgContainer.scrollHeight;
-
-    // 2. Tạo hiệu ứng chữ hiển thị trạng thái AI đang tải...
-    const loadingId = "loading-" + Date.now();
-    msgContainer.innerHTML += `<div id="${loadingId}" style="background: #eef2f3; color: #777; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Đang giải mã...</div>`;
-    msgContainer.scrollTop = msgContainer.scrollHeight;
-
-    try {
-        // Gọi API ẩn danh không yêu cầu đăng nhập tài khoản người dùng cuối
-        const response = await fetch("https://coze.com", {
-            method: "POST",
-            headers: {
-                "Authorization": `Bearer ${YOUR_COZE_PAT}`,
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "bot_id": "7698270385372512309", // Đã tự động điền chuẩn xác Bot ID của bạn
-                "user_id": "genz_user_" + Math.random().toString(36).substring(7),
-                "stream": false,
-                "additional_messages": [{ "role": "user", "content": text, "content_type": "text" }]
-            })
-        });
-        
-        const result = await response.json();
-        document.getElementById(loadingId).remove(); // Xóa dòng chữ đang tải đi
-
-        // 3. Tiến hành bóc tách luồng tin nhắn phản hồi từ cơ sở dữ liệu Coze v3
-        if (result && result.data && result.data.id) {
-            const chatId = result.data.id;
-            
-            // Chạy vòng lặp ngắn kiểm tra trạng thái xử lý của AI cho đến khi hoàn thành
-            let status = result.data.status;
-            let checkResponse;
-            while (status === "in_progress" || status === "created") {
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                checkResponse = await fetch(`https://coze.com/retrieve?chat_id=${chatId}`, {
-                    headers: { "Authorization": `Bearer ${YOUR_COZE_PAT}` }
-                });
-                const checkData = await checkResponse.json();
-                status = checkData.data.status;
-            }
-
-            if (status === "completed") {
-                // Gọi API lấy nội dung danh sách tin nhắn trả ra
-                const msgListResponse = await fetch(`https://coze.com/message/list?chat_id=${chatId}`, {
-                    headers: { "Authorization": `Bearer ${YOUR_COZE_PAT}` }
-                });
-                const msgListData = await msgListResponse.json();
-                
-                // Tìm tin nhắn phản hồi cuối cùng của Trợ lý Bot
-                const botMessage = msgListData.data.find(m => m.role === "assistant" && m.type === "answer");
-                if (botMessage && botMessage.content) {
-                    msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start; white-space: pre-line;">${botMessage.content}</div>`;
-                } else {
-                    msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Từ này lạ quá, mình chưa tìm thấy thông tin phù hợp rồi!</div>`;
-                }
-            } else {
-                msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Quá trình giải mã bị gián đoạn, bạn bấm gửi lại nhé!</div>`;
-            }
-        } else {
-            msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Hệ thống đang quá tải, bạn vui lòng tra lại sau ít phút!</div>`;
+    new CozeWebSDK.WebChat({
+        config: {
+            bot_id: '7698270385372512309', // Đã điền chuẩn xác mã Bot ID của bạn
+        },
+        componentProps: {
+            title: 'Trợ Lý Giải Mã GenZ AI',
+            layout: 'mobile', // Tự động thu gọn thành bong bóng nhỏ xinh ở góc dưới bên phải
+        },
+        footer: {
+            expression: false // Tắt các quảng cáo dòng chữ không cần thiết phía dưới
         }
-    } catch (error) {
-        if(document.getElementById(loadingId)) document.getElementById(loadingId).remove();
-        msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Lỗi kết nối mạng, vui lòng kiểm tra lại đường truyền!</div>`;
-    }
-    msgContainer.scrollTop = msgContainer.scrollHeight;
-}
+    });
 </script>
-
 
 </body>
 </html>
