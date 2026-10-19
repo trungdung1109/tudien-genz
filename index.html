@@ -85,40 +85,39 @@
 <script src="contribute.js"></script>
 
 <!-- ================================================================= -->
-<!--    PHÒNG CHAT AI GIẢI MÃ SÂU NGÔN NGỮ GENZ (THAY THẾ COZE)         -->
+<!--    TRỢ LÝ ẢO GIẢI MÃ NGÔN NGỮ GENZ (ĐÃ ĐỔI TÊN CHÍNH THỨC)        -->
 <!-- ================================================================= -->
 
 <!-- 1. GIAO DIỆN PHÒNG CHAT NỔI Ở GÓC MÀN HÌNH -->
-<div id="genz-chat-room" style="position: fixed; bottom: 90px; right: 20px; z-index: 999999; background: #ffffff; border: 2px solid #ff4d4d; border-radius: 15px; width: 350px; height: 450px; display: none; flex-direction: column; box-shadow: 0 8px 24px rgba(0,0,0,0.15); font-family: sans-serif;">
+<div id="genz-chat-room" style="position: fixed; bottom: 90px; right: 20px; z-index: 999999; background: #ffffff !important; border: 2px solid #ff4d4d; border-radius: 15px; width: 350px; height: 450px; display: none; flex-direction: column; box-shadow: 0 8px 24px rgba(0,0,0,0.15); font-family: sans-serif;">
     
     <!-- Tiêu đề phòng chat -->
-    <div style="background: #ff4d4d; color: white; padding: 12px 15px; border-radius: 12px 12px 0 0; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-        <span>💬 Trợ Lý Giải Mã Chuyên Sâu AI</span>
-        <button onclick="togglePhongChat()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer;">✖</button>
+    <div style="background: #ff4d4d !important; color: #ffffff !important; padding: 12px 15px; border-radius: 12px 12px 0 0; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+        <span style="color: #ffffff !important; font-size: 14px;">🤖 Trợ lý ảo giải mã ngôn ngữ GenZ</span>
+        <button onclick="togglePhongChat()" style="background: none; border: none; color: #ffffff !important; font-size: 18px; cursor: pointer;">✖</button>
     </div>
     
     <!-- Vùng hiển thị nội dung tin nhắn cuộc thoại -->
-    <div id="chat-messages-area" style="flex: 1; overflow-y: auto; padding: 15px; font-size: 14px; line-height: 1.5; background: #fdfdfd;">
-        <div style="background: #f1f1f1; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%;">
-            Xin chào! Mình là Trợ lý AI. Bạn muốn tra cứu sâu hay phân tích ngữ cảnh của từ GenZ nào trong hệ thống? Nhập từ vào ô bên dưới nhé!
+    <div id="chat-messages-area" style="flex: 1; overflow-y: auto; padding: 15px; font-size: 14px; line-height: 1.5; background: #fdfdfd !important;">
+        <div style="background: #f1f1f1 !important; color: #111111 !important; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%; display: block !important;">
+            Xin chào! Mình là <b>Trợ lý ảo giải mã ngôn ngữ GenZ</b>. Bạn muốn tra cứu sâu kỹ hay phân tích ngữ cảnh của thuật ngữ mạng nào trong hệ thống? Nhập từ vào ô bên dưới nhé!
         </div>
     </div>
     
     <!-- Ô nhập liệu và nút gửi tin nhắn -->
-    <div style="padding: 10px; border-top: 1px solid #eee; display: flex; background: #fff; border-radius: 0 0 15px 15px;">
-        <input type="text" id="chat-user-input" placeholder="Nhập từ hoặc câu hỏi cần giải mã..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; padding-left: 15px;" onkeypress="checkNutEnter(event)">
-        <button onclick="xuLyGuiTinNhanh()" style="background: #ff4d4d; color: white; border: none; padding: 0 15px; margin-left: 8px; cursor: pointer; border-radius: 20px; font-weight: bold;">Gửi</button>
+    <div style="padding: 10px; border-top: 1px solid #eee; display: flex; background: #ffffff !important; border-radius: 0 0 15px 15px;">
+        <input type="text" id="chat-user-input" placeholder="Hỏi Trợ lý ảo giải mã từ GenZ..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; padding-left: 15px; background: #ffffff !important; color: #000000 !important;" onkeypress="checkNutEnter(event)">
+        <button onclick="xuLyGuiTinNhanh()" style="background: #ff4d4d !important; color: #ffffff !important; border: none; padding: 0 15px; margin-left: 8px; cursor: pointer; border-radius: 20px; font-weight: bold;">Gửi</button>
     </div>
 </div>
 
 <!-- 2. BONG BÓNG CHAT NỔI (Bấm vào để ẩn/hiện phòng chat) -->
-<button onclick="togglePhongChat()" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; background: #ff4d4d; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4); display: flex; align-items: center; justify-content: center; transition: transform 0.2s;">
+<button onclick="togglePhongChat()" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; background: #ff4d4d !important; color: white !important; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4); display: flex; align-items: center; justify-content: center; transition: transform 0.2s;" title="Mở Trợ lý ảo giải mã ngôn ngữ GenZ">
     🤖
 </button>
 
-<!-- 3. LOGIC XỬ LÝ DỮ LIỆU TẠI CHỖ MƯỢT MÀ -->
+<!-- 3. LOGIC XỬ LÝ TRA CỨU VÀ PHẢN HỒI -->
 <script>
-// Hàm ẩn hoặc hiện phòng chat khi bấm vào bong bóng hình robot
 function togglePhongChat() {
     var phongChat = document.getElementById('genz-chat-room');
     if (phongChat.style.display === 'none' || phongChat.style.display === '') {
@@ -129,14 +128,12 @@ function togglePhongChat() {
     }
 }
 
-// Bấm phím Enter cũng gửi được tin nhắn
 function checkNutEnter(event) {
     if (event.key === 'Enter') {
         xuLyGuiTinNhanh();
     }
 }
 
-// Hàm tiếp nhận câu hỏi, tự động quét file data.js để trả lời chi tiết sâu kỹ
 async function xuLyGuiTinNhanh() {
     var oNhapLieu = document.getElementById('chat-user-input');
     var vungTinNhanh = document.getElementById('chat-messages-area');
@@ -144,10 +141,10 @@ async function xuLyGuiTinNhanh() {
     
     if (!noiDungHoi) return;
     
-    // Hiển thị tin nhắn của Người dùng lên màn hình phòng chat
+    // Hiển thị nội dung người dùng hỏi
     vungTinNhanh.innerHTML += `
-        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-            <div style="background: #ff4d4d; color: white; padding: 10px; border-radius: 10px; max-width: 85%;">
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px; width: 100%;">
+            <div style="background: #ff4d4d !important; color: #ffffff !important; padding: 10px; border-radius: 10px; max-width: 85%; word-break: break-word;">
                 ${noiDungHoi}
             </div>
         </div>
@@ -156,54 +153,58 @@ async function xuLyGuiTinNhanh() {
     oNhapLieu.value = '';
     vungTinNhanh.scrollTop = vungTinNhanh.scrollHeight;
 
-    // Hiển thị trạng thái AI đang phân tích dữ liệu
     var idLoading = 'loading-' + Date.now();
     vungTinNhanh.innerHTML += `
-        <div id="${idLoading}" style="background: #f1f1f1; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%; font-style: italic; color: #555;">
-            Đang tra cứu dữ liệu gốc chuyên sâu...
+        <div id="${idLoading}" style="background: #e9e9e9 !important; color: #333333 !important; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%; font-style: italic;">
+            Trợ lý ảo đang tra cứu kho từ điển...
         </div>
     `;
     vungTinNhanh.scrollTop = vungTinNhanh.scrollHeight;
 
-    // Giả lập thời gian phản hồi 0.6 giây để tạo cảm giác phòng chat AI thật
     setTimeout(function() {
         var phanHoiAI = "";
         var tuKhoaHoi = noiDungHoi.toLowerCase();
         
-        // Quét mướt rượt trong danh sách 580 từ (biến từ file data.js của bạn)
-        // Lưu ý: Đảm bảo mảng dữ liệu trong data.js của bạn có tên là 'dataGenz' hoặc đổi tên vòng lặp bên dưới cho khớp
         var tuTimThay = null;
-        if (typeof dataGenz !== 'undefined') {
-            tuTimThay = dataGenz.find(item => tuKhoaHoi.includes(item.word.toLowerCase()) || item.word.toLowerCase().includes(tuKhoaHoi));
+        var nguonDuLieu = null;
+        if (typeof dataGenz !== 'undefined') nguonDuLieu = dataGenz;
+        else if (typeof words !== 'undefined') nguonDuLieu = words;
+        else if (typeof wordList !== 'undefined') nguonDuLieu = wordList;
+        else if (typeof danhSachTu !== 'undefined') nguonDuLieu = danhSachTu;
+
+        if (nguonDuLieu) {
+            tuTimThay = nguonDuLieu.find(item => tuKhoaHoi.includes(item.word.toLowerCase()) || item.word.toLowerCase().includes(tuKhoaHoi));
         }
 
         if (tuTimThay) {
-            // Nếu tìm thấy từ trong 580 từ, hiển thị phân tích sâu kỹ toàn bộ các cột dữ liệu
-            let màuĐèn = tuTimThay.warning_light === '🟢' ? 'Lành tính (An toàn)' : (tuTimThay.warning_light === '🟡' ? 'Hạn chế (Cân nhắc)' : 'Cảnh báo nặng (Tránh dùng)');
+            let mauDen = tuTimThay.warning_light === '🟢' ? 'Lành tính (An toàn)' : (tuTimThay.warning_light === '🟡' ? 'Hạn chế (Cân nhắc)' : 'Cảnh báo nặng (Tránh dùng)');
             
             phanHoiAI = `
-                📌 <b>Kết quả tra cứu chuyên sâu cho từ: "${tuTimThay.word}"</b><br><br>
-                🔹 <b>Phân loại:</b> ${tuTimThay.category}<br>
-                🔹 <b>Nghĩa chuẩn mực:</b> ${tuTimThay.standard}<br>
-                🔹 <b>Mức độ an toàn:</b> ${tuTimThay.warning_light} ${màuĐèn}<br>
-                🔹 <b>Ý nghĩa bản chất:</b> ${tuTimThay.meaning}<br>
-                🔹 <b>Ngữ cảnh áp dụng thực tế:</b> ${tuTimThay.context}<br>
-                💡 <b>Lời khuyên chuyên gia học đường:</b> <i>${tuTimThay.advice}</i>
+                <div style="color: #111111 !important; text-align: left;">
+                    <b style="color: #ff4d4d !important; font-size: 15px;">📌 Kết quả từ Trợ lý ảo cho: "${tuTimThay.word}"</b><br><br>
+                    🔹 <b style="color: #000000 !important;">Phân loại:</b> ${tuTimThay.category}<br>
+                    🔹 <b style="color: #000000 !important;">Nghĩa chuẩn mực:</b> ${tuTimThay.standard}<br>
+                    🔹 <b style="color: #000000 !important;">Mức độ an toàn:</b> ${tuTimThay.warning_light} ${mauDen}<br><br>
+                    🔹 <b style="color: #000000 !important;">Ý nghĩa bản chất:</b> ${tuTimThay.meaning}<br>
+                    🔹 <b style="color: #000000 !important;">Ngữ cảnh thực tế:</b> ${tuTimThay.context}<br><br>
+                    💡 <b style="color: #ff4d4d !important;">Lời khuyên chuyên gia học đường:</b> <i style="color: #222222 !important;">${tuTimThay.advice}</i>
+                </div>
             `;
         } else {
-            // Nếu người dùng hỏi các câu ngoài từ điển hoặc không có từ khóa
-            phanHoiAI = `Hệ thống chưa tìm thấy từ khóa chính xác này trong bộ dữ liệu 580 từ cốt lõi. Bạn hãy thử gõ các từ lóng hot như: <i>Flex, Xịt keo, Ao trình, Sụm nụ...</i> để xem phân tích chuyên sâu nhé!`;
+            phanHoiAI = `<div style="color: #111111 !important;"><b>Trợ lý ảo giải mã ngôn ngữ GenZ</b> chưa tìm thấy từ khóa chính xác này trong bộ dữ liệu cốt lõi. Bạn hãy thử nhập các từ như: <b>Chạn vương, Ảo ma, Tấm chiếu mới, Xịt keo, Ao trình...</b> để xem phân tích chuyên sâu nhé!</div>`;
         }
 
-        // Xóa dòng "Đang tra cứu..." và in kết quả chính thức vào phòng chat
         var phanTuLoading = document.getElementById(idLoading);
         if (phanTuLoading) phanTuLoading.remove();
 
+        // In kết quả chính thức rõ nét
         vungTinNhanh.innerHTML += `
-            <div style="background: #f1f1f1; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%;">
-                ${phanHoiAI}
+            <div style="display: flex; justify-content: flex-start; margin-bottom: 10px; width: 100%;">
+                <div style="background: #f1f1f1 !important; color: #111111 !important; padding: 12px; border-radius: 10px; max-width: 85%; box-shadow: inset 0 0 2px rgba(0,0,0,0.05); word-break: break-word; display: block !important;">
+                    ${phanHoiAI}
+                </div>
             </div>
-         Albert`;
+        `;
         vungTinNhanh.scrollTop = vungTinNhanh.scrollHeight;
     }, 600);
 }
