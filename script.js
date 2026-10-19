@@ -307,80 +307,89 @@ submitBtn.addEventListener('click', () => {
     }
 
     async function xuLyGuiTin() {
-        const textHieuNang = oNhapLieu.value.trim();
-        if (!textHieuNang) return;
+    const textHieuNang = oNhapLieu.value.trim();
+    if (!textHieuNang) return;
 
-        themTinNhanMoi(textHieuNang, 'user');
-        oNhapLieu.value = '';
+    themTinNhanMoi(textHieuNang, 'user');
+    oNhapLieu.value = '';
 
-        const divLoading = themTinNhanMoi('<div class="loading-dots">Trợ lý AI đang phân tích sâu dữ liệu<span>.</span><span>.</span><span>.</span></div>', 'bot');
+    const divLoading = themTinNhanMoi('<div class="loading-dots">Trợ lý AI đang phân tích sâu dữ liệu<span>.</span><span>.</span><span>.</span></div>', 'bot');
 
-        const query = textHieuNang.toLowerCase().trim();
-        let thôngTinTừĐiểnGốc = "";
+    const query = textHieuNang.toLowerCase().trim();
+    let thôngTinTừĐiểnGốc = "";
 
-        if (typeof currentDictionary !== 'undefined') {
-            const timTu = currentDictionary.find(item => item.word.toLowerCase() === query);
-            if (timTu) {
-                thôngTinTừĐiểnGốc = `Dữ liệu gốc: Ý nghĩa: "${timTu.meaning}". Bối cảnh: "${timTu.context}". Lời khuyên: "${timTu.advice}".`;
-            }
+    // Kiểm tra kho 580 từ cục bộ của bạn
+    if (typeof currentDictionary !== 'undefined') {
+        const timTu = currentDictionary.find(item => item.word.toLowerCase() === query);
+        if (timTu) {
+            thôngTinTừĐiểnGốc = `Dữ liệu gốc hệ thống: Ý nghĩa: "${timTu.meaning}". Bối cảnh: "${timTu.context}". Lời khuyên: "${timTu.advice}".`;
+        }
+    }
+
+    // Câu lệnh định hình tính cách chuyên sâu cho AI Qwen
+    let systemPrompt = `Bạn là một Trợ lý ảo giải mã ngôn ngữ GenZ Việt Nam thông minh, vui tính. Bạn nói tiếng Việt tự nhiên.\n`;
+    if (thôngTinTừĐiểnGốc) {
+        systemPrompt += `Hãy sử dụng thông tin từ điển gốc này làm căn cứ: ${thôngTinTừĐiểnGốc}. Đừng chép lại khô khan. Hãy viết lại sinh động, phân tích tâm lý sâu sắc hơn, đưa ra ví dụ đặt câu hội thoại thực tế dí dỏm và lời khuyên bối cảnh sư phạm văn minh học đường.\n`;
+    } else {
+        systemPrompt += `Nếu người dùng gõ từ lóng mới hoặc câu hỏi tự do, hãy dùng kiến thức AI chuyên sâu để giải nghĩa chi tiết, phân tích bối cảnh mạng xã hội, tâm lý giới trẻ, đặt câu hội thoại minh họa sinh động và lời khuyên phù hợp.\n`;
+    }
+    systemPrompt += `Nếu người dùng hỏi tiếp nối ngữ cảnh trước (ví dụ: "cho ví dụ", "đặt câu thử đi", "giải thích thêm"), hãy căn cứ vào lịch sử trò chuyện trước đó để đưa ra câu trả lời chuẩn xác.`;
+
+    if (lichSuTroChuyen.length === 0) {
+        lichSuTroChuyen.push({ role: "system", content: systemPrompt });
+    }
+    lichSuTroChuyen.push({ role: "user", content: textHieuNang });
+    if (lichSuTroChuyen.length > 7) lichSuTroChuyen.splice(1, 2);
+
+    // Định dạng cấu trúc chuỗi ChatML tối ưu riêng cho mô hình Qwen
+    let promptQwen = "";
+    lichSuTroChuyen.forEach(chat => {
+        promptQwen += `<|im_start|>${chat.role}\n${chat.content}<|im_end|>\n`;
+    });
+    promptQwen += `<|im_start|>assistant\n`;
+
+    try {
+        // ĐƯỜNG DẪN CỔNG API CHUẨN XÁC ĐÃ ĐƯỢC CẬP NHẬT TẠI ĐÂY
+        const response = await fetch("https://api-inference.huggingface. co/models/meta-llama/Meta-Llama-3-8B-Instruct:featherless-ai", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${HUGGINGFACE_TOKEN}`
+            },
+            body: JSON.stringify({
+                inputs: promptQwen,
+                parameters: { max_new_tokens: 500, return_full_text: false }
+            })
+        });
+
+        const result = await response.json();
+        divLoading.remove();
+
+        let cauTraLoiAI = "";
+        // Trích xuất văn bản từ phản hồi dạng mảng của Hugging Face
+        if (Array.isArray(result) && result[0] && result[0].generated_text) {
+            cauTraLoiAI = result[0].generated_text;
+        } else if (result && result.generated_text) {
+            cauTraLoiAI = result.generated_text;
+        } else if (result && result.error) {
+            console.error("Lỗi API:", result.error);
+            cauTraLoiAI = `⚠️ Hệ thống AI đang tải dữ liệu, bạn vui lòng nhấn nút Gửi lại từ này một lần nữa nhé!`;
         }
 
-        let systemPrompt = `Bạn là một Trợ lý ảo giải mã ngôn ngữ GenZ Việt Nam thông minh, vui tính. Bạn nói tiếng Việt trôi chảy, tự nhiên.\n`;
-        if (thôngTinTừĐiểnGốc) {
-            systemPrompt += `Hãy sử dụng thông tin từ điển gốc này làm căn cứ: ${thôngTinTừĐiểnGốc}. Đừng chép lại khô khan. Hãy viết lại sinh động, phân tích tâm lý sâu sắc hơn, đưa ra ví dụ đặt câu thực tế dí dỏm và lời khuyên bối cảnh sư phạm văn minh học đường.\n`;
+        if (cauTraLoiAI) {
+            cauTraLoiAI = cauTraLoiAI.replace("<|im_end|>", "").replace("<|im_start|>", "").trim();
+            themTinNhanMoi(cauTraLoiAI, 'bot');
+            lichSuTroChuyen.push({ role: "assistant", content: cauTraLoiAI });
         } else {
-            systemPrompt += `Nếu người dùng gõ từ lóng mới hoặc câu hỏi tự do, hãy dùng kiến thức AI chuyên sâu để giải nghĩa chi tiết, phân tích bối cảnh mạng xã hội, tâm lý giới trẻ, đặt câu hội thoại minh họa sinh động và lời khuyên phù hợp.\n`;
+            themTinNhanMoi("🤖 Mình đã ghi nhận, bạn vui lòng bấm nút gửi lại một lần nữa để lấy kết quả nhé!", 'bot');
         }
-        systemPrompt += `Nếu người dùng hỏi tiếp nối ngữ cảnh trước (ví dụ: "cho ví dụ", "đặt câu thử đi", "giải thích thêm"), hãy căn cứ vào lịch sử trò chuyện trước đó để đưa ra câu trả lời chuẩn xác.`;
 
-        if (lichSuTroChuyen.length === 0) {
-            lichSuTroChuyen.push({ role: "system", content: systemPrompt });
-        }
-        lichSuTroChuyen.push({ role: "user", content: textHieuNang });
-        if (lichSuTroChuyen.length > 7) lichSuTroChuyen.splice(1, 2);
-
-        try {
-            // Sử dụng mô hình xử lý ngôn ngữ siêu lớn Qwen 2.5 72B kết hợp Token ưu tiên của bạn
-            const response = await fetch("https://huggingface.co", {
-                method: "POST",
-                headers: { 
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${HUGGINGFACE_TOKEN}`
-                },
-                body: JSON.stringify({
-                    inputs: JSON.stringify(lichSuTroChuyen),
-                    parameters: { max_new_tokens: 500, return_full_text: false }
-                })
-            });
-
-            const result = await response.json();
-            divLoading.remove();
-
-            let cauTraLoiAI = "";
-            if (Array.isArray(result) && result[0] && result[0].generated_text) {
-                cauTraLoiAI = result[0].generated_text;
-            } else if (result && result.generated_text) {
-                cauTraLoiAI = result.generated_text;
-            } else if (result && result.error) {
-                cauTraLoiAI = `⚠️ Hệ thống đang khởi động lại cổng API, bạn bấm gửi lại từ này một lần nữa nhé!`;
-            }
-
-            if (cauTraLoiAI) {
-                if(cauTraLoiAI.includes('"content":')) {
-                     try {
-                         const cleanObj = JSON.parse(cauTraLoiAI);
-                         cauTraLoiAI = cleanObj.content || cleanObj[cleanObj.length-1].content;
-                     } catch(e) {}
-                }
-                themTinNhanMoi(cauTraLoiAI, 'bot');lichSuTroChuyen.push({ role: "assistant", content: cauTraLoiAI });
-} else {
-themTinNhanMoi("🤖 Mình đã tiếp nhận thông tin. Bạn nhấn nút gửi lại từ khóa này một lần nữa nhé!", 'bot');
+    } catch (err) {
+        if (divLoading && divLoading.parentNode) divLoading.remove();
+        themTinNhanMoi("⚠️ Không thể kết nối với máy chủ AI. Bạn hãy thử nhấn nút Gửi lại lần nữa nhé!", 'bot');
+    }
 }
-} catch (err) {
-divLoading.remove();
-themTinNhanMoi("⚠️ Cổng kết nối AI bận. Bạn hãy nhấn nút Gửi lại lần nữa nhé!", 'bot');
-}
-}
+
 nutGuiTin.addEventListener('click', xuLyGuiTin);
 oNhapLieu.addEventListener('keypress', (e) => { if (e.key === 'Enter') xuLyGuiTin(); });
 })();
