@@ -84,53 +84,130 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Từ Điển Gen Z</title>
-</head>
-<body>
+<!-- ================================================================= -->
+<!--    PHÒNG CHAT AI GIẢI MÃ SÂU NGÔN NGỮ GENZ (THAY THẾ COZE)         -->
+<!-- ================================================================= -->
 
-    <!-- Giữ nguyên toàn bộ nội dung giao diện Web Từ điển hiện tại của bạn ở đây -->
-    <div style="text-align: center; margin-top: 50px;">
-        <h1>Chào mừng bạn đến với Từ Điển Gen Z</h1>
-        <p>Hệ thống tra cứu đang hoạt động...</p>
-    </div>
-
-
-    <!-- ================================================================= -->
-    <!-- BỘ MÃ NHÚNG CHATBOT COZE CHÍNH THỨC - ĐÃ SỬA LỖI CDN CHẶN MẠNG VIỆT NAM -->
-    <!-- ================================================================= -->
+<!-- 1. GIAO DIỆN PHÒNG CHAT NỔI Ở GÓC MÀN HÌNH -->
+<div id="genz-chat-room" style="position: fixed; bottom: 90px; right: 20px; z-index: 999999; background: #ffffff; border: 2px solid #ff4d4d; border-radius: 15px; width: 350px; height: 450px; display: none; flex-direction: column; box-shadow: 0 8px 24px rgba(0,0,0,0.15); font-family: sans-serif;">
     
-    <!-- Nạp thư viện bằng cổng CDN châu Á tốc độ cao, cam kết không bị chặn -->
-    <script src="https://coze.com"></script>
+    <!-- Tiêu đề phòng chat -->
+    <div style="background: #ff4d4d; color: white; padding: 12px 15px; border-radius: 12px 12px 0 0; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+        <span>💬 Trợ Lý Giải Mã Chuyên Sâu AI</span>
+        <button onclick="togglePhongChat()" style="background: none; border: none; color: white; font-size: 18px; cursor: pointer;">✖</button>
+    </div>
+    
+    <!-- Vùng hiển thị nội dung tin nhắn cuộc thoại -->
+    <div id="chat-messages-area" style="flex: 1; overflow-y: auto; padding: 15px; font-size: 14px; line-height: 1.5; background: #fdfdfd;">
+        <div style="background: #f1f1f1; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%;">
+            Xin chào! Mình là Trợ lý AI. Bạn muốn tra cứu sâu hay phân tích ngữ cảnh của từ GenZ nào trong hệ thống? Nhập từ vào ô bên dưới nhé!
+        </div>
+    </div>
+    
+    <!-- Ô nhập liệu và nút gửi tin nhắn -->
+    <div style="padding: 10px; border-top: 1px solid #eee; display: flex; background: #fff; border-radius: 0 0 15px 15px;">
+        <input type="text" id="chat-user-input" placeholder="Nhập từ hoặc câu hỏi cần giải mã..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; outline: none; padding-left: 15px;" onkeypress="checkNutEnter(event)">
+        <button onclick="xuLyGuiTinNhanh()" style="background: #ff4d4d; color: white; border: none; padding: 0 15px; margin-left: 8px; cursor: pointer; border-radius: 20px; font-weight: bold;">Gửi</button>
+    </div>
+</div>
 
-    <script>
-    function khoiTaoBotGenzChinhThuc() {
-        // Sử dụng lệnh kiểm tra chính xác bộ thư viện chuẩn của Coze đã sẵn sàng
-        if (typeof CozeWebSDK !== 'undefined') {
-            console.log("Mạng thông suốt! Đang bật Bot...");
-            new CozeWebSDK.WebChat({
-                config: {
-                    bot_id: '7698270385372512309', // ID Bot chuẩn xác của bạn
-                },
-                componentProps: {
-                    title: 'Trợ Lý Giải Mã GenZ AI',
-                    layout: 'mobile',
-                    zIndex: 999999, // Đẩy bong bóng chat lên trên cùng bề mặt trang web
-                }
-            });
-        } else {
-            console.log("Đang kết nối hệ thống, đợi 0.3 giây...");
-            setTimeout(khoiTaoBotGenzChinhThuc, 300);
-        }
+<!-- 2. BONG BÓNG CHAT NỔI (Bấm vào để ẩn/hiện phòng chat) -->
+<button onclick="togglePhongChat()" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; background: #ff4d4d; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4); display: flex; align-items: center; justify-content: center; transition: transform 0.2s;">
+    🤖
+</button>
+
+<!-- 3. LOGIC XỬ LÝ DỮ LIỆU TẠI CHỖ MƯỢT MÀ -->
+<script>
+// Hàm ẩn hoặc hiện phòng chat khi bấm vào bong bóng hình robot
+function togglePhongChat() {
+    var phongChat = document.getElementById('genz-chat-room');
+    if (phongChat.style.display === 'none' || phongChat.style.display === '') {
+        phongChat.style.display = 'flex';
+        document.getElementById('chat-user-input').focus();
+    } else {
+        phongChat.style.display = 'none';
     }
+}
 
-    // Chạy kích hoạt Bot ngay khi trang web tải xong
-    window.addEventListener('DOMContentLoaded', khoiTaoBotGenzChinhThuc);
-    </script>
+// Bấm phím Enter cũng gửi được tin nhắn
+function checkNutEnter(event) {
+    if (event.key === 'Enter') {
+        xuLyGuiTinNhanh();
+    }
+}
+
+// Hàm tiếp nhận câu hỏi, tự động quét file data.js để trả lời chi tiết sâu kỹ
+async function xuLyGuiTinNhanh() {
+    var oNhapLieu = document.getElementById('chat-user-input');
+    var vungTinNhanh = document.getElementById('chat-messages-area');
+    var noiDungHoi = oNhapLieu.value.trim();
+    
+    if (!noiDungHoi) return;
+    
+    // Hiển thị tin nhắn của Người dùng lên màn hình phòng chat
+    vungTinNhanh.innerHTML += `
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+            <div style="background: #ff4d4d; color: white; padding: 10px; border-radius: 10px; max-width: 85%;">
+                ${noiDungHoi}
+            </div>
+        </div>
+    `;
+    
+    oNhapLieu.value = '';
+    vungTinNhanh.scrollTop = vungTinNhanh.scrollHeight;
+
+    // Hiển thị trạng thái AI đang phân tích dữ liệu
+    var idLoading = 'loading-' + Date.now();
+    vungTinNhanh.innerHTML += `
+        <div id="${idLoading}" style="background: #f1f1f1; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%; font-style: italic; color: #555;">
+            Đang tra cứu dữ liệu gốc chuyên sâu...
+        </div>
+    `;
+    vungTinNhanh.scrollTop = vungTinNhanh.scrollHeight;
+
+    // Giả lập thời gian phản hồi 0.6 giây để tạo cảm giác phòng chat AI thật
+    setTimeout(function() {
+        var phanHoiAI = "";
+        var tuKhoaHoi = noiDungHoi.toLowerCase();
+        
+        // Quét mướt rượt trong danh sách 580 từ (biến từ file data.js của bạn)
+        // Lưu ý: Đảm bảo mảng dữ liệu trong data.js của bạn có tên là 'dataGenz' hoặc đổi tên vòng lặp bên dưới cho khớp
+        var tuTimThay = null;
+        if (typeof dataGenz !== 'undefined') {
+            tuTimThay = dataGenz.find(item => tuKhoaHoi.includes(item.word.toLowerCase()) || item.word.toLowerCase().includes(tuKhoaHoi));
+        }
+
+        if (tuTimThay) {
+            // Nếu tìm thấy từ trong 580 từ, hiển thị phân tích sâu kỹ toàn bộ các cột dữ liệu
+            let màuĐèn = tuTimThay.warning_light === '🟢' ? 'Lành tính (An toàn)' : (tuTimThay.warning_light === '🟡' ? 'Hạn chế (Cân nhắc)' : 'Cảnh báo nặng (Tránh dùng)');
+            
+            phanHoiAI = `
+                📌 <b>Kết quả tra cứu chuyên sâu cho từ: "${tuTimThay.word}"</b><br><br>
+                🔹 <b>Phân loại:</b> ${tuTimThay.category}<br>
+                🔹 <b>Nghĩa chuẩn mực:</b> ${tuTimThay.standard}<br>
+                🔹 <b>Mức độ an toàn:</b> ${tuTimThay.warning_light} ${màuĐèn}<br>
+                🔹 <b>Ý nghĩa bản chất:</b> ${tuTimThay.meaning}<br>
+                🔹 <b>Ngữ cảnh áp dụng thực tế:</b> ${tuTimThay.context}<br>
+                💡 <b>Lời khuyên chuyên gia học đường:</b> <i>${tuTimThay.advice}</i>
+            `;
+        } else {
+            // Nếu người dùng hỏi các câu ngoài từ điển hoặc không có từ khóa
+            phanHoiAI = `Hệ thống chưa tìm thấy từ khóa chính xác này trong bộ dữ liệu 580 từ cốt lõi. Bạn hãy thử gõ các từ lóng hot như: <i>Flex, Xịt keo, Ao trình, Sụm nụ...</i> để xem phân tích chuyên sâu nhé!`;
+        }
+
+        // Xóa dòng "Đang tra cứu..." và in kết quả chính thức vào phòng chat
+        var phanTuLoading = document.getElementById(idLoading);
+        if (phanTuLoading) phanTuLoading.remove();
+
+        vungTinNhanh.innerHTML += `
+            <div style="background: #f1f1f1; padding: 10px; border-radius: 10px; margin-bottom: 10px; max-width: 85%;">
+                ${phanHoiAI}
+            </div>
+         Albert`;
+        vungTinNhanh.scrollTop = vungTinNhanh.scrollHeight;
+    }, 600);
+}
+</script>
 
 </body>
 </html>
