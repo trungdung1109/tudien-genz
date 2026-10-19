@@ -88,7 +88,7 @@
 <div id="genz-chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
     <!-- Nút bong bóng chat hiển thị trên Web (Bấm để bung mở mượt mà) -->
     <button onclick="toggleGenzChat()" id="genz-chat-button" style="background: linear-gradient(135deg, #6c5ce7, #4834d4); color: white; border: none; padding: 14px 22px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; font-size: 15px; transition: transform 0.2s;">
-        <span>🤖</span> Trợ Lý Giải Mã GenZ (Free)
+        <span>🤖</span> Trợ Lý Giải Mã Ngôn Ngữ GenZ (Free)
     </button>
 
     <!-- Hộp thoại chat ẩn hiện khi bấm vào nút -->
@@ -152,7 +152,7 @@ async function sendGenzMessage() {
         const response = await fetch("https://coze.com", {
             method: "POST",
             headers: {
-                "Authorization": "Bearer ĐIỀN_MÃ_PAT_CỦA_BẠN_VÀO_ĐÂY", // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
+                "Authorization": "Bearer 7698270385372512309", // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
@@ -176,7 +176,7 @@ async function sendGenzMessage() {
             while (status === "in_progress" || status === "created") {
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 checkResponse = await fetch(`https://coze.com/retrieve?chat_id=${chatId}`, {
-                    headers: { "Authorization": "Bearer ĐIỀN_MÃ_PAT_CỦA_BẠN_VÀO_ĐÂY" } // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
+                    headers: { "Authorization": "Bearer 7698270385372512309" } // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
                 });
                 const checkData = await checkResponse.json();
                 status = checkData.data.status;
@@ -185,7 +185,7 @@ async function sendGenzMessage() {
             if (status === "completed") {
                 // Gọi API lấy nội dung danh sách tin nhắn trả ra
                 const msgListResponse = await fetch(`https://coze.com/message/list?chat_id=${chatId}`, {
-                    headers: { "Authorization": "Bearer ĐIỀN_MÃ_PAT_CỦA_BẠN_VÀO_ĐÂY" } // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
+                    headers: { "Authorization": "Bearer 7698270385372512309" } // <--- Thay thế cụm chữ tiếng Việt này bằng mã pat_... của bạn
                 });
                 const msgListData = await msgListResponse.json();
                 
