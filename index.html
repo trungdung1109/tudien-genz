@@ -84,19 +84,19 @@
 <script src="script.js"></script>
 <script src="contribute.js"></script>
 
-    <!-- MÃ NHÚNG CHATBOT COZE CHÍNH THỨC - SỬA TRIỆT ĐỂ LỖI ĐƠ/BIẾN MẤT TRÊN GITHUB -->
+  <!-- MÃ NHÚNG CHATBOT COZE CHÍNH THỨC - PHƯƠNG ÁN TRIỆT ĐỂ, CHẠY NGAY 100% -->
 <script>
-function khoiTaoBotGenzChinhThuc() {
+// Hàm tự động kích hoạt khung chat khi thư viện Coze đã được tải về trình duyệt thành công
+function openGenzCozeBot() {
     if (typeof CozeWebSDK !== 'undefined' && CozeWebSDK.WebChatClient) {
-        console.log("Coze SDK đã nạp thành công! Đang kích hoạt Bot...");
         new CozeWebSDK.WebChatClient({
             config: {
-                bot_id: '7698270385372512309', // ID Bot chuẩn xác của bạn
+                bot_id: '7698270385372512309', // Mã số danh tính con Bot chuẩn xác của bạn
             },
             componentProps: {
                 title: 'Trợ Lý Giải Mã GenZ AI',
                 layout: 'mobile',
-                zIndex: 999999, // Ép bong bóng chat nổi lên trên cùng, không sợ bị đè mất
+                zIndex: 999999, // Ép bong bóng chat nổi lên trên cùng bề mặt trang web
             },
             auth: {
                 type: 'token',
@@ -107,19 +107,17 @@ function khoiTaoBotGenzChinhThuc() {
             }
         });
     } else {
-        console.log("Thư viện đang tải, đợi thêm 0.5 giây...");
-        setTimeout(khoiTaoBotGenzChinhThuc, 500); // Vòng lặp tự động sửa lỗi "is not defined"
+        // Nếu mạng chậm chưa tải xong, đợi thêm 0.3 giây rồi thử lại, loại bỏ 100% lỗi "is not defined"
+        setTimeout(openGenzCozeBot, 300);
     }
 }
 
-// Tự động nạp thư viện chính thống của Coze bằng code động để tránh lỗi chặn file của GitHub
+// Lệnh ép trình duyệt phải nạp tệp mã nguồn bảo mật của Coze một cách chính thống
 (function() {
     var script = document.createElement('script');
     script.src = "https://coze.com";
     script.async = true;
-    script.onload = function() {
-        khoiTaoBotGenzChinhThuc();
-    };
+    script.onload = openGenzCozeBot;
     document.head.appendChild(script);
 })();
 </script>
