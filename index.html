@@ -83,28 +83,46 @@
 <!-- Sau đó mới chạy file xử lý logic -->
 <script src="script.js"></script>
 <script src="contribute.js"></script>
-<!-- MÃ NHÚNG CHATBOT COZE CHÍNH THỨC - 1 PHÁT ĂN NGAY, KHÔNG LỖI, KHÔNG ĐĂNG NHẬP -->
-<script src="https://coze.com"></script>
-<script>
-    new CozeWebSDK.WebChatClient({
-        config: {
-            bot_id: '7698270385372512309', // ID Bot chuẩn xác của bạn
-        },
-        componentProps: {
-            title: 'Trợ Lý Giải Mã GenZ AI',
-            layout: 'mobile',
-            zIndex: 999999, // Ép bong bóng chat nổi lên trên giao diện web của bạn
-        },
-        auth: {
-            type: 'token',
-            token: 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG', // Chìa khóa bảo mật của bạn
-            onRefreshToken: function () {
-                return 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG';
-            }
-        }
-    });
-</script>
 
+    <!-- MÃ NHÚNG CHATBOT COZE CHÍNH THỨC - SỬA TRIỆT ĐỂ LỖI ĐƠ/BIẾN MẤT TRÊN GITHUB -->
+<script>
+function khoiTaoBotGenzChinhThuc() {
+    if (typeof CozeWebSDK !== 'undefined' && CozeWebSDK.WebChatClient) {
+        console.log("Coze SDK đã nạp thành công! Đang kích hoạt Bot...");
+        new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7698270385372512309', // ID Bot chuẩn xác của bạn
+            },
+            componentProps: {
+                title: 'Trợ Lý Giải Mã GenZ AI',
+                layout: 'mobile',
+                zIndex: 999999, // Ép bong bóng chat nổi lên trên cùng, không sợ bị đè mất
+            },
+            auth: {
+                type: 'token',
+                token: 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG', // Chìa khóa bảo mật ẩn danh của bạn
+                onRefreshToken: function () {
+                    return 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG';
+                }
+            }
+        });
+    } else {
+        console.log("Thư viện đang tải, đợi thêm 0.5 giây...");
+        setTimeout(khoiTaoBotGenzChinhThuc, 500); // Vòng lặp tự động sửa lỗi "is not defined"
+    }
+}
+
+// Tự động nạp thư viện chính thống của Coze bằng code động để tránh lỗi chặn file của GitHub
+(function() {
+    var script = document.createElement('script');
+    script.src = "https://coze.com";
+    script.async = true;
+    script.onload = function() {
+        khoiTaoBotGenzChinhThuc();
+    };
+    document.head.appendChild(script);
+})();
+</script>
 
 </body>
 </html>
