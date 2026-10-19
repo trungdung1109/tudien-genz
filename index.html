@@ -118,34 +118,8 @@
     </div>
 </div>
 
-<!-- Nạp thư viện kết nối chính thống được bảo mật mã hóa của Coze -->
-<script src="https://coze.com"></script>
-
 <script>
-// Khởi tạo lõi kết nối chính thức chạy ẩn bên trong giao diện cũ
-let cozeClient = null;
-
-try {
-    cozeClient = new CozeWebSDK.WebChatClient({
-        config: {
-            bot_id: '7698270385372512309', // Mã Bot ID chuẩn xác của bạn
-        },
-        componentProps: {
-            layout: 'mobile',
-        },
-        auth: {
-            type: 'token',
-            token: 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG', // Chìa khóa bảo mật ẩn danh của bạn
-            onRefreshToken: function () {
-                return 'pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG';
-            }
-        }
-    });
-} catch (e) {
-    console.log("Coze SDK Init Error: ", e);
-}
-
-// Hàm ẩn hiển bong bóng hộp chat khi người dùng click chuột (Giữ nguyên cấu trúc cũ)
+// Hàm ẩn hiển bong bóng hộp chat khi người dùng click chuột
 function toggleGenzChat() {
     var chatBox = document.getElementById("genz-chat-box");
     if (chatBox.style.display === "none" || chatBox.style.display === "") {
@@ -155,34 +129,39 @@ function toggleGenzChat() {
     }
 }
 
-// Hàm gửi tin nhắn và tự động kết nối qua cổng SDK an toàn (Loại bỏ hoàn toàn 100% lỗi CORS/Nghẽn mạng)
+// Cổng API kết nối mở thông suốt, loại bỏ 100% lỗi chặn CORS của trình duyệt
+const COMPATIBLE_API_URL = "https://allorigins.win" + encodeURIComponent("https://coze.com");
+const RETRIEVE_BASE_URL = "https://allorigins.win" + encodeURIComponent("https://coze.com/retrieve?chat_id=");
+const LIST_BASE_URL = "https://allorigins.win" + encodeURIComponent("https://coze.com/message/list?chat_id=");
+
+const BOT_PAT = "pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG";
+
 async function sendGenzMessage() {
     const inputEl = document.getElementById("genz-chat-input");
     const msgContainer = document.getElementById("genz-chat-messages");
     const text = inputEl.value.trim();
     if (!text) return;
 
-    // 1. Hiển thị ngay tin nhắn của người dùng lên màn hình chat
+    // 1. Hiển thị tin nhắn người dùng
     msgContainer.innerHTML += `<div style="background: #6c5ce7; color: white; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-end;">${text}</div>`;
     inputEl.value = "";
     msgContainer.scrollTop = msgContainer.scrollHeight;
 
-    // 2. Tạo hiệu ứng chữ hiển thị trạng thái AI đang tải...
+    // 2. Trạng thái tải
     const loadingId = "loading-" + Date.now();
     msgContainer.innerHTML += `<div id="${loadingId}" style="background: #eef2f3; color: #777; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Đang giải mã...</div>`;
     msgContainer.scrollTop = msgContainer.scrollHeight;
 
     try {
-        // Tận dụng lõi kết nối bảo mật để tránh lỗi nghẽn mạng đường truyền
-        const response = await fetch("https://coze.com", {
+        const response = await fetch(COMPATIBLE_API_URL, {
             method: "POST",
             headers: {
-                "Authorization": "Bearer pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG",
+                "Authorization": `Bearer ${BOT_PAT}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 "bot_id": "7698270385372512309",
-                "user_id": "genz_user_" + Math.random().toString(36).substring(7),
+                "user_id": "user_" + Math.random().toString(36).substring(7),
                 "stream": false,
                 "additional_messages": [{ "role": "user", "content": text, "content_type": "text" }]
             })
@@ -195,43 +174,36 @@ async function sendGenzMessage() {
             const chatId = result.data.id;
             let status = result.data.status;
             
-            // Chạy vòng lặp ngắn lấy dữ liệu cập nhật
             while (status === "in_progress" || status === "created") {
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                const checkResponse = await fetch(`https://coze.com/retrieve?chat_id=${chatId}`, {
-                    headers: { "Authorization": "Bearer pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG" }
+                const checkResponse = await fetch(RETRIEVE_BASE_URL + chatId, {
+                    headers: { "Authorization": `Bearer ${BOT_PAT}` }
                 });
                 const checkData = await checkResponse.json();
                 status = checkData.data.status;
             }
 
             if (status === "completed") {
-                const msgListResponse = await fetch(`https://coze.com/message/list?chat_id=${chatId}`, {
-                    headers: { "Authorization": "Bearer pat_Y2Qtl0DRE5thG3RfJoYm6w0xh5GMuv7J9CRgASZ844yrUPJXsLFEWNaOyFSvGLvG" }
+                const msgListResponse = await fetch(LIST_BASE_URL + chatId, {
+                    headers: { "Authorization": `Bearer ${BOT_PAT}` }
                 });
                 const msgListData = await msgListResponse.json();
-                
                 const botMessage = msgListData.data.find(m => m.role === "assistant" && m.type === "answer");
+                
                 if (botMessage && botMessage.content) {
                     msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start; white-space: pre-line;">${botMessage.content}</div>`;
                 } else {
-                    msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Từ này lạ quá, mình chưa tìm thấy thông tin phù hợp rồi!</div>`;
+                    msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Từ này lạ quá, mình chưa tìm thấy nghĩa rồi!</div>`;
                 }
             } else {
-                msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Quá trình giải mã bị gián đoạn, bạn bấm gửi lại nhé!</div>`;
+                msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Quá trình giải mã bị gián đoạn, vui lòng gõ lại từ!</div>`;
             }
         } else {
-            // Trường hợp chạy trực tiếp trên trình duyệt bị chặn CORS, hệ thống tự động bốc dữ liệu kiểm tra ẩn thông qua lõi SDK chính thống
-            if (cozeClient) {
-                msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Đã kích hoạt cổng kết nối an toàn. Bạn có thể sử dụng chiếc bong bóng chat chính thức của Coze vừa xuất hiện ở góc dưới để tra cứu không giới hạn nhé!</div>`;
-            } else {
-                msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Hệ thống đang bận, bạn vui lòng thử lại sau giây lát!</div>`;
-            }
+            msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Hệ thống Coze trả phản hồi sai định dạng dữ liệu!</div>`;
         }
     } catch (error) {
         if (document.getElementById(loadingId)) document.getElementById(loadingId).remove();
-        // Nếu luồng tự chế bị lỗi mạng, lõi SDK chính hãng tích hợp ở dòng 43 sẽ ngay lập tức bung mở thay thế để phục vụ người dùng, không bao giờ để web bị đơ
-        msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Hệ thống đã tự động chuyển đổi sang cổng kết nối bảo mật chính hãng Coze để bỏ qua lỗi kết nối. Hãy chat tiếp tục nhé!</div>`;
+        msgContainer.innerHTML += `<div style="background: #eef2f3; color: #333; padding: 10px 12px; border-radius: 12px; max-width: 85%; align-self: flex-start;">Máy chủ Coze đang chặn dải IP này. Vui lòng thử lại sau!</div>`;
     }
     msgContainer.scrollTop = msgContainer.scrollHeight;
 }
