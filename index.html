@@ -97,62 +97,47 @@
   </div>
 </div>
 
-<!-- 2. KHUNG THÔNG BÁO KẾT NỐI AN TOÀN - MẶC ĐỊNH ẨN -->
-<div id="ai-chat-drawer" style="display: none; position: fixed; bottom: 25px; right: 25px; width: 360px; height: auto; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 999999; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); flex-direction: column; animation: slideUp 0.3s ease-out;">
+<!-- 2. KHUNG CHỨA Ô CHAT DRAWER BUNG MỞ TRỰC TIẾP TRÊN WEB - MẶC ĐỊNH ẨN -->
+<div id="ai-chat-drawer" style="display: none; position: fixed; bottom: 25px; right: 25px; width: 420px; height: 650px; background: #ffffff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 999999; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); flex-direction: column; animation: slideUpGenz 0.3s ease-out;">
   
-  <!-- Thanh tiêu đề phía trên -->
+  <!-- Thanh tiêu đề phía trên ô chat kèm nút đóng hình dấu X -->
   <div style="background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
     <span style="font-size: 14px; font-family: sans-serif;">Trợ lý ảo giải mã ngôn ngữ GenZ</span>
     <span id="ai-chat-close" style="cursor: pointer; font-size: 20px; padding: 0 5px; line-height: 20px;">✕</span>
   </div>
   
-  <!-- Nội dung hướng dẫn tra cứu -->
-  <div style="padding: 20px; text-align: center; font-family: sans-serif; color: #333;">
-    <p style="margin-top: 0; font-size: 14px; line-height: 1.5; text-align: left;">Mình sẽ giúp bạn giải mã sâu kỹ **580 từ sẵn có** trong từ điển và **tất cả các từ mới** không có trong từ điển bằng trí tuệ nhân tạo diện rộng!</p>
-    
-    <button id="start-chat-btn" style="background: linear-gradient(135deg, #ff416c, #ff4b2b); color: white; border: none; padding: 12px 25px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; width: 100%; box-shadow: 0 4px 15px rgba(255, 65, 108, 0.3); transition: transform 0.2s; margin-top: 10px;">
-      Bắt đầu Tra Cứu Tự Do (Miễn phí) 🚀
-    </button>
-    
-    <p style="font-size: 11px; color: #888; margin-bottom: 0; margin-top: 15px;">🔒 Không cần Token bảo mật • Không đòi mật khẩu đăng nhập</p>
-  </div>
+  <!-- ĐÃ THAY ĐƯỜNG LINK CHUẨN XÁC ĐẦY ĐỦ CỦA BẠN (MIỄN PHÍ, DÙNG TỰ DO) -->
+  <iframe src="https://udify.app/chat/O7mk057QHUnNTZ8e" style="width: 100%; height: calc(100% - 50px); border: none;" allow="microphone;clipboard-write"></iframe>
 </div>
 
 <style>
-  @keyframes slideUp {
+  /* Hiệu ứng trượt ô chat mượt mà từ dưới lên */
+  @keyframes slideUpGenz {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
   }
 </style>
 
 <script>
+  // Khởi tạo các biến điều khiển đóng/mở giao diện
   const aiBubbleWrapper = document.getElementById('ai-chat-bubble-wrapper');
   const aiDrawer = document.getElementById('ai-chat-drawer');
   const aiClose = document.getElementById('ai-chat-close');
-  const startChatBtn = document.getElementById('start-chat-btn');
 
-  // ĐƯỜNG LINK WEB CHAT STORE CHUẨN XÁC ĐÃ RÁP THÀNH CÔNG:
-  const cozeBotUrl = "https://www.coze.com/store/agent/7698270385372512309";
-
-  // Khi click vào cụm bong bóng: Ẩn cụm bong bóng, bung ô thông báo lựa chọn tra cứu
+  // Hành động: Khi click vào cụm bong bóng đỏ -> Ẩn bong bóng, mở bung ô chat ngăn kéo lên
   aiBubbleWrapper.addEventListener('click', function() {
     aiBubbleWrapper.style.display = 'none';
     aiDrawer.style.display = 'flex';
   });
 
-  // Khi click vào nút dấu ✕: Ẩn ô thông báo, hiện lại cụm bong bóng có tên Bot
-  aiClose.addEventListener('click', function(e) {
-    e.stopPropagation(); 
+  // Hành động: Khi click vào nút dấu ✕ -> Thu nhỏ ẩn ô chat, hiện lại cụm bong bóng có tên Bot
+  aiClose.addEventListener('click', function() {
     aiDrawer.style.display = 'none';
     aiBubbleWrapper.style.display = 'flex';
   });
-
-  // Khi click vào nút Bắt đầu Tra cứu: Mở thẳng link Store công khai sang tab mới
-  startChatBtn.addEventListener('click', function() {
-    window.open(cozeBotUrl, '_blank');
-  });
 </script>
 <!-- ==================== KẾT THÚC KHU VỰC TRỢ LÝ AI ==================== -->
+
 </body>
 </html>
 
